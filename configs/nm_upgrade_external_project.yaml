@@ -1,0 +1,27 @@
+project:
+  name: SpatialGABench
+  version: 1.0.0-dev
+  phase: NM_evidence_upgrade
+  current_gate: G5
+  status: yellow
+
+execution_authorization: governance/authorizations/NM_U3_EXTERNAL_REPRESENTATION_EXTENSION_AUTHORIZATION_2026-07-30.json
+execution_authorization_sha256: 1884165c0b4a49425b08295ed1317204cb79f20a7cbc232e8cdc3540f1500b1f
+execution_authorization_milestone: NU3_external_representation_extension
+
+external_validation_studies:
+  - zhang_2025_brain_triomics
+
+development_studies: []
+candidate_studies: []
+holdout_studies:
+  - huang_2025
+
+execution:
+  allow_full_benchmark: false
+  allow_results_writing: false
+  allow_final_ranking: false
+
+representation:
+  input_tracks: [F, P, B]
+  fixed_bin_sizes_bp: [25000]

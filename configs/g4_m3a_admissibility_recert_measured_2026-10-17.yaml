@@ -1,0 +1,30 @@
+schema_version: 1
+authorization: governance/authorizations/G4_M3A_ADMISSIBILITY_EVALUATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: fe934e36ac6724490052a3d0dd3b3ae5ad18b19538ff21a4b90318b0864b3f80
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+previous_gate: governance/gates/G4_M2C_CONTROLS_SCALABILITY_2026-07-16.json
+previous_gate_sha256: 0a97efeb3be7831cc024b78562c697f5215118ab8a5d00eb17ae0def9886e7c2
+input_evidence:
+  m2a:
+    path: results/v1/g4/m2/evidence/g4_m2_annotation_completion_evidence.json
+    sha256: 70e37cf2a2fbee9fb68002655717dd1eca200bd4398cc4c0e18ce9da818651c3
+  m2b:
+    path: results/v1/g4/m2/evidence/g4_m2_software_completion_evidence.json
+    sha256: 488bfe138335053387e4d52b6b307867573c86f190ce3fb264dc5b920ce76968
+  m2c_raw_lsi:
+    path: results/v1/g4/m2/evidence/g4_m2c_raw_lsi_evidence.json
+    sha256: 38c9c3f9af17e5f480405146d168ebbebed5571a0ea18faf1f1a99a0e9aa1024
+  m2c_cicero:
+    path: results/v1/g4/m2/evidence/g4_m2c_cicero_scalability_evidence.json
+    sha256: 50de75e527615727ee50135f6fabad648d0cf44a6c33fa4738198980b94501ff
+output_root: results/v1_recert/G4_M3A_2026-10-17_measured
+confidence_level: 0.95
+primary_tasks: [construction_qc, portability_runtime_failure]
+negative_controls:
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+forbidden_inputs: [rna, labels, clusters, pathology, simulation_truth]
+resource_comparison_allowed: false
+universal_ranking_allowed: false

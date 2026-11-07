@@ -1,0 +1,28 @@
+schema_version: 1
+gate: NM_TRUTH_ANCHOR
+milestone: NU4C_human_snap_gene_identity_correction
+amendment: governance/amendments/NM_U4_HUMAN_SNAP_GENE_IDENTITY_CORRECTION_2026-07-30.yaml
+source_config: configs/nm_upgrade_spatial_programs.yaml
+source_preflight: results/v1/nm_upgrade/nu4_spatial_programs/preflight_evidence.json
+source_completion: results/v1/nm_upgrade/nu4_spatial_programs/completion_evidence.json
+source_validation: results/v1/nm_upgrade/nu4_spatial_programs/evidence/completion_audit.json
+source_detail: results/v1/nm_upgrade/nu4_spatial_programs/fold_component_metrics.tsv.gz
+source_summary: results/v1/nm_upgrade/nu4_spatial_programs/contract_summary.tsv
+source_deltas: results/v1/nm_upgrade/nu4_spatial_programs/matched_control_deltas.tsv
+source_gene_eligibility: results/v1/nm_upgrade/nu4_spatial_programs/fold_gene_eligibility.tsv
+output_root: results/v1/nm_upgrade/nu4_spatial_programs_v2
+target:
+  dataset_id: gse205055_humanbrain_50um
+  method_id: snapatac2_geneactivity
+  representation_id: filtered_fragments_with_frozen_macs3_observation_contract
+expected_contracts: 114
+expected_detail_rows: 5700
+expected_target_detail_rows: 50
+expected_matched_control_deltas: 85
+construction_or_method_rerun_allowed: false
+annotation_or_control_rerun_allowed: false
+labels_clusters_pathology_allowed: false
+policy_refit_run: false
+input_tracks_pooled: false
+universal_ranking_run: false
+final_ranking_run: false

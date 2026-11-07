@@ -1,0 +1,287 @@
+schema_version: 1
+registry_status: active_development
+independence_unit: study_family
+panel_targets:
+  minimum_independent_studies: 8
+  target_independent_studies: 10
+  minimum_fragment_studies: 4
+  minimum_human_pathology_studies: 2
+  minimum_verified_paired_rna_studies: 2
+  frozen_holdout_studies: 2
+
+studies:
+  llorens_bobadilla_2023:
+    accessions: [GSE214986, GSE214989]
+    role: development
+    species: [mouse]
+    context: development
+    technology: solid_phase_capture_spatial_atac
+    available_input: author_peak_matrix
+    fragments_status: not_selected_author_peak_track
+    rna_status: adjacent_only
+    genome_build: mm10
+    readiness: source_peak_matrix_and_spatial_metadata_verified
+    inclusion_status: included_ready
+    selected_samples:
+      peak_matrix: GSE214986_counts_embryo_satac
+    capabilities:
+      standard_fragment_level: false
+      human_pathology: false
+      verified_paired_spatial_rna: false
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_legacy_local_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE214986_embryo_sATAC/peak_h5_spatial_schema_audit.json
+      source_metadata: data/manifests/remote/GSE214986_geo_full.txt
+      genome_build_note: source Methods and coordinate audit support mm10/GRCm38
+      rna_note: GSE214989 is adjacent/reference RNA only and cannot be used as spot-paired truth
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+
+  zhang_2023:
+    accessions: [GSE205052, GSE205054, GSE205055, GSE205180, GSE205181, GSE218593]
+    role: development
+    species: [mouse, human]
+    context: normal_and_development
+    technology: spatial_epigenome_transcriptome_coprofiling
+    available_input: fragments_and_companion_matrices
+    fragments_status: selected_mousebrain_sample_verified
+    rna_status: companion_requires_separate_pairing_verification
+    genome_build: [mm10, hg38]
+    readiness: selected_fragment_and_spatial_inputs_verified
+    inclusion_status: included_ready
+    independence_note: all accessions count as one study family
+    selected_samples:
+      atac: GSM6204623_MouseBrain_20um
+    capabilities:
+      standard_fragment_level: true
+      human_pathology: false
+      verified_paired_spatial_rna: false
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_legacy_local_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE205052_MouseBrain_20um/fragment_spatial_schema_audit.json
+      source_metadata: data/manifests/remote/GSM6204623_geo_full.txt
+      genome_build_note: selected GEO sample explicitly states mm10
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+
+  deng_2022:
+    accessions: [GSE171943]
+    role: development
+    species: [mouse, human]
+    context: normal_reference
+    technology: spatial_atac_seq
+    available_input: sample_level_fragments_and_spatial_files
+    fragments_status: selected_p21_brain_sample_verified
+    rna_status: independent_reference_only
+    genome_build: [mm10, hg38]
+    readiness: selected_fragment_and_spatial_inputs_verified
+    inclusion_status: included_ready
+    selected_samples:
+      atac: GSM6043256_P21_brain_20um
+    capabilities:
+      standard_fragment_level: true
+      human_pathology: false
+      verified_paired_spatial_rna: false
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_round2_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE171943_P21_brain_20um/fragment_spatial_schema_audit.json
+      source_metadata: data/manifests/remote/GSM6043256_geo_full.txt
+      genome_build_note: selected GEO sample and chromosome signatures support mm10/GRCm38
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+    publication:
+      title: Spatial profiling of chromatin accessibility in mouse and human tissues
+      venue: Nature
+      year: 2022
+      doi: 10.1038/s41586-022-05094-1
+
+  huang_2025:
+    accessions: [GSE279771]
+    role: external_holdout_pathology
+    species: [mouse, human]
+    context: glioblastoma_and_mouse_brain
+    technology: space_seq
+    available_input: sample_level_atac_and_rna_files
+    fragments_status: author_single_end_insertion_pseudo_pairs_verified_nonstandard
+    rna_status: selected_same_section_rna_verified
+    genome_build: GRCh38
+    readiness: gbm_atac_rna_coordinates_and_metadata_verified
+    inclusion_status: included_ready
+    selected_samples:
+      atac: GSM8579952_GBM_ATAC
+      rna: GSM8579953_GBM_RNA
+    capabilities:
+      standard_fragment_level: false
+      human_pathology: true
+      verified_paired_spatial_rna: true
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_round2_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE279771_GBM_paired/paired_spatial_h5_schema_audit.json
+      source_metadata:
+        - data/manifests/remote/GSM8579952_geo_full.txt
+        - data/manifests/remote/GSM8579953_geo_full.txt
+      upstream_provenance: data/manifests/space_seq_upstream_provenance.tsv
+      genome_build_note: RNA H5 feature metadata states GRCh38 and ATAC chromosomes are human canonical contigs
+      pairing_note: GEO states paired spatial multiome and all 2768 ATAC/RNA/in-tissue/metadata barcodes match
+      representation_note: author code pseudo-pairs sorted single-end insertion events; standard paired-fragment scope is prohibited
+    license_scope: public_GEO_and_GitHub_analysis_only_no_source_file_redistribution
+    publication:
+      title: Unified molecular approach for spatial epigenome transcriptome and cell lineages
+      venue: PNAS
+      year: 2025
+      doi: 10.1073/pnas.2424070122
+
+  li_2026:
+    accessions: [GSE288178]
+    role: development
+    species: [mouse, human]
+    context: lymphoma_ffpe_and_mouse_reference
+    technology: spatial_ffpe_atac
+    available_input: sample_level_h5ad
+    fragments_status: selected_fragment_backed_h5ad_verified
+    rna_status: not_selected_for_human_fl_atac_sample
+    genome_build: GRCh38
+    readiness: human_fl_fragment_h5ad_and_spatial_coordinates_verified
+    inclusion_status: included_ready
+    selected_samples:
+      atac: GSM9123227_human_FL_ATAC
+    capabilities:
+      standard_fragment_level: true
+      human_pathology: true
+      verified_paired_spatial_rna: false
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_round2_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE288178_human_FL_ATAC/fragment_h5ad_schema_audit.json
+      source_metadata: data/manifests/remote/GSM9123227_geo_full.txt
+      genome_build_note: GEO explicitly states GRCh38 and h5ad reference lengths exactly match GRCh38
+      pathology_note: follicular lymphoma context is source-supported; selected h5ad has no region-level labels
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+    publication:
+      title: Spatially decoding genotype-associated epigenetic landscapes in human lymphoma FFPE tissues via epi-Patho-DBiT
+      venue: Nature Communications
+      year: 2026
+      doi: 10.1038/s41467-026-71576-9
+
+  guo_2025_spatial_mux:
+    accessions: [GSE263333]
+    role: development
+    species: [mouse]
+    context: development_and_adult_brain
+    technology: spatial_mux_seq
+    available_input: sample_level_fragments_rna_and_spatial_files
+    fragments_status: selected_atac_sample_verified
+    rna_status: selected_same_section_rna_verified
+    genome_build: GRCm38
+    readiness: minimal_inputs_and_schema_verified
+    inclusion_status: included_ready
+    selected_samples:
+      atac: GSM8494157_5M_20um_ATAC
+      rna: GSM8494158_5M_20um_RNA
+    capabilities:
+      standard_fragment_level: true
+      human_pathology: false
+      verified_paired_spatial_rna: true
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE263333_5M_20um_paired/paired_spatial_10x_schema_audit.json
+      source_metadata:
+        - data/manifests/remote/GSM8494157_geo_full.txt
+        - data/manifests/remote/GSM8494158_geo_full.txt
+      genome_build_note: GEO processing metadata explicitly states GRCm38
+      pairing_note: GEO protocol states modalities were measured on the same tissue section and share pixel barcodes; all 10000 barcodes match in downloaded inputs
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+    publication:
+      title: Multiplexed spatial mapping of chromatin features transcriptome and proteins in tissues
+      venue: Nature Methods
+      year: 2025
+      doi: 10.1038/s41592-024-02576-0
+
+  guo_deng_2025_ffpe_atac:
+    accessions: [GSE278007]
+    role: development
+    species: [mouse, human]
+    context: fresh_frozen_ffpe_normal_and_melanoma
+    technology: spatial_ffpe_atac_seq
+    available_input: sample_level_fragments_and_spatial_files
+    fragments_status: confirmed_for_18_samples
+    rna_status: independent_reference_only
+    genome_build: [mm10, hg38]
+    readiness: selected_mouse_and_human_inputs_verified
+    inclusion_status: included_ready
+    selected_samples:
+      mouse_ffpe: GSM8831026_FFPE_S4_1
+      human_pathology: GSM8831040_Human_melanoma_50um
+    capabilities:
+      standard_fragment_level: true
+      human_pathology: true
+      verified_paired_spatial_rna: false
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_download_receipts.tsv
+      mouse_schema_audit: results/v1/audits/GSE278007_FFPE_S4_1/fragment_spatial_schema_audit.json
+      human_schema_audit: results/v1/audits/GSE278007_Human_melanoma_50um/fragment_spatial_schema_audit.json
+      source_metadata:
+        - data/manifests/remote/GSM8831026_geo_full.txt
+        - data/manifests/remote/GSM8831040_geo_full.txt
+      genome_build_note: GEO states GRCm38 or GRCh38 by species; downloaded human contigs carry GRCh38 KI270 signatures
+      pathology_note: human tumor and melanoma identity are source-supported; no region-level pathology labels were downloaded
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+    publication:
+      title: Spatial profiling of chromatin accessibility in formalin-fixed paraffin-embedded tissues
+      venue: Nature Communications
+      year: 2025
+      doi: 10.1038/s41467-025-60882-3
+
+  zhang_2025_brain_triomics:
+    accessions: [GSE308623]
+    role: external_holdout_paired_multiomic
+    species: [mouse]
+    context: postnatal_development_and_lysolecithin_neuroinflammation
+    technology: spatial_atac_rna_protein_seq
+    available_input: sample_level_fragments_rna_coordinates_and_images
+    fragments_status: confirmed_for_28_atac_samples
+    rna_status: selected_same_section_rna_verified
+    genome_build: mm10
+    readiness: minimal_inputs_and_schema_verified
+    inclusion_status: included_ready
+    selected_samples:
+      atac: GSM9248996_01_P2S3
+      rna_and_coordinates: GSM9247580_01_P2S3
+    capabilities:
+      standard_fragment_level: true
+      human_pathology: false
+      verified_paired_spatial_rna: true
+      spatial_coordinates: true
+    evidence:
+      download_receipt: data/manifests/v1_download_receipts.tsv
+      schema_audit: results/v1/audits/GSE308623_P2S3/paired_spatial_schema_audit.json
+      source_metadata:
+        - data/manifests/remote/GSM9248996_geo_full.txt
+        - data/manifests/remote/GSM9247580_geo_full.txt
+      genome_build_note: both GEO sample records explicitly state mm10
+      pairing_note: assay records share P2S3 sample identity; all 7122 RNA barcodes match ATAC and coordinates
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+    publication:
+      title: Spatial dynamics of brain development and neuroinflammation
+      venue: Nature
+      year: 2025
+      doi: 10.1038/s41586-025-09663-y
+
+holdout_slots:
+  holdout_1:
+    study_id: zhang_2025_brain_triomics
+    selected_sample: P2S3
+    freeze_status: frozen
+    frozen_on: 2026-07-10
+    prefreeze_access: input_schema_and_source_design_only
+    benchmark_outcomes_inspected: false
+  holdout_2:
+    study_id: huang_2025
+    selected_sample: GBM_1-A1
+    freeze_status: frozen
+    frozen_on: 2026-07-10
+    prefreeze_access: input_schema_label_names_and_source_design_only
+    benchmark_outcomes_inspected: false

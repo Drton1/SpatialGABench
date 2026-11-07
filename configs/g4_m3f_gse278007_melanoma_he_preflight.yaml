@@ -1,0 +1,68 @@
+schema_version: 1
+gate: G4
+milestone: M3F_GSE278007_MELANOMA_HE_PREFLIGHT
+authorization: governance/authorizations/G4_M3F_GSE278007_MELANOMA_HE_PREFLIGHT_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 0df6b31b5104ff8bc9009b07b6527bfd4284d64a584708a5dda915e68ad253cd
+protocol: protocols/IMAGE_ONLY_MORPHOLOGY_CONCORDANCE_PROTOCOL.md
+protocol_sha256: b66e7402bbafb987b2880c001cbae0607782251362d2b602e922bd1ac04e960e
+download_receipt: data/manifests/v1_m3f_gse278007_melanoma_he_download_receipts.tsv
+download_receipt_sha256: 2bcdfb9925d5ad283dcd34b941fbd1e272dc7a285ead5edc7e4e7a5ced75058d
+runtime_lock: envs/g4_m3f_image_preflight.lock.txt
+runtime_lock_sha256: 08794725da66bae3ee20be341c74a542cee1c149793332b12989f442739ad476
+source_metadata: data/manifests/remote/GSM8831040_geo_full.txt
+source_metadata_sha256: 0561112196b3fe35183e1f4aab9ac6de0af33dd0f5e36726a0f29c3483920612
+source_he: data/raw/v1/GSE278007/GSM8831040_FFPE_ATAC_Human_melanoma_H_E.tif.gz
+source_he_sha256: 77016b710d42afc1be0048b5f1b2e7db0db8176abba0f5cd64dfb80f9d874235
+source_spatial_image: data/raw/v1/GSE278007/GSM8831040_Human_melanoma_50um_spatial/tissue_lowres_image.png
+source_spatial_image_sha256: 99a23bbf056be1335f0d249e5c3f786dcd1b45783a2826a7e123e7389fc2322b
+source_positions: data/raw/v1/GSE278007/GSM8831040_Human_melanoma_50um_spatial/tissue_positions_list.csv
+source_positions_sha256: bd428c3177a7300a084be1753ac0cffb3baf24f910f2c10658ff75d245b80bfe
+source_scalefactors: data/raw/v1/GSE278007/GSM8831040_Human_melanoma_50um_spatial/scalefactors_json.json
+source_scalefactors_sha256: faa53efcd2d5ad64adad8fa28bff50305a833b69d0274b19f504ecc7f55a0e0c
+author_figure: data/raw/v1/GSE278007/author_figures/41467_2025_60882_Fig5_HTML.png
+author_figure_sha256: 00b7b87fb175299c189e7b170c53d9129235b8f9bcca8262fc728e7fdb2f9818
+author_figure_doi: 10.1038/s41467-025-60882-3
+author_figure_license: CC-BY-NC-ND-4.0_local_analysis_only_no_adapted_figure_redistribution
+section_relationship: adjacent_tissue_section
+expected_he_size: [13674, 6777]
+expected_he_mode: RGB
+expected_spatial_image_size: [3270, 3270]
+expected_positions: 2500
+he_thumbnail_max_size: [1800, 1000]
+spatial_thumbnail_size: [1000, 1000]
+figure_he_panel_crop_xyxy: [58, 100, 455, 455]
+figure_he_author_roi_corners_xy:
+  - [190, 185]
+  - [370, 185]
+  - [370, 373]
+  - [190, 373]
+figure_spatial_panel_crop_xyxy: [535, 100, 965, 455]
+sift:
+  nfeatures: 20000
+  contrast_threshold: 0.015
+  edge_threshold: 15
+  ransac_reprojection_threshold: 4.0
+  localization_ratio_threshold: 0.72
+  direct_registration_ratio_threshold: 0.75
+localization_acceptance:
+  he_min_good_matches: 100
+  he_min_inliers: 100
+  he_min_inlier_fraction: 0.90
+  spatial_min_good_matches: 20
+  spatial_min_inliers: 20
+  spatial_min_inlier_fraction: 0.60
+direct_registration_acceptance:
+  min_good_matches: 20
+  min_inliers: 15
+  min_inlier_fraction: 0.60
+output_root: results/v1/g4/m3f_gse278007_melanoma_he_preflight
+image_feature_extraction_run: false
+method_outputs_accessed: false
+atac_fragments_accessed: false
+rna_accessed: false
+clusters_accessed: false
+holdout_accessed: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false

@@ -1,0 +1,86 @@
+schema_version: 1
+gate: G4
+milestone: M3F_GSE288178_MALT_NONLINEAR_SPATIAL_BASELINE_SENSITIVITY
+analysis_class: post_primary_exploratory_diagnostic
+authorization: governance/authorizations/G4_M3F_GSE288178_MALT_NONLINEAR_SPATIAL_SENSITIVITY_AUTHORIZATION_2026-07-17.json
+authorization_sha256: da38a19cba4ab43105bad7724f917c6bb45e030bd221618e9ff76a6cec011796
+previous_gate: governance/gates/G4_M3F_GSE288178_MALT_MORPHOLOGY_CONCORDANCE_2026-07-16.json
+previous_gate_sha256: 003574d0b858a8f05a56482585992a74c58ab60dfaa6fa6722721e698b323f95
+primary_evaluation_evidence: results/v1/g4/m3f_gse288178_malt_morphology/evaluation/gse288178_malt_morphology_concordance_evidence.json
+primary_evaluation_evidence_sha256: a39ab06a0eb35f8cb4bef7afb9268c25345a2b443144d155a0bf27e8eac812ae
+primary_fold_metrics: results/v1/g4/m3f_gse288178_malt_morphology/evaluation/morphology_fold_metrics.tsv
+primary_fold_metrics_sha256: 42ab4e53c80067dd33a108de404190d18018186c50ee053a50edae5f76e61f1f
+image_features: results/v1/g4/m3f_gse288178_malt_image_features/handcrafted_he_v1_raw_features.tsv.gz
+image_features_sha256: 95f2bc42ce6b9cf8bf1fc14064158afaaacfb5b46ce59e5ab7136a55854831fd
+method_evidence: results/v1/g4/m3f_gse288178_malt_method_construction/evidence/gse288178_malt_method_construction_evidence.json
+method_evidence_sha256: 171dc20a5d508dcfd419a47ffb2b6f09ad0fbc7092149fa60cba9e674ca38ae3
+method_summary: results/v1/g4/m3f_gse288178_malt_method_construction/evidence/method_construction_summary.tsv
+method_summary_sha256: 01a5aa6de5a51b098453c680235605be78caceae59ba343061d571d86d5f4bf2
+mapping: results/v1/g4/m3f_gse288178_malt_matched_representations/adapted/barcode_spot_image_coordinate_mapping.tsv
+mapping_sha256: 6c09a7fe3f9fe80c9f918bcf52f5c42d59c7c1ab658dcf22a9d7df593e631b2a
+fold_assignments: results/v1/g4/m3f_gse288178_malt_morphology/folds/spatial_fold_assignments.tsv
+fold_assignments_sha256: 8e1f3b413e05cf58b5e6a1de4aa9769db5fb5bacce64dcbc8219e0a88c662310
+representations:
+  - macs3_summit_501bp
+  - fixed_bin_10kb
+  - fixed_bin_25kb
+  - fixed_bin_50kb
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+  - raw_peak_lsi_baseline
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+matched_control: accessibility_matched_random_peak_to_gene_control_pc
+random_control: random_peak_to_gene_negative_control_pc
+raw_lsi_control: raw_peak_lsi_baseline
+spatial_baselines:
+  - polynomial_degree2
+  - rbf_kmeans25
+spatial_folds: 5
+primary_subset: foreground_primary
+image_pcs_fit_within_training_fold: 20
+image_target_pcs: 10
+gene_activity_embedding_pcs: 30
+raw_lsi_embedding_pcs: 30
+ridge_alpha: 10.0
+polynomial_degree: 2
+polynomial_include_bias: false
+rbf_landmarks: 25
+rbf_kmeans_n_init: 20
+rbf_seed: 4160
+rbf_bandwidth: median_pairwise_landmark_distance
+spatial_basis_standardized_within_training_fold: true
+bootstrap_spatial_blocks: 2000
+bootstrap_seed: 4160
+preprocessing_seed: 4160
+method_preprocessing:
+  normalize_total_target_sum: 10000
+  log1p: true
+  hvg_n_top_genes: 3000
+  hvg_flavors: [seurat]
+  pca_n_comps: 30
+output_root: results/v1/g4/m3f_gse288178_malt_morphology/nonlinear_spatial_sensitivity
+post_primary: true
+exploratory_diagnostic_only: true
+primary_endpoint_replacement_run: false
+method_selection_run: false
+rna_accessed: false
+labels_or_clusters_accessed: false
+pathology_labels_accessed: false
+holdout_accessed: false
+representation_pooling_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false
+

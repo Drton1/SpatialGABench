@@ -1,0 +1,30 @@
+schema_version: 1
+run_id: g4_preflight_human_snapatac2_20260714
+project_config: configs/main.yaml
+study_id: guo_deng_2025_ffpe_atac
+dataset_id: g4_preflight_gse278007_human_melanoma_50um_hg38
+sample_id: GSM8831040_Human_melanoma_50um
+dataset_role: development
+method_id: snapatac2_geneactivity
+software_name: SnapATAC2
+genome_build: hg38
+input_track: F
+representation_id: preflight_active_fixed_bin_10kb
+comparison_scope: fragment_portability_contract_preflight_no_performance_inference
+input_h5ad: results/v1/g4/preflight/fixtures/human_gse278007_melanoma_50um/preflight_input.h5ad
+fragments: results/v1/g4/preflight/fixtures/human_gse278007_melanoma_50um/preflight.fragments.tsv.gz
+gene_annotation: results/v1/g4/preflight/fixtures/human_gse278007_melanoma_50um/preflight.annotation.gtf.gz
+chrom_sizes: results/v1/g4/preflight/fixtures/human_gse278007_melanoma_50um/preflight.chrom.sizes.tsv
+environment_lock: envs/containers/snapatac2-py311.lock.txt
+adapter: adapters/snapatac2_geneactivity.py
+method_script: null
+implementation_files:
+  - adapters/snapatac2_geneactivity.py
+  - spatialgabench/software_wrappers/common.py
+construction_input_classes:
+  - accessibility_fragments
+  - gene_annotation
+subset_policy: deterministic_smoke_subset
+threads: 1
+seed: 4160
+output_dir: results/v1/g4/preflight/runs/human/snapatac2

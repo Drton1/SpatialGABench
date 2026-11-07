@@ -1,0 +1,43 @@
+schema_version: 1
+gate: G5
+milestone: H5B_external_method_construction
+dataset_role: external_holdout
+authorization_milestone: H5B_external_method_construction
+authorization: governance/authorizations/G5_H5B_EXTERNAL_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-18.json
+authorization_sha256: 9a5e40eb842a22f7a4831d6bf6a492e2f97ef2334cbd4ce8aa4ac56eb0ac283d
+preflight_gate: governance/gates/G5_H5B_METHOD_CONSTRUCTION_PREFLIGHT_2026-07-18.json
+preflight_gate_sha256: 740a9e79af6733611b469f310f4cdee7c9aee67a516249634c222a39f3814976
+frozen_execution_manifest: results/v1/g5/h4_one_pass_protocol_freeze/method_execution_manifest.tsv
+frozen_execution_manifest_sha256: aaae85f3d4cbb2cafe23141f94dad7963ad18a4c69c78b2b29671e56f7fd7d4a
+planned_execution_manifest: results/v1/g5/h5b_method_construction_preflight/planned_method_execution_manifest.tsv
+planned_execution_manifest_sha256: 0b625411ac95b3ea2c10d45f89cf4acd049b3e1c4dfe8cade705c0bb09f955eb
+representation_summary: results/v1/g5/h5a_external_representations/evidence/representation_summary.tsv
+representation_summary_sha256: cf13df27a539fb90672db75154861350bb0bef0c61cedbfa83b0051a3c06ac11
+frozen_artifacts: [authorization, preflight_gate, frozen_execution_manifest, planned_execution_manifest, representation_summary]
+output_root: results/v1/g5/h5b_external_method_construction/annotation
+run_id_prefix: g5_h5b
+input_validation_scope: G5_H5B_external_accessibility_method_construction_only
+driver_stage: g5_h5b_annotation_driver
+comparison_scope: frozen_external_leaf_specific_construction_only
+subset_policy: full_external_observation_set
+forbidden_holdout_accessions: [GSE279771]
+forbidden_construction_inputs: [rna, labels, clusters, pathology, simulation_truth, method_outcomes]
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+references:
+  mm10:
+    genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+    gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}

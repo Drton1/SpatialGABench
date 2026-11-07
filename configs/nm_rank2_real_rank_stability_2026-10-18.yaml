@@ -1,0 +1,95 @@
+schema_version: 1
+task_id: NM-RANK2
+date: 2026-10-18
+
+protocol:
+  path: docs/NM_NEXT3_PREREG_2026-10-18.md
+  freeze_manifest: results/v1_next3/manifests/prereg_freeze.json
+
+inputs:
+  ds1_domain_seed_metrics: results/v1_ds1/rework_2026-10-18/tables/domain_seed_metrics.tsv
+  ds1_domain_pairwise: results/v1_ds1/rework_2026-10-18/tables/domain_pairwise.tsv
+  ds3_domain_seed_metrics: results/v1_ds3_rework/attempts/run_20261018T050315Z/e1_human_downstream/e1_domain_seed_metrics.tsv
+  ds3_domain_pairwise: results/v1_ds3_rework/attempts/run_20261018T050315Z/e1_human_downstream/e1_domain_pairwise.tsv
+
+output:
+  root: results/v1_next3
+
+seeds:
+  bootstrap: 20261018
+
+thresholds:
+  stability_tau: 0.80
+  material_tau_gap: 0.10
+  sign_reversal_fraction: 0.20
+  bootstrap_draws: 10000
+  alpha: 0.05
+  numeric_tolerance: 1.0e-12
+
+methods:
+  primary:
+    - P
+    - B
+    - F
+  ds1_aliases:
+    F_signac_geneactivity: F
+  sensitivity:
+    - B10
+    - B50
+
+metrics:
+  primary:
+    - ARI
+    - NMI
+  secondary:
+    - AMI
+
+contexts:
+  primary:
+    - dataset_key: d1_gse263333
+      depth_fraction: 0.01
+      source: ds1
+    - dataset_key: d1_gse263333
+      depth_fraction: 0.05
+      source: ds1
+    - dataset_key: d1_gse263333
+      depth_fraction: 0.25
+      source: ds1
+    - dataset_key: d1_gse263333
+      depth_fraction: 1.0
+      source: ds1
+    - dataset_key: d2_gse205052
+      depth_fraction: 1.0
+      source: ds1
+    - dataset_key: d2_human_gse205055
+      depth_fraction: 1.0
+      source: ds3
+  sensitivity:
+    - dataset_key: d3_gse214986
+      depth_fraction: 1.0
+      source: ds1
+      methods:
+        - P
+        - B
+    - dataset_key: d2_human_gse205055
+      depth_fraction: 1.0
+      source: ds3
+      methods:
+        - P
+        - B
+        - F
+        - B10
+        - B50
+
+expected:
+  ds1_rows: 85
+  ds3_rows: 45
+  seeds_per_context_method: 5
+  primary_contexts: 6
+  primary_context_method_metric_rows: 180
+  cross_context_pairs_per_metric: 15
+
+resources:
+  workers: 1
+  nice: 15
+  memory_limit_mb: 8192

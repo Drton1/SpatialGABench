@@ -1,0 +1,28 @@
+{
+  "source_scores": "data/paper/context/xend1_unit_scores.tsv",
+  "matched_markers": "data/paper/spatial/marker_percentiles_cluster_matched.tsv.gz",
+  "domain_ds1": "data/paper/spatial/domain_seed_metrics.tsv",
+  "domain_human": "data/paper/human/e1_domain_seed_metrics.tsv",
+  "output": "results/paper/selection",
+  "tie_tolerance": 1e-12,
+  "top_n": 100,
+  "methods_real": [
+    "P",
+    "B",
+    "F"
+  ],
+  "cv_candidates": [
+    "P",
+    "B"
+  ],
+  "cv_depth": 1.0,
+  "cv_min_training_families": 2,
+  "family_map": {
+    "d1_gse263333": "Guo 2025",
+    "d2_gse205052": "Zhang 2023",
+    "d2_human_gse205055": "Zhang 2023",
+    "d3_gse214986": "Llorens 2023"
+  },
+  "scope": "retrospective descriptive; all outcomes previously available; leave-family-out, no untouched holdout",
+  "selection_rule": "maximize training family mean of within-dataset seed-median endpoint; equal family weights; retain ties"
+}

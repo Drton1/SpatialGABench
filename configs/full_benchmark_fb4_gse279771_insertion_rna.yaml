@@ -1,0 +1,72 @@
+schema_version: 1
+gate: FULL_BENCHMARK
+milestone: FB4_GSE279771_insertion_track_paired_RNA
+protocol: protocols/FULL_BENCHMARK_FB4_GSE279771_INSERTION_RNA_PROTOCOL_2026-07-18.md
+completion_protocol: protocols/FULL_BENCHMARK_COMPLETION_PROTOCOL_2026-07-18.md
+output_root: results/v1/full_benchmark/fb4_gse279771_insertion_rna
+study_id: huang_2025
+dataset_id: gse279771_gbm_insertion_track
+sample_id: GSM8579952_GBM_ATAC
+accession: GSE279771
+species: human
+genome_build: hg38
+source_semantics: author_single_end_insertions_pseudo_paired_by_sorted_order
+representation_id: insertion_derived_fixed_bin_25kb
+input_track: I
+bin_size_bp: 25000
+expected_observations: 2768
+expected_source_rows: 35798529
+source_atac:
+  path: data/raw/v1/GSE279771/GSM8579952_1-A1-ATAC_q30_augment_dedup_ss.tsv.gz
+  sha256: 7ccd820bb397fd8cd9fcefbe0bd8d9544d44f5d16774e8349dafd8a96c461350
+positions:
+  path: data/raw/v1/GSE279771/GBM_tissue_positions.csv
+  sha256: e20058b5356189243cf50c82f83f1a19fcd57c8f933ded3650002fad2c74ea51
+rna_h5:
+  path: data/raw/v1/GSE279771/GSM8579953_3-A1-RNA_filtered_feature_bc_matrix.h5
+  sha256: 6f62b3fa026eed39f8a1de0b64f2266f96fe8066c1bed7cdcbf70b3fc7e3eb19
+spot_metadata:
+  path: data/raw/v1/GSE279771/GBM_spot_metadata.csv
+  sha256: 467c15b00be5d9d5696701d9764196c0bdb702f9629e856ac76d0cca7d80d5e7
+schema_audit:
+  path: results/v1/audits/GSE279771_GBM_paired/paired_spatial_h5_schema_audit.json
+  sha256: b01eb7de7aeebbc30b142a0c356adeb0aa6edd75b7ed5f98d6a8097ce330b2f8
+references:
+  chrom_sizes: {path: data/reference/hg38/chrom_sizes.tsv, sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b}
+  genes: {path: data/reference/hg38/protein_coding_genes.bed, sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b}
+  promoters: {path: data/reference/hg38/protein_coding_promoters_2kb.bed, sha256: f5ff2b427be9c186a5e0694fd949bc81d8216a6ac0153ad8d0118b672ac4176b}
+  gene_body: {path: data/reference/hg38/protein_coding_gene_body.bed, sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b}
+  tss: {path: data/reference/hg38/protein_coding_tss.bed, sha256: 13b97f010a5c4c2fa147f58fd5e7148db13054f6731bdc04dc789656b80f84c3}
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+not_applicable_methods:
+  snapatac2_geneactivity: requires_standard_fragment_contract
+  signac_geneactivity: requires_standard_fragment_or_peak_contract
+  archr_genescorematrix: requires_standard_fragment_contract
+  cicero_geneactivity: requires_standard_peak_contract
+rna_gene_eligibility:
+  gene_biotype: protein_coding
+  minimum_detected_spot_fraction: 0.05
+normalization:
+  method: library_size_10000_log1p
+  target_sum: 10000
+correlation_chunk_genes: 256
+primary_endpoint: coverage_adjusted_median_gene_wise_spearman
+labels_or_clusters_allowed: false
+metadata_used_in_primary_analysis: false
+rna_used_for_construction: false
+policy_refit_run: false
+input_tracks_pooled: false
+universal_ranking_run: false
+final_ranking_run: false

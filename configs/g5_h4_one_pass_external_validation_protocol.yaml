@@ -1,0 +1,165 @@
+schema_version: 1
+gate: G5
+milestone: H4_ONE_PASS_EXTERNAL_VALIDATION_PROTOCOL_FREEZE
+authorization: governance/authorizations/G5_H4_ONE_PASS_PROTOCOL_FREEZE_AUTHORIZATION_2026-07-17.json
+authorization_sha256: efc60c88aa636198537d4f611fcd19aaf9d8c59c77bdb48c7bea2c34c39eb9a4
+previous_gate: governance/gates/G5_H3_GSE307620_ACCESSIBILITY_SCHEMA_PREFLIGHT_2026-07-17.json
+previous_gate_sha256: fdb62b9543da99c1ca6623372423f31f9294675d94904310209804a347e8f317
+frozen_policy: results/v1/g4/m4_recommendation_policy/frozen_task_specific_recommendation_policy.json
+frozen_policy_sha256: eb6e9ce5b8a73dfbc73d00b14295ae3b1d2c2cb1f55d5e609e3a260d51d3e9d4
+development_preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+development_preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+statistical_plan: protocols/STATISTICAL_ANALYSIS_PLAN.md
+statistical_plan_sha256: f473a2bf381a63b0de45c5d6e9d1e5da7bff31f6eb93bd119736b91e15c6c174
+original_holdout_freeze: governance/HOLDOUT_FREEZE_2026-07-10.md
+original_holdout_freeze_sha256: f82d5aad606cbbb2d134e8d6a2fc5242226afad81142aff7056643ccc2721074
+h0_preaccess_evidence: results/v1/g5/h0_preaccess_feasibility/completion_evidence.json
+h0_preaccess_evidence_sha256: d339a72bbda66033c2c7125fcfda55174e831a85ce773313a57c53e79bd60ae9
+supplemental_registry: registries/v1/g5_supplemental_holdouts.yaml
+supplemental_registry_sha256: 475ed4660546f62ac56bc1836cd8cdf4772cd09524283cf13cb4f724aa600f56
+
+studies:
+  zhang_2025_brain_triomics:
+    accession: GSE308623
+    sample_id: P2S3
+    species: mouse
+    genome_build: mm10
+    role: original_external_holdout
+    frozen_observations: 7122
+    barcode_rule: exact_shared_atac_rna_spatial_barcode
+    evaluable_tasks: [paired_rna_fidelity, portability_runtime_failure]
+    exact_active_leaves: 10
+    input_identity:
+      fragments_sha256: 65084b63f908d9cc1826d7830761c19daaced94383bcd14644c5c63ccb4c7c05
+      rna_sha256: b74a124210736724e080eba32daeaf152962b5c0df716025f24801b89671c920
+      positions_sha256: 8a10102fd9c6fe772f6e299ead6b8d97ce5af54e8143cd1d77a7399bc5d45e65
+  xue_2026_spatial_atac_hic:
+    accession: GSE307620
+    sample_id: GSM9228169_MouseBrain_R6
+    species: mouse
+    genome_build: mm10
+    role: supplemental_external_holdout_portability
+    frozen_observations: 1966
+    barcode_rule: remove_exact_terminal_-1_from_fragment_barcode_then_join_in_tissue_positions
+    evaluable_tasks: [portability_runtime_failure]
+    exact_active_leaves: 5
+    input_identity:
+      fragments_sha256: 33a4ec5bdc3e9955206bdd37e37773ac56737d833b5f9da298ffdc0906f4c45c
+      positions_sha256: 958ae8bdd72e35a5ff1c8bdcb031e0716eb26445eda3a260655eebc6e15d2998
+
+representations:
+  filtered_fragments_with_frozen_peak_observation_contract:
+    input_track: F
+    construction: standard_primary_chromosomes_and_exact_frozen_observations
+  macs3_summit_501bp:
+    input_track: P
+    construction: locked_macs3_then_nonoverlapping_501bp_summit_windows
+  fixed_bin_10kb:
+    input_track: B
+    construction: locked_nonoverlapping_10000bp_primary_chromosome_bins
+  fixed_bin_25kb:
+    input_track: B
+    construction: locked_nonoverlapping_25000bp_primary_chromosome_bins
+  fixed_bin_50kb:
+    input_track: B
+    construction: locked_nonoverlapping_50000bp_primary_chromosome_bins
+
+eligible_methods:
+  matrix:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  fragments:
+    - snapatac2_geneactivity
+    - signac_geneactivity
+    - archr_genescorematrix
+rna_evaluation_controls:
+  matrix: [accessibility_matched_random_peak_to_gene_control_pc]
+  fragments: []
+excluded_methods:
+  random_peak_to_gene_negative_control_pc: negative_control_not_policy_admissible
+  raw_peak_lsi_baseline: representation_control_not_gene_activity
+  cicero_geneactivity: subset_only_not_full_data_policy_admissible
+
+execution_order:
+  - revalidate_authorized_source_checksums_without_reading_outcomes
+  - enforce_frozen_observation_and_primary_chromosome_filters
+  - construct_all_F_P_B_representations_for_both_studies
+  - execute_all_admissible_methods_and_required_controls
+  - freeze_attempt_manifest_and_output_contract_status
+  - load_GSE308623_RNA_values_for_evaluation_only
+  - compute_task_specific_utilities_and_failures
+  - compute_frozen_policy_default_and_random_comparators
+  - write_leaf_specific_study_level_results_without_pooling_or_refit
+
+attempt_policy:
+  primary_attempts_per_method_study_representation: 1
+  deterministic_contract_failure_counts_as_failure: true
+  code_or_environment_change_after_first_holdout_attempt: forbidden
+  outcome_based_retry: forbidden
+  infrastructure_interruption_before_output_contract_check: resumable_exact_command_only
+  resumed_attempt_must_be_disclosed: true
+  every_attempt_retained: true
+  not_applicable_after_unseal: forbidden_unless_prefrozen_contract_condition
+
+comparators:
+  annotation_matrix_default: promoter_plus_gene_body_2kb_pc
+  fragment_software_default: signac_geneactivity
+  random_selection: uniform_without_replacement_from_same_leaf_admissible_methods
+  random_set_size: equal_to_frozen_recommended_set_size
+  random_comparator_draws: 10000
+  random_seed: 41017
+
+endpoints:
+  paired_rna_fidelity:
+    utility: clip((coverage_adjusted_median_gene_wise_spearman+1)/2,0,1)
+    external_studies: [zhang_2025_brain_triomics]
+    inference_status: descriptive_single_external_study_no_replication_claim
+  portability_runtime_failure:
+    utility: valid_output_indicator
+    external_studies: [zhang_2025_brain_triomics, xue_2026_spatial_atac_hic]
+    inference_unit: study_within_exact_leaf
+    inference_status: two_study_external_validation
+  runtime_memory:
+    role: descriptive_provenance_only
+    comparative_inference: false
+
+regret_and_failure:
+  regret: best_successful_admissible_utility_minus_best_successful_recommended_utility
+  all_recommended_methods_failed_regret: 1.0
+  no_admissible_method_succeeds: not_evaluable
+  policy_set_failure: no_recommended_method_succeeds
+  default_set_failure: default_method_does_not_succeed
+  random_set_failure: no_randomly_selected_method_succeeds
+  regret_noninferiority_margin: 0.05
+  failure_rate_noninferiority_margin: 0.10
+  cross_task_pooling: false
+  cross_track_pooling: false
+  cross_representation_pooling: false
+  leaf_specific_reporting: true
+
+abstention_contract:
+  GSE279771: out_of_support_no_raw_access_no_performance_evaluation
+  domain_pathology: no_frozen_leaf
+  simulation: no_frozen_leaf
+  independent_pathology_accuracy: no_frozen_leaf
+
+policy_refit_allowed: false
+method_panel_change_allowed: false
+representation_change_allowed: false
+threshold_change_allowed: false
+holdout_substitution_after_access_allowed: false
+raw_holdout_accessed: false
+representation_construction_run: false
+method_execution_run: false
+rna_value_access_run: false
+holdout_outcome_accessed: false
+regret_computation_run: false
+full_benchmark_run: false
+results_writing_run: false
+universal_ranking_run: false
+final_ranking_run: false
+g5_execution_authorized: false
+output_root: results/v1/g5/h4_one_pass_protocol_freeze

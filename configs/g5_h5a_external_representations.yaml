@@ -1,0 +1,79 @@
+project:
+  name: SpatialGABench
+  version: 1.0.0-dev
+  current_gate: G5
+  milestone: H5A
+schema_version: 1
+execution_authorization: governance/authorizations/G5_H5A_EXTERNAL_REPRESENTATION_CONSTRUCTION_AUTHORIZATION_2026-07-17.json
+execution_authorization_sha256: 2c880161d5b5aea58f8945754b76761c1174b56a1cc4a99b72216c9b9968a2de
+execution_authorization_milestone: H5A_external_representation_construction
+previous_gate: governance/gates/G5_H4_ONE_PASS_EXTERNAL_VALIDATION_PROTOCOL_FREEZE_2026-07-17.json
+previous_gate_sha256: b6dbf2489c19aad6b0b64aa7b03de6e899bb7515433f279aa0130b19381f2be8
+external_validation_studies:
+  - zhang_2025_brain_triomics
+  - xue_2026_spatial_atac_hic
+development_studies: []
+holdout_studies:
+  - zhang_2025_brain_triomics
+  - xue_2026_spatial_atac_hic
+  - huang_2025
+forbidden_accessions: [GSE279771]
+construction_contract:
+  representations: [macs3_summit_501bp, fixed_bin_10kb, fixed_bin_25kb, fixed_bin_50kb]
+  bin_sizes_bp: [10000, 25000, 50000]
+  counting_unit: one_filtered_fragment_row_midpoint
+  standard_chromosomes_only: true
+  peak_width_bp: 501
+  macs3_format: FRAG
+  macs3_qvalue: 0.01
+  macs3_max_count: 1
+  call_summits: true
+  forbidden_inputs: [rna, labels, clusters, pathology, simulation_truth, method_outcomes]
+samples:
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    accession: GSE308623
+    sample_id: P2S3
+    species: mouse
+    genome_build: mm10
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE308623/GSM9248996_01_P2S3_atac_fragments.tsv.gz
+    source_sha256: 65084b63f908d9cc1826d7830761c19daaced94383bcd14644c5c63ccb4c7c05
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    positions_sha256: 8a10102fd9c6fe772f6e299ead6b8d97ce5af54e8143cd1d77a7399bc5d45e65
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+    blacklist_sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46
+    macs3_genome_size: mm
+    expected_observations: 7122
+  gse307620_mbr6:
+    study_id: xue_2026_spatial_atac_hic
+    accession: GSE307620
+    sample_id: GSM9228169_MouseBrain_R6
+    species: mouse
+    genome_build: mm10
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE307620/GSM9228169_MBR6merge.fragments.tsv.gz
+    source_sha256: 33a4ec5bdc3e9955206bdd37e37773ac56737d833b5f9da298ffdc0906f4c45c
+    positions: data/candidates/GSE307620/GSM9228169/GSM9228169_MouseBrainR6_tissue_positions_list.csv.gz
+    positions_sha256: 958ae8bdd72e35a5ff1c8bdcb031e0716eb26445eda3a260655eebc6e15d2998
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+    blacklist_sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46
+    macs3_genome_size: mm
+    expected_observations: 1966
+output_root: results/v1/g5/h5a_external_representations
+evidence_dir: results/v1/g5/h5a_external_representations/evidence
+method_execution_run: false
+rna_value_access_run: false
+label_or_pathology_access_run: false
+holdout_utility_access_run: false
+regret_computation_run: false
+policy_refit_run: false
+GSE279771_accessed: false
+full_benchmark_run: false
+results_writing_run: false
+universal_ranking_run: false
+final_ranking_run: false

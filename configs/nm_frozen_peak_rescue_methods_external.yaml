@@ -1,0 +1,58 @@
+schema_version: 1
+gate: NM_TRUTH_ANCHOR
+milestone: TA2_frozen_peak_method_construction
+authorization: governance/authorizations/NM_TA2_FROZEN_PEAK_METHOD_CONSTRUCTION_AUTHORIZATION_2026-08-01.json
+authorization_sha256: b20f8254d649f1e7d3c698c56b7be29a6e0d243fbefb9306aa1268b58493953e
+authorization_milestone: TA2_frozen_peak_method_construction
+protocol: protocols/NM_FROZEN_PEAK_RESCUE_PROTOCOL_2026-08-01.md
+protocol_sha256: cf991c3da08c5f8c62942feb23f57c4ef04d64a11f9d761aae6c67833ad7e053
+representation_summary: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/driver_representation_summary.tsv
+representation_summary_sha256: 5dacaf1718ab43328ef889ad15331838ecf6dc315964941d1830431490a739ad
+planned_execution_manifest: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/method_execution_manifest.tsv
+planned_execution_manifest_sha256: 24be8198909c495da06dc329207e46ab5ed1dfcbec0fd594ff8cdad069e8ab6b
+frozen_artifacts:
+- authorization
+- protocol
+- representation_summary
+- planned_execution_manifest
+output_root: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/methods
+run_id_prefix: nm_ta2
+input_validation_scope: TA2_frozen_peak_accessibility_only
+driver_stage: TA2_frozen_peak_annotation
+comparison_scope: within_condition_full_depth_frozen_peak_rescue
+subset_policy: full
+forbidden_holdout_accessions: []
+forbidden_construction_inputs:
+- rna
+- labels
+- clusters
+- pathology
+- simulation_truth
+- method_outcomes
+methods:
+- promoter_only_2kb_pc
+- gene_body_pc
+- promoter_plus_gene_body_2kb_pc
+- distance_weighted_distal_250kb_decay50kb_pc
+- promoter_plus_distal_2kb_250kb_decay50kb_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+references:
+  mm10:
+    genes:
+      path: data/reference/mm10/protein_coding_genes.bed
+      sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7
+    promoters:
+      path: data/reference/mm10/protein_coding_promoters_2kb.bed
+      sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4
+    gene_body:
+      path: data/reference/mm10/protein_coding_gene_body.bed
+      sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7
+    tss:
+      path: data/reference/mm10/protein_coding_tss.bed
+      sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd
+dataset_role: external_holdout

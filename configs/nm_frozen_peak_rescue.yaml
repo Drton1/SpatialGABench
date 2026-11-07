@@ -1,0 +1,77 @@
+schema_version: 1
+gate: NM_TRUTH_ANCHOR
+milestone: TA2_frozen_full_depth_peak_rescue
+protocol: protocols/NM_FROZEN_PEAK_RESCUE_PROTOCOL_2026-08-01.md
+amendment: governance/amendments/NM_TA2_POST_TA1_FROZEN_PEAK_RESCUE_2026-08-01.yaml
+output_root: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue
+
+depth_fractions: [0.25, 0.05, 0.01]
+thinning_seeds: [42001, 42002, 42003]
+representation_id: frozen_full_depth_macs3_summit_501bp
+expected_conditions: 18
+expected_method_outputs: 90
+expected_spatial_contracts: 260
+expected_spatial_detail_rows: 13000
+
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+
+studies:
+  gse263333_5m_20um_atac:
+    study_id: guo_2025_spatial_mux
+    study_family: guo_2025_spatial_mux
+    sample_id: GSM8494157_5M_20um_ATAC
+    species: mouse
+    genome_build: mm10
+    depth_root: results/v1/full_benchmark/fb3_depth_resource_stress
+    full_condition: gse263333_5m_20um_atac__d100__s0
+    full_peak_bed: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d100__s0/peaks/macs3_summit_501bp.bed
+    full_peak_matrix: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d100__s0/representations/gse263333_5m_20um_atac__d100__s0__macs3_summit_501bp.h5ad
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    project_config: configs/main.yaml
+    expected_observations: 9686
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    study_family: zhang_2025_brain_triomics
+    sample_id: P2S3
+    species: mouse
+    genome_build: mm10
+    depth_root: results/v1/nm_upgrade/nu3_external_depth_stress
+    full_condition: gse308623_p2s3__d100__s0
+    full_peak_bed: results/v1/g5/h5a_external_representations/gse308623_p2s3/frozen_peaks/gse308623_p2s3__macs3_summit_501bp.bed
+    full_peak_matrix: results/v1/g5/h5a_external_representations/gse308623_p2s3/matched/gse308623_p2s3__macs3_summit_501bp.h5ad
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    project_config: configs/nm_upgrade_external_project.yaml
+    expected_observations: 7122
+
+references:
+  mm10:
+    chrom_sizes: {path: data/reference/mm10/chrom_sizes.tsv, sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f}
+    genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+    gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+
+ta1_completion: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/completion_evidence.json
+ta1_metrics: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/contract_rna_accuracy_metrics.tsv
+ta1_manifest: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/method_input_manifest.tsv
+rna_source_config: configs/nm_upgrade_spatial_programs.yaml
+nu4_preflight: results/v1/nm_upgrade/nu4_spatial_programs/preflight_evidence.json
+
+rna_used_for_construction: false
+labels_clusters_pathology_allowed: false
+method_parameter_tuning_allowed: false
+policy_refit_run: false
+input_tracks_pooled: false
+universal_ranking_run: false
+final_ranking_run: false

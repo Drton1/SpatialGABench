@@ -1,0 +1,23 @@
+schema_version: 1
+gate: G4
+milestone: M3F_GSE288178_MALT_MORPHOLOGY_ANALYSIS
+evaluation_evidence: results/v1/g4/m3f_gse288178_malt_morphology/evaluation/gse288178_malt_morphology_concordance_evidence.json
+evaluation_evidence_sha256: a39ab06a0eb35f8cb4bef7afb9268c25345a2b443144d155a0bf27e8eac812ae
+fold_metrics: results/v1/g4/m3f_gse288178_malt_morphology/evaluation/morphology_fold_metrics.tsv
+fold_metrics_sha256: 42ab4e53c80067dd33a108de404190d18018186c50ee053a50edae5f76e61f1f
+method_summary: results/v1/g4/m3f_gse288178_malt_morphology/evaluation/morphology_method_summary.tsv
+method_summary_sha256: 023f7242f8362dbc8059da681a7a58cb05a956c742cc4cba3dd7b7ba04e0d449
+primary_subset: foreground_primary
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+matched_control: accessibility_matched_random_peak_to_gene_control_pc
+random_control: random_peak_to_gene_negative_control_pc
+raw_lsi_control: raw_peak_lsi_baseline
+output_root: results/v1/g4/m3f_gse288178_malt_morphology/analysis
+representation_pooling_run: false
+universal_ranking_run: false
+final_ranking_run: false

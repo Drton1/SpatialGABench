@@ -1,0 +1,44 @@
+schema_version: 1
+gate: NM_METHOD_UPGRADE
+milestone: PEAKFREE_R1_GSE263333_5PCT_PAIRED_RNA_STOPGO
+protocol: protocols/NM_PEAKFREE_R1_PAIRED_RNA_STOPGO_PROTOCOL_2026-08-02.md
+output_root: results/v1/nm_method_upgrade/peakfree_r1_paired_rna
+dataset_id: gse263333_5m_20um_atac
+condition_id: gse263333_5m_20um_atac__d005__s42001
+study_id: guo_2025_spatial_mux
+depth_fraction: 0.05
+seed: 42001
+expected_observations: 9686
+expected_fragment_events: 1233929
+expected_genes: 22196
+
+atomic_representation: results/v1/nm_method_upgrade/peakfree_v1_input_audit/gse263333_d005_s42001/gse263333_d005_s42001_peakfree_v1__fixed_bin_5kb.h5ad
+atomic_gene_kernel: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/atomic_gene_kernel.npz
+genes: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/genes.tsv
+v1_1_completion: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/completion_evidence.json
+v1_1_validation: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/independent_validation_evidence.json
+method_core: spatialgabench/gene_activity/atomic_multiresolution.py
+
+scales_kb: [5, 25, 100]
+scale_factor: 10000.0
+alpha: 0.05
+gene_chunk_size: 128
+branches: [adaptive_v1_1, fixed_5kb, fixed_25kb, fixed_100kb, count_hard_switch]
+
+rna_source_config: configs/nm_upgrade_spatial_programs.yaml
+rna_sample_id: gse263333_5m_20um_atac
+rna_evaluation:
+  normalization: normalize_total_log1p
+  target_sum: 10000.0
+  minimum_detected_observation_fraction: 0.05
+  correlation_chunk_genes: 128
+  undefined_or_absent_gene_correlation: 0.0
+gates:
+  maximum_regret_to_best_fixed: 0.01
+  maximum_deficit_to_fixed_25kb: 0.01
+
+rna_used_for_construction: false
+labels_clusters_pathology_allowed: false
+parameter_tuning_allowed: false
+universal_ranking_run: false
+final_ranking_run: false

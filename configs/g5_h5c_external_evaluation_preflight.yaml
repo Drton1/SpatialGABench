@@ -1,0 +1,53 @@
+schema_version: 1
+gate: G5
+milestone: H5C_external_evaluation_preflight
+previous_gate: governance/gates/G5_H5B_EXTERNAL_METHOD_CONSTRUCTION_2026-07-18.json
+previous_gate_sha256: c79b4cc0bb5ac5d3efe7ca204cd8b0948cb4fa0bb503bb45ca1dfc15b79b37b2
+h4_gate: governance/gates/G5_H4_ONE_PASS_EXTERNAL_VALIDATION_PROTOCOL_FREEZE_2026-07-17.json
+h4_gate_sha256: b6dbf2489c19aad6b0b64aa7b03de6e899bb7515433f279aa0130b19381f2be8
+h5b_completion_evidence: results/v1/g5/h5b_external_method_construction/evidence/completion_evidence.json
+h5b_completion_evidence_sha256: 420f53c38b38092481c132e4ab5f3ff62173fd0786462c2693a5cf613b56cc83
+leaf_manifest: results/v1/g5/h4_one_pass_protocol_freeze/external_validation_leaf_manifest.tsv
+leaf_manifest_sha256: 0c42ae8692c1c5c6daf829c746e9e72ab08e48ce417cc42c9d5af3d8fafb6085
+evaluation_manifest: results/v1/g5/h4_one_pass_protocol_freeze/evaluation_method_manifest.tsv
+evaluation_manifest_sha256: e2133fbf544faaa5f6dbcd90e1a429a55454e341af4a7a8da27cc3870ae1c1a6
+comparator_manifest: results/v1/g5/h4_one_pass_protocol_freeze/comparator_manifest.tsv
+comparator_manifest_sha256: 987ddb50c246b5295af124708d907d07c15ed5c72c49bf949b8f83278c98c021
+h5b_run_summary: results/v1/g5/h5b_external_method_construction/evidence/run_summary.tsv
+h5b_run_summary_sha256: c69eb1a7c5e954720063118d011af442ad32c31a879b07b14384540cecc10288
+rna_matrix: data/raw/v1/GSE308623/GSM9247580_01_P2S3_RNA_matrix.csv.gz
+rna_matrix_sha256: b74a124210736724e080eba32daeaf152962b5c0df716025f24801b89671c920
+spatial_positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+spatial_positions_sha256: 8a10102fd9c6fe772f6e299ead6b8d97ce5af54e8143cd1d77a7399bc5d45e65
+gene_annotation: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+gene_annotation_sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a
+deviation_amendment: governance/amendments/G5_H5C_LIMITED_RNA_PREAUTHORIZATION_ACCESS_DEVIATION_2026-07-18.yaml
+deviation_amendment_sha256: ee16529f233625516d67d018ad5cccc888aaca1c9731858aea37df77e8b376fb
+expected_rna_observations: 7122
+expected_rna_genes: 32285
+minimum_detected_spot_fraction: 0.05
+normalization_target_sum: 10000.0
+correlation_chunk_genes: 128
+primary_endpoint: coverage_adjusted_median_gene_wise_spearman
+utility_transform: clip((primary_endpoint+1)/2,0,1)
+random_draws: 10000
+random_seed: 41017
+regret_margin: 0.05
+failure_margin: 0.10
+implementation_files:
+  - spatialgabench/g5_h5c_evaluation.py
+  - spatialgabench/g4_m3b_rna.py
+  - spatialgabench/g4_m3h_rna_replication.py
+output_root: results/v1/g5/h5c_external_evaluation_preflight
+evaluation_output_root: results/v1/g5/h5c_external_evaluation
+exact_command: environment/v1-core/bin/python containers/tools/run_with_memory_tracking.py --output results/v1/g5/h5c_external_evaluation/process_tree_memory.json --sample-interval 0.05 -- environment/v1-core/bin/python -m spatialgabench.g5_h5c_evaluation --preflight results/v1/g5/h5c_external_evaluation_preflight/completion_evidence.json --authorization governance/authorizations/G5_H5C_EXTERNAL_EVALUATION_AUTHORIZATION_2026-07-18.json --root .
+evaluation_run: false
+rna_metric_computation_run: false
+regret_computation_run: false
+policy_refit_run: false
+method_rerun: false
+GSE279771_accessed: false
+full_benchmark_run: false
+results_writing_run: false
+universal_ranking_run: false
+final_ranking_run: false

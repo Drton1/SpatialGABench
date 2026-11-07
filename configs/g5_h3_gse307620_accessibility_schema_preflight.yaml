@@ -1,0 +1,63 @@
+schema_version: 1
+gate: G5
+milestone: H3_GSE307620_ACCESSIBILITY_SCHEMA_PREFLIGHT
+authorization: governance/authorizations/G5_H3_GSE307620_ACCESSIBILITY_SCHEMA_PREFLIGHT_AUTHORIZATION_2026-07-17.json
+authorization_sha256: 595a58d60d27923d26206e16e3bbb7386f0da39252dfdae80bba35e35d8c4cbb
+previous_gate: governance/gates/G5_H2_GSE307620_MINIMAL_DOWNLOAD_2026-07-17.json
+previous_gate_sha256: c4147b0b4e902a05b527394ab7d30f7923ca5627d03c0ce7434443a410b40af6
+sample_metadata: data/manifests/remote/GSM9228169_geo_full.txt
+sample_metadata_sha256: 5a12489b536f2939c2c9788b0d6a5faad0780662756f01c68a06c0f885959623
+study_id: xue_2026_spatial_atac_hic
+accession: GSE307620
+sample_accession: GSM9228169
+species: mouse
+genome_build: mm10
+fragment_path: data/raw/v1/GSE307620/GSM9228169_MBR6merge.fragments.tsv.gz
+fragment_sha256: 33a4ec5bdc3e9955206bdd37e37773ac56737d833b5f9da298ffdc0906f4c45c
+fragment_expected_bytes: 2219237716
+positions_path: data/candidates/GSE307620/GSM9228169/GSM9228169_MouseBrainR6_tissue_positions_list.csv.gz
+positions_sha256: 958ae8bdd72e35a5ff1c8bdcb031e0716eb26445eda3a260655eebc6e15d2998
+positions_expected_rows: 2500
+in_tissue_expected_rows: 1966
+expected_columns: 5
+primary_chromosomes:
+  - chr1
+  - chr2
+  - chr3
+  - chr4
+  - chr5
+  - chr6
+  - chr7
+  - chr8
+  - chr9
+  - chr10
+  - chr11
+  - chr12
+  - chr13
+  - chr14
+  - chr15
+  - chr16
+  - chr17
+  - chr18
+  - chr19
+  - chrX
+  - chrY
+mitochondrial_chromosome: chrM
+minimum_in_tissue_barcode_overlap_fraction: 1.0
+fragment_content_analysis_run: true
+representation_construction_run: false
+peak_calling_run: false
+fixed_bin_construction_run: false
+gene_activity_construction_run: false
+method_execution_run: false
+rna_access_run: false
+label_or_pathology_access_run: false
+policy_leaf_outcome_access_run: false
+regret_evaluation_run: false
+policy_refit_run: false
+original_holdout_accessed: false
+full_benchmark_run: false
+results_writing_run: false
+universal_ranking_run: false
+final_ranking_run: false
+output_root: results/v1/g5/h3_gse307620_accessibility_schema_preflight

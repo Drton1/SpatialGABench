@@ -1,0 +1,154 @@
+task: NM-SAT1-REWORK
+title: Endpoint-specific saturation/floor factorial audit, prereg-estimator rework
+date: 2026-10-18
+prereg: docs/NM_SAT1_PREREG_2026-10-18.md
+prereg_sha256: 05ac579341033b2f31fb9f76c6a00721499e9ea2f566da106515d15abcd1193e
+output_root: results/v1_sat1
+attempt_id: run_20261018T074950Z
+
+rework:
+  parent_attempt: results/v1_sat1/attempts/run_20261018T071201Z
+  parent_config: configs/nm_sat1_2026-10-18.yaml
+  parent_config_sha256: 40dc512f24e18b3c59b4eb5cc5d1b5c3c3bde7dac0f0ea200f694ae9279a3127
+  review: reports/NM_SAT1_REVIEW_2026-10-18.md
+  review_sha256: af20643ca81b2906c5214c571b7b382ed0fc2eaf7074e2c6d00b5feda3e83273
+  addendum: docs/NM_SAT1_REWORK_ADDENDUM_2026-10-18.md
+  addendum_sha256: 489239b52c1b0c23edf0e14c25a1a5382a597c5293e6126a111ea0097f57dcf6
+  estimator: family_median_of_unit_contrasts
+  estimator_definition: median over (method_id, endpoint) high-minus-low contrasts within each stratum and endpoint family
+  terminal_status: REWORKED_PENDING_REVIEW
+  supersedes_attempt: run_20261018T074800Z
+  supersedes_reason: descriptive per-stratum cell-mean metadata and n_cells labels; verdict estimator unchanged
+  frozen_sections_to_match:
+    - inputs
+    - expected_sha256
+    - thresholds
+    - endpoint_nulls
+    - null_rule
+    - primary_endpoints
+    - secondary_endpoints
+    - endpoint_families
+    - factors
+    - factor_hypotheses
+    - bootstrap
+    - zero_tolerance
+    - expected
+
+inputs:
+  ds2_metrics: results/v1_ds2/e2_simulation_truth_recovery/e2_simulation_downstream_metrics.tsv
+  ds2_endpoint_summary: results/v1_ds2/e2_simulation_truth_recovery/e2_endpoint_summary.tsv
+  ds2_key_numbers: results/v1_ds2/e2_simulation_truth_recovery/e2_key_numbers.json
+  ds3_real: results/v1_ds3_rework/attempts/run_20261018T050315Z/e4_saturation/e4_real_data_saturation.tsv
+  ds3_simulation: results/v1_ds3_rework/attempts/run_20261018T050315Z/e4_saturation/e4_simulation_saturation.tsv
+  ds3_risk2_summary: results/v1_ds3_rework/attempts/run_20261018T050315Z/e4_saturation/e4_risk2_ceiling_summary.tsv
+  ds3_key_numbers: results/v1_ds3_rework/attempts/run_20261018T050315Z/e4_saturation/e4_key_numbers.json
+  risk2_distribution: results/v1_risk2/ceiling/distribution.tsv
+  risk2_summary: results/v1_risk2/ceiling/summary.json
+
+expected_sha256:
+  ds2_metrics: 6b6b5b8d774a582f8795e5de10c747dec9b77263fe43f17d16e1bed4e75f5ed3
+  ds2_endpoint_summary: 9d682d145702426ccc9fa42072f0424a64389312f320e68af692116b92e63518
+  ds2_key_numbers: a0f44e14efeca40926131f5efccea13859accba126d2a532086ab9e5df278aeb
+  ds3_real: d831728a448b48fbb7362d9001ffe814293335e3164f6507795c5294f3f2b64e
+  ds3_simulation: 04b58f744d2e3022107edbc9da5cbde6bfdacfeb16dbd0c35149800ea56dcf59
+  ds3_risk2_summary: c2e6cd15c36c4e0d61280de61cfa03a2794ab7f8a6815d3ceeb065eca4f6d8ee
+  ds3_key_numbers: da99f34670cd67c0f1e80275c72ae0bef823e0fd11bb87c538aa5193111171c1
+  risk2_distribution: adf739d32fa1f96762e0f4d66c74f0c9aa29b944e8f376c900b7b80606210a5c
+  risk2_summary: d08bc5bf4c7340ca61185c8c5a0da4ef5bc78cc5ad7dab43a9e2d48744ea8dc4
+
+thresholds:
+  ceiling_median: 0.90
+  floor_median: 0.01
+  saturation_range: 0.02
+  zero_inflated_fraction: 0.50
+  near_chance_tolerance: 0.05
+  high_control_floor: 0.20
+  sparse_prevalence: 0.02
+
+endpoint_nulls:
+  activity_fidelity: 0.0
+  marker_domain_auroc: 0.5
+  peak_gene_link_auprc: active_link_prevalence
+  domain_ari: 0.0
+  domain_nmi: 0.0
+  svg_moran_rank_spearman: 0.0
+
+null_rule:
+  activity_fidelity: low
+  marker_domain_auroc: two_sided
+  peak_gene_link_auprc: low
+  domain_ari: low
+  domain_nmi: low
+  svg_moran_rank_spearman: two_sided
+
+primary_endpoints:
+  - activity_fidelity
+  - marker_domain_auroc
+  - peak_gene_link_auprc
+  - domain_ari
+  - domain_nmi
+  - svg_moran_rank_spearman
+
+secondary_endpoints:
+  - svg_precision_at_10
+  - svg_recall_at_10
+  - svg_jaccard_at_10
+
+endpoint_families:
+  activity_fidelity: activity
+  marker_domain_auroc: marker
+  peak_gene_link_auprc: peak_gene_link
+  domain_ari: domain
+  domain_nmi: domain
+  svg_moran_rank_spearman: svg
+  svg_precision_at_10: svg
+  svg_recall_at_10: svg
+  svg_jaccard_at_10: svg
+
+factors:
+  - distal_fraction
+  - depth_multiplier
+  - zero_inflation_rate
+  - domain_log_effect
+  - decoy_fraction
+  - rna_latent_correlation
+  - active_link_prevalence
+
+factor_hypotheses:
+  - id: H2
+    factor: depth_multiplier
+    family: all_primary
+    metric: floor_or_near_chance
+    direction: positive
+  - id: H3
+    factor: zero_inflation_rate
+    family: all_primary
+    metric: exact_zero
+    direction: positive
+  - id: H4
+    factor: domain_log_effect
+    family: domain
+    metric: floor_or_near_chance
+    direction: negative
+  - id: H7
+    factor: decoy_fraction
+    family: peak_gene_link
+    metric: value
+    direction: negative
+
+bootstrap:
+  draws: 10000
+  seed: 20261018
+  alpha: 0.05
+  min_valid_draws: 9500
+
+zero_tolerance: 1.0e-12
+
+expected:
+  ds2_rows: 4480
+  ds2_simulations: 640
+  ds2_methods: 7
+  ds2_strata: 2
+  ds2_factor_cells_per_stratum: 64
+  ds3_real_rows: 54
+  risk2_rows: 196

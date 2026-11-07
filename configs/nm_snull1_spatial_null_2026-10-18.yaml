@@ -1,0 +1,82 @@
+schema_version: 1
+task_id: NM-SNULL1
+date: 2026-10-18
+
+protocol:
+  path: docs/NM_NEXT7_PREREG_2026-10-18.md
+  freeze_manifest: results/v1_next7/manifests/prereg_freeze.json
+
+inputs:
+  domain_predictions: results/v1_ds1/rework_2026-10-18/per_unit/domain_predictions.tsv.gz
+  domain_seed_metrics: results/v1_ds1/rework_2026-10-18/tables/domain_seed_metrics.tsv
+  global_null_metrics: results/v1_next6/attempts/run_20261018T125342Z/tables/null1_unit_metrics.tsv
+  d3_section_source: data/processed/gse214986_spatial_atac_mouse_embryo/gse214986_raw_peak_pilot.h5ad
+  coordinates:
+    d1_gse263333: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d100__s0/methods/annotation/gse263333_5m_20um_atac__d100__s0/macs3_summit_501bp/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+    d2_gse205052: results/v1/g4/m2/annotation/gse205052_mousebrain_20um/macs3_summit_501bp/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+    d3_gse214986: results/v1/g4/m3d_gse214986/construction/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+
+output:
+  root: results/v1_next7
+
+seeds:
+  permutation: 20261018
+  clustering_primary: 20261018
+
+thresholds:
+  permutation_draws: 10000
+  alpha: 0.05
+  bh_alpha: 0.05
+  chance_coverage: 0.80
+  null_positivity_coverage: 0.80
+  numeric_tolerance: 1.0e-12
+
+spatial:
+  primary_block_factor: 10
+  block_factors:
+    - 5
+    - 10
+    - 20
+  block_rule: floor_coordinate_grid_side_equals_factor_times_section_median_nearest_neighbor_distance
+
+scope:
+  primary_seed: 20261018
+  sectioned_dataset: d3_gse214986
+  datasets:
+    - d1_gse263333
+    - d2_gse205052
+    - d3_gse214986
+  representations:
+    - P
+    - B
+    - F_signac_geneactivity
+  sensitivity:
+    dataset_key: d1_gse263333
+    depth_fraction: 0.01
+    role: NONCOMPARABLE_SENSITIVITY_ONLY
+    reason: inherited_from_frozen_ds1_rework_and_accepted_nm_rank2_fold
+  dataset_loo:
+    - d1_gse263333
+    - d2_gse205052
+    - d3_gse214986
+
+endpoints:
+  - ARI
+  - NMI
+
+expected:
+  units_total: 17
+  primary_units: 14
+  sensitivity_units: 3
+  primary_cells: 28
+  sensitivity_cells: 6
+  primary_seed_units: 17
+  block_sensitivity_rows: 102
+  dataset_loo_rows: 3
+  hypotheses: 5
+  spatial_sections: 8
+
+resources:
+  workers: 1
+  nice: 15
+  memory_limit_mb: 4096

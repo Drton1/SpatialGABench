@@ -1,0 +1,46 @@
+schema_version: 1
+authorization: governance/authorizations/G4_M3H_GSE205052_RNA_FIDELITY_AUTHORIZATION_2026-07-17.json
+authorization_sha256: 8a62d2a10c6e7c4e64c8e1ed7c98b3cdfdbec4713d77bd71fd93fe49f9998208
+previous_gate: governance/gates/G4_M3G_INDEPENDENT_PATHOLOGY_TRUTH_CANDIDATE_AUDIT_2026-07-17.json
+previous_gate_sha256: ce105bf9a62a6b80b554a090cc35595c069c776752f2ed64d16ac834120527be
+preflight_evidence: results/v1/g4/m3h_gse205052_rna_replication/pairing_preflight_evidence.json
+preflight_evidence_sha256: 1ec5ff41d7babcf4d94920a34446087ab30636017e733532fdbe38105a4f1e9f
+observation_contract: results/v1/g4/m3h_gse205052_rna_replication/observation_contract.tsv
+observation_contract_sha256: 34da5c730b7d0f1c263dfac64e33cafa6dbdc8a7f241d3fb6049ce611de067f8
+m2a_evidence: results/v1/g4/m2/evidence/g4_m2_annotation_completion_evidence.json
+m2a_evidence_sha256: 70e37cf2a2fbee9fb68002655717dd1eca200bd4398cc4c0e18ce9da818651c3
+m2b_evidence: results/v1/g4/m2/evidence/g4_m2_software_completion_evidence.json
+m2b_evidence_sha256: 488bfe138335053387e4d52b6b307867573c86f190ce3fb264dc5b920ce76968
+study_id: zhang_2023
+dataset_id: gse205052_mousebrain_20um
+genome_build: mm10
+rna_matrix: data/raw/gse205054_mousebrain_20um_rna/GSM6204636_MouseBrain_20um_matrix.tsv.gz
+rna_matrix_sha256: e0962d85ce58e67e342b95f4f2c252e3a680a4778d94364559b9b6d6b85fe4e3
+gene_annotation: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+gene_annotation_sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a
+output_root: results/v1/g4/m3h_gse205052_rna_replication
+normalization:
+  method: normalize_total_log1p
+  target_sum: 10000.0
+rna_gene_eligibility:
+  gene_biotype: protein_coding
+  minimum_detected_spot_fraction: 0.05
+  detection_operator: counts_gt_zero
+primary_endpoint:
+  id: coverage_adjusted_median_gene_wise_spearman
+  undefined_gene_correlation: 0.0
+  median_scope: matched_rna_eligible_genes_including_undefined_as_zero
+  coverage: variable_ga_genes_divided_by_all_rna_eligible_genes
+  formula: median_gene_wise_spearman_times_variable_ga_coverage
+secondary_endpoints: [global_pseudobulk_spearman, top100_gene_jaccard, evaluable_gene_fraction]
+correlation_chunk_genes: 128
+expected_evaluation_observations: 2373
+expected_annotation_runs: 28
+expected_software_runs: 3
+not_applicable_methods:
+  raw_peak_lsi_baseline: cell_embedding_not_gene_activity
+  cicero_geneactivity: subset_only_not_full_observation_paired_endpoint
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+labels_or_clusters_allowed: false
+ranking_allowed: false
+policy_fit_allowed: false

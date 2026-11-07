@@ -1,0 +1,84 @@
+schema_version: 1
+project_config: configs/main.yaml
+dataset_role: external_holdout
+authorization: governance/authorizations/G5_H5B_EXTERNAL_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-18.json
+authorization_sha256: 9a5e40eb842a22f7a4831d6bf6a492e2f97ef2334cbd4ce8aa4ac56eb0ac283d
+preflight_gate: governance/gates/G5_H5B_METHOD_CONSTRUCTION_PREFLIGHT_2026-07-18.json
+preflight_gate_sha256: 740a9e79af6733611b469f310f4cdee7c9aee67a516249634c222a39f3814976
+frozen_execution_manifest: results/v1/g5/h4_one_pass_protocol_freeze/method_execution_manifest.tsv
+frozen_execution_manifest_sha256: aaae85f3d4cbb2cafe23141f94dad7963ad18a4c69c78b2b29671e56f7fd7d4a
+planned_execution_manifest: results/v1/g5/h5b_method_construction_preflight/planned_method_execution_manifest.tsv
+planned_execution_manifest_sha256: 0b625411ac95b3ea2c10d45f89cf4acd049b3e1c4dfe8cade705c0bb09f955eb
+representation_summary: results/v1/g5/h5a_external_representations/evidence/representation_summary.tsv
+representation_summary_sha256: cf13df27a539fb90672db75154861350bb0bef0c61cedbfa83b0051a3c06ac11
+frozen_artifacts: [authorization, preflight_gate, frozen_execution_manifest, planned_execution_manifest, representation_summary]
+output_root: results/v1/g5/h5b_external_method_construction/software
+run_id_prefix: g5_h5b
+comparison_scope: frozen_external_fragment_native_construction_only
+representation_id: filtered_fragments_with_frozen_peak_observation_contract
+subset_policy: full
+threads: 8
+seed: 4160
+forbidden_holdout_accessions: [GSE279771]
+forbidden_construction_inputs: [rna, labels, clusters, pathology, simulation_truth, method_outcomes]
+oci:
+  runtime_dir: /tmp/podman-run-1002
+  podman: /tmp/spatialgabench-podman-root/usr/bin/podman
+  root: /tmp/spatialgabench-podman-storage
+  runroot: /tmp/spatialgabench-podman-runroot
+  storage_driver: vfs
+  runtime: containers/tools/run_crun_local.sh
+  conmon: /tmp/spatialgabench-podman-root/usr/bin/conmon
+  cgroup_manager: cgroupfs
+methods:
+  snapatac2_geneactivity:
+    software_name: SnapATAC2
+    image: localhost/spatialgabench-snapatac2@sha256:de84d6eab3fe9c2bdfe26e5e7771727e70c602b4c0465a9ac987550cf17caa69
+    environment_lock: envs/containers/snapatac2-py311.lock.txt
+    adapter: adapters/snapatac2_geneactivity.py
+    method_script: null
+    implementation_files: [configs/g5_h5b_software_methods.yaml, adapters/snapatac2_geneactivity.py, adapters/g4_m2_software_driver.py, spatialgabench/g4_m2_software.py, spatialgabench/software_wrappers/common.py, spatialgabench/software_wrappers/contracts.py, spatialgabench/runtime/process_tree.py, containers/tools/run_with_memory_tracking.py]
+    construction_input_classes: [accessibility_fragments, gene_annotation]
+  signac_geneactivity:
+    software_name: Signac
+    image: localhost/spatialgabench-signac@sha256:5df60a2b3dedb840aa4f4dfe8983bd562a06ecb65d090bfe4416944fc2e5ecfb
+    environment_lock: envs/containers/signac-r.lock.tsv
+    adapter: adapters/r_geneactivity_driver.py
+    method_script: adapters/signac_geneactivity.R
+    implementation_files: [configs/g5_h5b_software_methods.yaml, adapters/r_geneactivity_driver.py, adapters/signac_geneactivity.R, adapters/g4_m2_software_driver.py, spatialgabench/g4_m2_software.py, spatialgabench/software_wrappers/common.py, spatialgabench/software_wrappers/contracts.py, spatialgabench/runtime/process_tree.py, containers/tools/run_rscript_in_oci.sh, containers/tools/run_with_memory_tracking.py]
+    construction_input_classes: [accessibility_fragments, frozen_peak_matrix, gene_annotation]
+  archr_genescorematrix:
+    software_name: ArchR
+    image: localhost/spatialgabench-archr@sha256:a05555fa5900a23e0345aae1bd65e665c0b4a678401b1c32091707eb7662705d
+    environment_lock: envs/containers/archr-r.lock.tsv
+    adapter: adapters/r_geneactivity_driver.py
+    method_script: adapters/archr_genescorematrix.R
+    implementation_files: [configs/g5_h5b_software_methods.yaml, adapters/r_geneactivity_driver.py, adapters/archr_genescorematrix.R, adapters/g4_m2_software_driver.py, spatialgabench/g4_m2_software.py, spatialgabench/software_wrappers/common.py, spatialgabench/software_wrappers/contracts.py, spatialgabench/runtime/process_tree.py, containers/tools/run_rscript_in_oci.sh, containers/tools/run_with_memory_tracking.py]
+    construction_input_classes: [accessibility_fragments, gene_annotation]
+samples:
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    sample_id: P2S3
+    genome_build: mm10
+    input_h5ad: results/v1/g5/h5a_external_representations/gse308623_p2s3/matched/gse308623_p2s3__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g5/h5a_external_representations/gse308623_p2s3/filtered_fragments/gse308623_p2s3__eligible.fragments.tsv.gz
+    source_fragments_sha256: 8905b53ba28169fabc282510c24ca327b1c3025ce460875b8b93d7e2a54574f9
+  gse307620_mbr6:
+    study_id: xue_2026_spatial_atac_hic
+    sample_id: GSM9228169_MouseBrain_R6
+    genome_build: mm10
+    input_h5ad: results/v1/g5/h5a_external_representations/gse307620_mbr6/matched/gse307620_mbr6__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g5/h5a_external_representations/gse307620_mbr6/filtered_fragments/gse307620_mbr6__eligible.fragments.tsv.gz
+    source_fragments_sha256: 7dffd324d09484cc8d91252a0d4f94ce3d0e4a2b88a05fd1cf41b6c0b10b2b23
+references:
+  mm10:
+    source_gene_annotation: data/reference/mm10/gene_annotation.gtf.gz
+    source_gene_annotation_sha256: 53bc4bb37067ef52596d05c51ab6b01f1aaa3f27184b1ef938812f3a27522221
+    source_chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    source_chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    chrom_sizes: results/v1/g4/m2/references/mm10/canonical.chrom.sizes.tsv
+    chrom_sizes_sha256: e08ce8d40e33e9197cb50cf7a5f116e5f5cf4ddd232a173ef266c9bc5c7f5715
+    gene_annotation: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+    gene_annotation_sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a
+    audit: results/v1/g4/m2/references/mm10/canonical.annotation.audit.json
+    audit_sha256: c31a31eebbb3ec9dec62a2e586accf47b777e0c77c723156b50c78ce4dd1200a

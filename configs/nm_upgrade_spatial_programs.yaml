@@ -1,0 +1,147 @@
+schema_version: 1
+gate: NM_UPGRADE
+milestone: NU4_heldout_RNA_spatial_program_preservation
+upgrade_protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+output_root: results/v1/nm_upgrade/nu4_spatial_programs
+
+folds:
+  count: 5
+  coordinate_quantile_bins_per_axis: 5
+  assignment_rule: (row_bin + 2 * column_bin) modulo 5
+  minimum_test_observations: 100
+  minimum_train_observations: 400
+
+rna_programs:
+  components: 10
+  normalization: library_size_10000_log1p
+  target_sum: 10000.0
+  gene_biotype: protein_coding
+  minimum_detected_training_fraction: 0.05
+  minimum_eligible_training_genes: 500
+  center_using_training_RNA_gene_means: true
+  scale_genes: false
+  svd_solver: randomized
+  random_seed: 4160
+  posthoc_component_selection: false
+  posthoc_sign_alignment: false
+  undefined_component_correlation: 0.0
+
+spatial_metric:
+  graph: symmetric_binary_knn
+  neighbors: 8
+  zero_variance_morans_i: 0.0
+  primary_score_metric: heldout_component_spearman
+  secondary_metrics:
+    - heldout_component_pearson
+    - absolute_morans_i_difference
+
+aggregation:
+  unit: fold_component
+  within_contract_summary: median_across_5_folds_x_10_components
+  control_delta_score: method_minus_representation_matched_control
+  control_delta_morans_difference: control_minus_method
+  bootstrap_draws_descriptive_only: 2000
+  bootstrap_seed: 41023
+  no_fold_or_component_independence_claim: true
+
+methods:
+  annotation:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  matched_control: accessibility_matched_random_peak_to_gene_control_pc
+  software:
+    - snapatac2_geneactivity
+    - signac_geneactivity
+    - archr_genescorematrix
+  standard_representations:
+    - macs3_summit_501bp
+    - fixed_bin_10kb
+    - fixed_bin_25kb
+    - fixed_bin_50kb
+  insertion_representation: insertion_derived_fixed_bin_25kb
+
+samples:
+  gse263333_5m_20um_atac:
+    study_id: guo_2025_spatial_mux
+    study_family: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    input_track_panel: [P, B, F]
+    rna_format: tenx_mtx
+    rna_matrix: {path: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/matrix.mtx.gz, sha256: c93c24489582bbab1fe8327171f025af9628d68f1104dda46ddcd0249a902158}
+    rna_features: {path: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/features.tsv.gz, sha256: d62a8c3e36820853834509462157b303d6b33da7b638bf8c89a3e50ef1109886}
+    rna_barcodes: {path: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/barcodes.tsv.gz, sha256: 9419658bf40809c3ec1750a232095cc33e3643c9bcbdf771e295c6779a8d0207}
+    positions: {path: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv, sha256: 3d9f4ad1c3a6a1e50d8023c69533d8d67d63dd4f0eb08e55989d20a6b8dc83db}
+    gene_annotation: {path: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz, sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a}
+    expected_evaluation_observations: 9686
+
+  gse205052_mousebrain_20um:
+    study_id: zhang_2023
+    study_family: zhang_2023
+    species: mouse
+    genome_build: mm10
+    input_track_panel: [P, B, F]
+    rna_format: wide_tsv_gzip
+    rna_matrix: {path: data/raw/gse205054_mousebrain_20um_rna/GSM6204636_MouseBrain_20um_matrix.tsv.gz, sha256: e0962d85ce58e67e342b95f4f2c252e3a680a4778d94364559b9b6d6b85fe4e3}
+    positions: {path: data/raw/gse205054_mousebrain_20um_rna/GSM6204636_spatial/MouseBrain_20um_spatial/tissue_positions_list.csv, sha256: 1b06024e5b2abc34f55ef95aeee838033afd5ccc33ac2623034e75ee1873dcfe}
+    gene_annotation: {path: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz, sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a}
+    expected_evaluation_observations: 2373
+
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    study_family: zhang_2025_brain_triomics
+    species: mouse
+    genome_build: mm10
+    input_track_panel: [P, B, F]
+    rna_format: wide_csv_gzip
+    rna_matrix: {path: data/raw/v1/GSE308623/GSM9247580_01_P2S3_RNA_matrix.csv.gz, sha256: b74a124210736724e080eba32daeaf152962b5c0df716025f24801b89671c920}
+    positions: {path: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz, sha256: 8a10102fd9c6fe772f6e299ead6b8d97ce5af54e8143cd1d77a7399bc5d45e65}
+    gene_annotation: {path: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz, sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a}
+    expected_evaluation_observations: 7122
+
+  gse205055_humanbrain_50um:
+    study_id: zhang_2023
+    study_family: zhang_2023
+    species: human
+    genome_build: hg38
+    input_track_panel: [P, B, F]
+    rna_format: wide_tsv_gzip
+    rna_matrix: {path: data/raw/v1/GSE205055/GSM6206885_HumanBrain_50um_matrix.tsv.gz, sha256: a45d110c233e463e78bec42c090e53005bc2f006b5a94dd55d0ec2ca480bf73a}
+    positions: {path: data/raw/v1/GSE205055/spatial/HumanBrain_50um_spatial/tissue_positions_list.csv, sha256: c8450efff1ef3a0ae00b0f952e5ad4600524cb3faabcd49d6ff31267522367fa}
+    gene_annotation: {path: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz, sha256: 4866d04bb1ae47e73ced74aa57d480be437243e0744e328db634e101e5b7b368}
+    expected_evaluation_observations: 2500
+
+  gse279771_gbm_insertion_track:
+    study_id: huang_2025
+    study_family: huang_2025
+    species: human
+    genome_build: hg38
+    input_track_panel: [I]
+    rna_format: tenx_h5
+    rna_matrix: {path: data/raw/v1/GSE279771/GSM8579953_3-A1-RNA_filtered_feature_bc_matrix.h5, sha256: 6f62b3fa026eed39f8a1de0b64f2266f96fe8066c1bed7cdcbf70b3fc7e3eb19}
+    positions: {path: data/raw/v1/GSE279771/GBM_tissue_positions.csv, sha256: e20058b5356189243cf50c82f83f1a19fcd57c8f933ded3650002fad2c74ea51}
+    gene_annotation: {path: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz, sha256: 4866d04bb1ae47e73ced74aa57d480be437243e0744e328db634e101e5b7b368}
+    expected_evaluation_observations: 2768
+
+method_sources:
+  g4_annotation_summary: results/v1/g4/m2/evidence/g4_m2_annotation_run_summary.tsv
+  g4_software_summary: results/v1/g4/m2/evidence/g4_m2_software_run_summary.tsv
+  g5_external_summary: results/v1/g5/h5b_external_method_construction/evidence/run_summary.tsv
+  fb4_insertion_manifest: results/v1/full_benchmark/fb4_gse279771_insertion_rna/construction/method_manifest.tsv
+  nu1_human_completion: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/completion_evidence.json
+
+expected_samples: 5
+expected_study_families: 4
+expected_method_contracts: 114
+expected_matched_control_deltas: 85
+rna_used_for_construction: false
+labels_or_clusters_allowed: false
+pathology_allowed: false
+method_rerun_allowed: false
+policy_refit_run: false
+input_tracks_pooled: false
+universal_ranking_run: false
+final_ranking_run: false

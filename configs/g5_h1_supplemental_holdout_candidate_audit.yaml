@@ -1,0 +1,93 @@
+schema_version: 1
+gate: G5
+milestone: H1_SUPPLEMENTAL_HOLDOUT_CANDIDATE_AUDIT
+authorization: governance/authorizations/G5_H1_SUPPLEMENTAL_HOLDOUT_CANDIDATE_AUDIT_AUTHORIZATION_2026-07-17.json
+authorization_sha256: a6681e54383464c24aaeec55ff324294d57e80147bae5f37542d41153cb83006
+previous_gate: governance/gates/G5_H0_PREACCESS_FEASIBILITY_AUDIT_2026-07-17.json
+previous_gate_sha256: 2f77fb0717ae60dc4fb26a4843bb0b81897802975e46e03abbf97131720024e9
+m4_policy: results/v1/g4/m4_recommendation_policy/frozen_task_specific_recommendation_policy.json
+m4_policy_sha256: eb6e9ce5b8a73dfbc73d00b14295ae3b1d2c2cb1f55d5e609e3a260d51d3e9d4
+
+selected_candidate:
+  study_id: xue_2026_spatial_atac_hic
+  accession: GSE307620
+  sample_id: GSM9228169_MouseBrain_R6
+  sample_accession: GSM9228169
+  species: mouse
+  genome_build: mm10
+  tissue: mouse_brain_anterior_hypothalamus_coronal_section
+  technology: Spatial-ATAC-Hi-C
+  source_semantics: cellranger_atac_standard_fragments
+  paired_rna: false
+  selection_rule: lexicographically_first_released_mouse_brain_sample
+  public_date: 2026-07-01
+  series_metadata:
+    path: data/manifests/remote/GSE307620_geo_full.txt
+    sha256: 0e5fff68d7d0c428cf9e951795bd94ae95679cb7a8b6779bb3354a27d121c123
+  sample_metadata:
+    path: data/manifests/remote/GSM9228169_geo_full.txt
+    sha256: 5a12489b536f2939c2c9788b0d6a5faad0780662756f01c68a06c0f885959623
+  alternate_sample_metadata:
+    path: data/manifests/remote/GSM9228170_geo_full.txt
+    sha256: 7415025d931d5d38b45639518631b5bf14ee2c13779019c288271c9db485cbc1
+  positions:
+    path: data/candidates/GSE307620/GSM9228169/GSM9228169_MouseBrainR6_tissue_positions_list.csv.gz
+    sha256: 958ae8bdd72e35a5ff1c8bdcb031e0716eb26445eda3a260655eebc6e15d2998
+    expected_bytes: 15102
+    expected_rows: 2500
+    expected_in_tissue_rows: 1966
+  metadata_json:
+    path: data/candidates/GSE307620/GSM9228169/GSM9228169_MouseBrainR6_metadata.json.gz
+    sha256: 33a8fe0213eb3fe33c040a355e55d333bcef97382df7676b415aaa5a3e723863
+    expected_bytes: 262
+    expected_num_tixels: 1966
+  minimal_execution_download:
+    file_name: GSM9228169_MBR6merge.fragments.tsv.gz
+    url: https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9228nnn/GSM9228169/suppl/GSM9228169_MBR6merge.fragments.tsv.gz
+    expected_bytes: 2219237716
+    download_authorized: false
+  optional_index:
+    file_name: GSM9228169_MBR6merge.fragments.tsv.gz.tbi.gz
+    url: https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9228nnn/GSM9228169/suppl/GSM9228169_MBR6merge.fragments.tsv.gz.tbi.gz
+    expected_bytes: 1146200
+    download_authorized: false
+  excluded_large_hic_file:
+    file_name: GSM9228169_MBR6merge.hic.fragments.sorted.header.tsv.gz
+    expected_bytes: 2469467225
+    download_authorized: false
+
+candidate_sources:
+  GSE260694:
+    path: data/manifests/remote/GSE260694_geo_full.txt
+    sha256: 0d8058a6f28bc82e50f295fac9996eac92c8a8881ea6b7054a0566d515b572e4
+    recommendation: exclude_processed_standard_fragments_absent_raw_reconstruction_required
+  GSE237524:
+    path: data/manifests/remote/GSE237524_geo_full.txt
+    sha256: 7467a0421532bd8afc4722e4ae834a1223bcec9e3390103e53ce6f36581609e3
+    recommendation: exclude_cell_culture_not_spatial_tissue_and_raw_archive_required
+  GSE218593:
+    path: data/manifests/remote/GSE218593_geo_full.txt
+    sha256: 4a7161e3c0c997413bccfed2d259116c96312474f251bc30059beeeb95e12a38
+    recommendation: exclude_not_independent_of_development_GSE205_family
+  GSE305245:
+    path: data/manifests/remote/GSE305245_geo_full.txt
+    sha256: ad2760d91cbabbea02bc82811f6032d61e3af18697bfd42dd1f66f90df302c57
+    recommendation: exclude_nonpaired_single_nucleus_ATAC_and_spatial_RNA_macaque_unsupported
+  GSE300809:
+    path: data/manifests/remote/GSE300809_geo_full.txt
+    sha256: bc3f6aff51bc851f30cf99351ec5d2da3f06b722cfc4866f63674e55a3a559fe
+    recommendation: exclude_nonspatial_nuclei_STABseq_no_spatial_accessibility_coordinates
+
+required_active_task: portability_runtime_failure
+required_exact_leaf_count: 5
+biological_utility_holdout_added: false
+large_fragment_download_run: false
+raw_fastq_or_bam_download_run: false
+method_execution_run: false
+existing_holdout_accessed: false
+policy_refit_run: false
+full_benchmark_run: false
+results_writing_run: false
+universal_ranking_run: false
+final_ranking_run: false
+output_root: results/v1/g5/h1_supplemental_holdout_candidate

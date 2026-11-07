@@ -1,0 +1,44 @@
+schema_version: 1
+gate: NM_METHOD_UPGRADE
+milestone: PEAKFREE_V1_REAL_ATAC_FEASIBILITY
+protocol: protocols/NM_PEAKFREE_V1_FEASIBILITY_PROTOCOL_2026-08-02.md
+proposal: refine-logs/peakfree_multiresolution_ga/FINAL_PROPOSAL.md
+amendment: governance/amendments/NM_PEAKFREE_V1_PROJECTION_CACHE_RESUME_2026-08-02.yaml
+output_root: results/v1/nm_method_upgrade/peakfree_v1_feasibility
+
+condition_id: gse263333_5m_20um_atac__d005__s42001
+study_id: guo_2025_spatial_mux
+species: mouse
+genome_build: mm10
+expected_observations: 9686
+expected_fragment_events: 1233929
+input_root: results/v1/nm_method_upgrade/peakfree_v1_input_audit/gse263333_d005_s42001
+atomic_representation: results/v1/nm_method_upgrade/peakfree_v1_input_audit/gse263333_d005_s42001/gse263333_d005_s42001_peakfree_v1__fixed_bin_5kb.h5ad
+representation_manifest: results/v1/nm_method_upgrade/peakfree_v1_input_audit/gse263333_d005_s42001/representation_manifest.tsv
+representation_validation: results/v1/nm_method_upgrade/peakfree_v1_input_audit/gse263333_d005_s42001/matched_representation_validation.json
+
+scales_kb: [5, 25, 100]
+scale_factor: 10000.0
+alpha: 0.05
+gene_chunk_size: 128
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+references:
+  genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+  promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+  tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+
+gates:
+  maximum_single_scale_fraction: 0.99
+  minimum_multiscale_gene_fraction: 0.01
+  maximum_boundary_gene_fraction: 0.05
+  maximum_insufficient_spot_fraction: 0.05
+
+rna_access_authorized: false
+labels_clusters_pathology_authorized: false
+peak_access_authorized: false
+parameter_tuning_authorized: false
+universal_ranking_authorized: false
+final_ranking_authorized: false

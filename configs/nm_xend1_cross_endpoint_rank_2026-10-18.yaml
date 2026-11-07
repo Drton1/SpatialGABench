@@ -1,0 +1,130 @@
+schema_version: 1
+task_id: NM-XEND1
+date: 2026-10-18
+
+protocol:
+  path: docs/NM_NEXT4_PREREG_2026-10-18.md
+  freeze_manifest: results/v1_next4/manifests/prereg_freeze.json
+
+inputs:
+  sat1_simulation_cell_audit: results/v1_sat1/attempts/run_20261018T074950Z/tables/sat1_simulation_cell_audit.tsv.gz
+  ds1_domain_seed_metrics: results/v1_ds1/rework_2026-10-18/tables/domain_seed_metrics.tsv
+  ds1_marker_summary: results/v1_ds1/rework_2026-10-18/tables/marker_top100_summary.tsv
+  ds1_svg_summary: results/v1_ds1/rework_2026-10-18/tables/svg_summary.tsv
+
+output:
+  root: results/v1_next4
+
+seeds:
+  bootstrap: 20261018
+  permutation: 20261018
+
+thresholds:
+  stability_tau: 0.80
+  material_tau_gap: 0.20
+  top1_disagreement_fraction: 0.20
+  null_quantile: 0.95
+  bootstrap_draws: 10000
+  permutation_draws: 10000
+  numeric_tolerance: 1.0e-12
+  min_estimable_top1_fraction: 0.50
+
+simulation:
+  strata:
+    - mechanistic
+    - empirical_semisynthetic
+  methods:
+    annotation:
+      - promoter_only_2kb_pc
+      - gene_body_pc
+      - promoter_plus_gene_body_2kb_pc
+      - distance_weighted_distal_250kb_decay50kb_pc
+      - promoter_plus_distal_2kb_250kb_decay50kb_pc
+    controls:
+      - random_peak_to_gene_negative_control_pc
+      - accessibility_matched_random_peak_to_gene_control_pc
+  endpoints:
+    - domain_ari
+    - domain_nmi
+    - marker_domain_auroc
+    - peak_gene_link_auprc
+    - svg_moran_rank_spearman
+    - svg_jaccard_at_10
+  endpoint_families:
+    domain_ari: domain
+    domain_nmi: domain
+    marker_domain_auroc: marker
+    peak_gene_link_auprc: peak_gene_link
+    svg_moran_rank_spearman: svg
+    svg_jaccard_at_10: svg
+
+real:
+  methods:
+    - P
+    - B
+    - F
+  method_aliases:
+    F_signac_geneactivity: F
+  endpoints:
+    - domain_ari
+    - domain_nmi
+    - marker_mean_precision
+    - marker_mean_recall
+    - svg_spearman
+    - svg_jaccard
+  endpoint_families:
+    domain_ari: domain
+    domain_nmi: domain
+    marker_mean_precision: marker
+    marker_mean_recall: marker
+    svg_spearman: svg
+    svg_jaccard: svg
+  contexts:
+    primary:
+      - dataset_key: d1_gse263333
+        depth_fraction: 0.05
+      - dataset_key: d1_gse263333
+        depth_fraction: 0.25
+      - dataset_key: d1_gse263333
+        depth_fraction: 1.0
+      - dataset_key: d2_gse205052
+        depth_fraction: 1.0
+    sensitivity:
+      - dataset_key: d1_gse263333
+        depth_fraction: 0.01
+
+expected:
+  sat1_rows_total: 40320
+  sat1_selected_rows: 19200
+  strata: 2
+  factor_cells_per_stratum: 64
+  replicates_per_cell: 5
+  annotation_methods: 5
+  controls: 2
+  simulation_endpoints: 6
+  simulation_endpoint_pairs: 15
+  simulation_units: 128
+  simulation_unit_scores_rows: 3840
+  simulation_pair_tau_rows: 1920
+  simulation_pair_summary_rows: 30
+  simulation_top1_rows: 30
+  simulation_null_rows: 26
+  real_primary_units: 4
+  real_sensitivity_units: 1
+  real_methods: 3
+  real_endpoints: 6
+  real_endpoint_pairs: 15
+  real_primary_unit_scores_rows: 72
+  real_sensitivity_unit_scores_rows: 18
+  real_unit_scores_rows: 90
+  real_pair_tau_rows: 75
+  real_pair_summary_rows: 30
+  real_top1_rows: 30
+  real_null_rows: 24
+  unit_summary_rows: 133
+  aggregate_rows: 15
+
+resources:
+  workers: 1
+  nice: 15
+  memory_limit_mb: 8192

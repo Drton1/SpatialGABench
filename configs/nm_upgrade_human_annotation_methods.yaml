@@ -1,0 +1,63 @@
+schema_version: 1
+gate: NM_UPGRADE
+milestone: NU1_NU2_human_method_construction
+dataset_role: external_holdout
+authorization_milestone: H5B_external_method_construction
+authorization: governance/authorizations/NM_U1_U2_HUMAN_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-30.json
+authorization_sha256: 96aeb87836e0606d7f7f5953bd34ad7c263970749d41e63b5dcbb86cf8702249
+planned_execution_manifest: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/planned_method_execution_manifest.tsv
+planned_execution_manifest_sha256: 59fa21e072fe1d3137e33f61546ca3b78234582a9fd47ad9c80265fa07480f54
+representation_summary: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/representation_summary.tsv
+representation_summary_sha256: 81168cab53d6e25d348e62ed2502332c02068520532480cd9f55009e7da9f7aa
+representation_completion: results/v1/nm_upgrade/nu1_nu2_human_representations/evidence/completion_evidence.json
+representation_completion_sha256: d3927859c4ed8ba02c1a3f13a2d7973eb56e70f9317fac6a55365a21e80e158a
+upgrade_protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+upgrade_protocol_sha256: a0ef35060c9c4b2496e6676b5c666560caa479c86ffa6839118c4de8db2623d0
+frozen_artifacts:
+- authorization
+- planned_execution_manifest
+- representation_summary
+- representation_completion
+- upgrade_protocol
+output_root: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation
+run_id_prefix: nm_u1_u2
+input_validation_scope: NU1_NU2_human_accessibility_method_construction_only
+driver_stage: nm_u1_u2_annotation_driver
+comparison_scope: within_representation_human_extension_construction_only
+subset_policy: full
+forbidden_holdout_accessions: []
+forbidden_construction_inputs:
+- rna
+- labels
+- clusters
+- pathology
+- images
+- simulation_truth
+- method_outcomes
+methods:
+- promoter_only_2kb_pc
+- gene_body_pc
+- promoter_plus_gene_body_2kb_pc
+- distance_weighted_distal_250kb_decay50kb_pc
+- promoter_plus_distal_2kb_250kb_decay50kb_pc
+- accessibility_matched_random_peak_to_gene_control_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+references:
+  hg38:
+    genes:
+      path: data/reference/hg38/protein_coding_genes.bed
+      sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b
+    promoters:
+      path: data/reference/hg38/protein_coding_promoters_2kb.bed
+      sha256: f5ff2b427be9c186a5e0694fd949bc81d8216a6ac0153ad8d0118b672ac4176b
+    gene_body:
+      path: data/reference/hg38/protein_coding_gene_body.bed
+      sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b
+    tss:
+      path: data/reference/hg38/protein_coding_tss.bed
+      sha256: 13b97f010a5c4c2fa147f58fd5e7148db13054f6731bdc04dc789656b80f84c3

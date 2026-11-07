@@ -1,0 +1,44 @@
+schema_version: 1
+gate: FULL_BENCHMARK
+milestone: FB2_seven_study_portability_synthesis
+completion_protocol: protocols/FULL_BENCHMARK_COMPLETION_PROTOCOL_2026-07-18.md
+development_input: results/v1/g4/m3a/tables/g4_m3a_admissibility_run_table.tsv
+development_gate: governance/gates/G4_M3A_ADMISSIBILITY_EVALUATION_2026-07-16.json
+external_input: results/v1/g5/h5c_external_evaluation/method_utility.tsv
+external_gate: governance/gates/G5_H5C_EXTERNAL_EVALUATION_2026-07-18.json
+development_studies:
+  deng_2022: {species: mouse, genome_build: mm10}
+  guo_2025_spatial_mux: {species: mouse, genome_build: mm10}
+  guo_deng_2025_ffpe_atac: {species: mouse, genome_build: mm10}
+  li_2026: {species: human, genome_build: hg38}
+  zhang_2023: {species: mouse, genome_build: mm10}
+external_studies:
+  zhang_2025_brain_triomics: {species: mouse, genome_build: mm10}
+  xue_2026_spatial_atac_hic: {species: mouse, genome_build: mm10}
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+software_methods:
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+matrix_representations:
+  - macs3_summit_501bp
+  - fixed_bin_10kb
+  - fixed_bin_25kb
+  - fixed_bin_50kb
+fragment_representation: filtered_fragments_with_frozen_peak_observation_contract
+subset_method: cicero_geneactivity
+subset_representation: macs3_summit_501bp_cicero_subset
+confidence_level: 0.95
+expected_common_rows_per_study: 23
+expected_common_rows: 161
+output_root: results/v1/full_benchmark/fb2_seven_study_portability
+construction_rerun: false
+policy_refit_run: false
+resource_ranking_run: false
+universal_ranking_run: false
+final_ranking_run: false

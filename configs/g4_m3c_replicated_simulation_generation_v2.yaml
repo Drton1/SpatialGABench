@@ -1,0 +1,25 @@
+schema_version: 1
+gate: G4
+milestone: M3C_REPLICATED_SIMULATION_GENERATION
+authorization: governance/authorizations/G4_M3C_REPLICATED_SIMULATION_GENERATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 7d124dae42a3ef415c928ff2cd8a111b151ddb89cf649579d792c4a0e02dd722
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+amendment: governance/preregistration/G4_SIMULATION_COMPONENT_IDENTIFIABILITY_AMENDMENT_2026-07-16.yaml
+amendment_sha256: 077c3f5bf40b59accca6ed7cf8b0527bf4f8c3e77dfba449ca3ac1ed1a6978ab
+canary_evidence: results/v1/g4/m3c_simulation_component_identifiable_canary_v2/g4_m3c_simulation_canary_completion_evidence.json
+canary_evidence_sha256: a1935b5f966a953d8a5e1ea39f0e1c54cdbf02794604233b848f3521f71ffe5a
+simulation_design: configs/g4_m3c_simulation_design_v2.yaml
+simulation_design_sha256: 4900995341a51d96c5ea8bebd2d46977487fd7d50ce0c446fcb4644f13671150
+output_root: results/v1/g4/m3c_simulation_factorial_v2
+expected_simulations: 640
+expected_tracks: [mechanistic, empirical_semisynthetic]
+expected_conditions_per_seed_per_track: 64
+expected_seeds: [3101, 3102, 3103, 3104, 3105]
+holdout_access_allowed: false
+method_construction_run: false
+evaluation_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+final_ranking_run: false
+

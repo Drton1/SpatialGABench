@@ -1,0 +1,61 @@
+project:
+  name: SpatialGABench
+  version: 1.0.0-dev
+  phase: representation_pilot
+  current_gate: G2
+  status: red
+
+registries:
+  datasets: registries/v1/datasets.yaml
+  methods: registries/v1/methods.yaml
+  tasks: registries/v1/tasks.yaml
+
+protocols:
+  dataset_inclusion: protocols/DATASET_INCLUSION_PROTOCOL.md
+  representation_fairness: protocols/REPRESENTATION_FAIRNESS_PROTOCOL.md
+  statistical_analysis: protocols/STATISTICAL_ANALYSIS_PLAN.md
+  claim_evidence: protocols/CLAIM_EVIDENCE_MATRIX.md
+
+execution:
+  allow_full_benchmark: false
+  allow_results_writing: false
+  allow_final_ranking: false
+  require_project_validation: true
+  require_dataset_gate: true
+  require_representation_gate: true
+  require_simulation_gate: true
+  seeds: [1, 2, 3, 4, 5]
+
+paths:
+  data: data
+  results: results/v1
+  logs: logs/v1
+  archive: archive/v0.1-pilot
+
+development_studies:
+  - llorens_bobadilla_2023
+  - zhang_2023
+  - deng_2022
+  - li_2026
+  - guo_2025_spatial_mux
+  - guo_deng_2025_ffpe_atac
+
+candidate_studies: []
+
+holdout_studies:
+  - zhang_2025_brain_triomics
+  - huang_2025
+
+representation:
+  input_tracks: [F, P, B, R, G]
+  fixed_bin_sizes_bp: [10000, 25000, 50000]
+  required_result_keys:
+    - study_id
+    - sample_id
+    - representation_id
+    - representation_source
+    - input_track
+    - comparison_scope
+    - method_id
+    - seed
+    - task_id

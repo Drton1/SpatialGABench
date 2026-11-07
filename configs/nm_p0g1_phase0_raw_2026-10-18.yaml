@@ -1,0 +1,202 @@
+schema_version: 1
+task_id: NM-P0-G1
+phase: phase0_raw_rerun
+run_id: run_20261018T093945Z_attempt4
+attempt_number: 4
+date: 2026-10-18
+
+candidate:
+  accession: GSE260694
+  super_series: GSE260699
+  family: BALI_GSE260699
+  expected_gse260694_gsms: [GSM8122741, GSM8122742, GSM8122743, GSM8122744, GSM8122745, GSM8122746]
+  expected_dna_gsms: [GSM8122741, GSM8122742, GSM8122743]
+  expected_rna_gsms: [GSM8122744, GSM8122745, GSM8122746]
+  expected_parent_gsm_count: 17
+  expected_e16_sibling_series: [GSE260695, GSE260698]
+  expected_e16_sibling_gsms: [GSM8122747, GSM8122768, GSM8122769]
+
+authorization:
+  human_decision_text_exact: "2026-10-18 17:33 CST, yang yan authorized RAW/matrix download for GSE260694 Phase-0 rerun; no auto-adoption"
+  decision_log_path: DECISION_LOG.md
+  raw_matrix_download_authorized: true
+  adoption_forbidden: true
+  frozen_tree_write_forbidden: true
+  method_build_forbidden: true
+  fb1_fb4_rerun_forbidden: true
+  figures_prose_forbidden: true
+
+payloads:
+  - name: GSE260694_RAW.tar
+    role: raw_archive_bigwig_coverage
+    url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE260nnn/GSE260694/suppl/GSE260694_RAW.tar
+    path: raw/GSE260694_RAW.tar
+    bytes: 56975360
+    sha256: c0fa93ed2eadfa97f87135c6087dbfc97fcb51cc7d31c8375f81e0183aa3ac09
+  - name: GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_UMI_data.csv.gz
+    role: region_level_rna_umi_matrix
+    url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE260nnn/GSE260694/suppl/GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_UMI_data.csv.gz
+    path: raw/GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_UMI_data.csv.gz
+    bytes: 163164
+    sha256: 02552be67ca024a6308ee43ec1f71c9ef6622d1ef5b5a0b35b47579cae956670
+  - name: GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_barcoding_stats.xlsx
+    role: aggregate_barcoding_qc_workbook
+    url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE260nnn/GSE260694/suppl/GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_barcoding_stats.xlsx
+    path: raw/GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_barcoding_stats.xlsx
+    bytes: 109007
+    sha256: cb1e7a48f3a59103731144d408b7f8cc011fcfdb2d20496e43fbfb2026fa4f26
+
+filelists:
+  - series: GSE260694
+    path: metadata_cache/series/GSE260694_filelist.txt
+    expected_payload_names:
+      - GSE260694_RAW.tar
+      - GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_UMI_data.csv.gz
+      - GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_barcoding_stats.xlsx
+  - series: GSE260699
+    path: metadata_cache/series/GSE260699_filelist.txt
+
+supplementary_directory:
+  series: GSE260694
+  path: metadata_cache/series/GSE260694_suppl_directory.html
+
+series_metadata:
+  GSE260694: metadata_cache/series/GSE260694_self_text.txt
+  GSE260699: metadata_cache/series/GSE260699_self_text.txt
+  GSE260695: metadata_cache/series/GSE260695_self_text.txt
+  GSE260698: metadata_cache/series/GSE260698_self_text.txt
+
+sra_metadata:
+  GSM8122741: metadata_cache/sra/SRA_RunInfo_GSM8122741.csv
+  GSM8122742: metadata_cache/sra/SRA_RunInfo_GSM8122742.csv
+  GSM8122743: metadata_cache/sra/SRA_RunInfo_GSM8122743.csv
+  GSM8122744: metadata_cache/sra/SRA_RunInfo_GSM8122744.csv
+  GSM8122745: metadata_cache/sra/SRA_RunInfo_GSM8122745.csv
+  GSM8122746: metadata_cache/sra/SRA_RunInfo_GSM8122746.csv
+
+gsm_metadata:
+  GSM8122741: metadata_cache/gsm/GSM8122741_self_text.txt
+  GSM8122742: metadata_cache/gsm/GSM8122742_self_text.txt
+  GSM8122743: metadata_cache/gsm/GSM8122743_self_text.txt
+  GSM8122744: metadata_cache/gsm/GSM8122744_self_text.txt
+  GSM8122745: metadata_cache/gsm/GSM8122745_self_text.txt
+  GSM8122746: metadata_cache/gsm/GSM8122746_self_text.txt
+
+raw_tar:
+  path: raw/GSE260694_RAW.tar
+  expected_member_count: 6
+  expected_members:
+    GSM8122741_BALI_multiomic_DNA_DG_vs_CA1_adult_rep1_CA1coverage.bw: 6535000
+    GSM8122741_BALI_multiomic_DNA_DG_vs_CA1_adult_rep1_DGcoverage.bw: 13793166
+    GSM8122742_BALI_multiomic_DNA_DG_vs_CA1_adult_rep2_CA1coverage.bw: 6058347
+    GSM8122742_BALI_multiomic_DNA_DG_vs_CA1_adult_rep2_DGcoverage.bw: 13231437
+    GSM8122743_BALI_multiomic_DNA_DG_vs_CA1_adult_rep3_CA1coverage.bw: 6733708
+    GSM8122743_BALI_multiomic_DNA_DG_vs_CA1_adult_rep3_DGcoverage.bw: 10616301
+
+rna_matrix:
+  path: raw/GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_UMI_data.csv.gz
+  expected_columns:
+    [gene_id, s1_bc5_all, s2_bc5_all, s3_bc5_all, s1_bc6_all, s2_bc6_all, s3_bc6_all,
+     s1_bc5_all_norm, s2_bc5_all_norm, s3_bc5_all_norm, s1_bc6_all_norm, s2_bc6_all_norm, s3_bc6_all_norm,
+     DG_avg, CA1_avg, DG_stdev, CA1_stdev, fold_change_avg, Log10_change_avg]
+  raw_count_columns: [s1_bc5_all, s2_bc5_all, s3_bc5_all, s1_bc6_all, s2_bc6_all, s3_bc6_all]
+  expected_gene_rows: 7507
+  expected_total_umi_row: tot_UMI
+  expected_total_rows_including_tot_umi: 7508
+  region_suffix_map: {bc5: DG, bc6: CA1}
+  column_replicate_tokens: {s1: 1, s2: 2, s3: 3}
+  replicate_rna_gsm: {1: GSM8122744, 2: GSM8122745, 3: GSM8122746}
+  replicate_atac_gsm: {1: GSM8122741, 2: GSM8122742, 3: GSM8122743}
+
+barcode_stats:
+  path: raw/GSE260694_BALI_multiomic_RNA_DG_vs_CA1_adult_barcoding_stats.xlsx
+  expected_sheets: [ATAC_rep1, ATAC_rep2, ATAC_rep3, RNA_rep1, RNA_rep2, RNA_rep3]
+  expected_sheet_rows: 18
+  expected_max_columns: 12
+  expected_total_reads:
+    ATAC_rep1: 51429021
+    ATAC_rep2: 57884909
+    ATAC_rep3: 49882209
+    RNA_rep1: 54192444
+    RNA_rep2: 44303617
+    RNA_rep3: 48838527
+  expected_sra_spots:
+    GSM8122741: 51429021
+    GSM8122742: 57884909
+    GSM8122743: 49882209
+    GSM8122744: 54192444
+    GSM8122745: 44303617
+    GSM8122746: 48838527
+
+annotation:
+  genome_build: mm10
+  annotation_source: Illumina igenomes
+  expected_chroms: [chr1, chr2, chr3, chr4, chr5, chr6, chr7, chr8, chr9, chr10, chr11, chr12, chr13, chr14, chr15, chr16, chr17, chr18, chr19, chrX, chrY, chrM]
+  expected_chrom_sizes:
+    chr1: 195471971
+    chr2: 182113224
+    chr3: 160039680
+    chr4: 156508116
+    chr5: 151834684
+    chr6: 149736546
+    chr7: 145441459
+    chr8: 129401213
+    chr9: 124595110
+    chr10: 130694993
+    chr11: 122082543
+    chr12: 120129022
+    chr13: 120421639
+    chr14: 124902244
+    chr15: 104043685
+    chr16: 98207768
+    chr17: 94987271
+    chr18: 90702639
+    chr19: 61431566
+    chrX: 171031299
+    chrY: 91744698
+    chrM: 16299
+  exact_annotation_version: unknown
+  gene_identifier_type: unknown
+
+pairing:
+  spot_level_required: true
+  expected_region_keys: 6
+  expected_spot_or_coordinate_keys: 0
+  expected_coordinate_files: 0
+  expected_coordinate_rows: 0
+  same_section_documentation: NOT_EXPLICIT
+  negative_control: NOT_RUN_NO_SPOT_KEYS
+
+design_conflict:
+  series_field_claim: "one section from a mouse embryonic brain (e16.5); sub-ventricular zone and cortical plate"
+  expected_gsm_age: "12 weeks"
+  expected_area1: "Dentate gyrus granular layer"
+  expected_area2: "CA1"
+  expected_filename_token: DG_vs_CA1_adult
+  sibling_series_holding_e16: [GSE260695, GSE260698]
+  expected_resolution: RESOLVED_AT_METADATA_LEVEL
+  reason_for_stale_parent_field: unknown
+
+frozen_inputs:
+  registry_path: registries/v1/datasets.yaml
+  preregistration_path: docs/NM_P0G1_PREREG_2026-10-18.md
+  preregistration_sha256: bb4138f45af46da3765ac3c218e9685384e97fbee6b0c447c077de2cfd281b6a
+  locked_plan_path: results/v1_p0g1/locked_transfer_plan.md
+  prior_meta_attempt_root: results/v1_p0g1_phase0_meta
+  prior_authoritative_attempt: results/v1_p0g1_phase0_meta/attempts/run_20261018T090132Z_attempt5
+  prior_report_path: reports/NM_P0G1_PHASE0_META_2026-10-18.md
+  prior_review_path: reports/NM_P0G1_PHASE0_META_REVIEW_2026-10-18.md
+  frozen_roots: [results/v1, registries/v1, governance/gates]
+
+outputs:
+  root: results/v1_p0g1_phase0_raw/attempts/run_20261018T093945Z_attempt4
+  tables: tables
+  manifests: manifests
+  audit_log: audit.log
+
+resources:
+  nice: 19
+  taskset_cpus: 0-3
+  minimum_cpu_idle_fraction: 0.05
+  seed: null
+  deterministic: true

@@ -1,0 +1,75 @@
+schema_version: 1
+project:
+  name: SpatialGABench
+  version: 1.0.0-dev
+  current_gate: NM_UPGRADE
+
+authorization: governance/authorizations/NM_U1_U2_HUMAN_REPRESENTATION_CONSTRUCTION_AUTHORIZATION_2026-07-30.json
+upgrade_protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+development_studies: [zhang_2023, guo_deng_2025_ffpe_atac]
+holdout_studies: []
+
+construction_contract:
+  representations: [macs3_summit_501bp, fixed_bin_10kb, fixed_bin_25kb, fixed_bin_50kb]
+  bin_sizes_bp: [10000, 25000, 50000]
+  counting_unit: one_filtered_fragment_row_midpoint
+  standard_chromosomes_only: true
+  peak_width_bp: 501
+  macs3_format: FRAG
+  macs3_qvalue: 0.01
+  macs3_max_count: 1
+  call_summits: true
+  forbidden_inputs: [rna, labels, clusters, pathology, images, simulation_truth]
+
+output_root: results/v1/nm_upgrade/nu1_nu2_human_representations
+evidence_dir: results/v1/nm_upgrade/nu1_nu2_human_representations/evidence
+
+samples:
+  gse205055_humanbrain_50um:
+    block: NU1
+    study_id: zhang_2023
+    accession: GSE205180
+    sample_id: GSM6206884_HumanBrain_50um
+    species: human
+    genome_build: hg38
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE205055/GSM6206884_HumanBrain_50um_fragments.tsv.gz
+    source_sha256: ee387d187c01a04c95114411166e100ea19f1d0b3b5948af4e2df26ef9ccc2fa
+    positions: data/raw/v1/GSE205055/spatial/HumanBrain_50um_spatial/tissue_positions_list.csv
+    positions_sha256: c8450efff1ef3a0ae00b0f952e5ad4600524cb3faabcd49d6ff31267522367fa
+    input_preflight: results/v1/nm_upgrade/nu1_input_preflight/preflight_evidence.json
+    expected_observations: 2500
+    chrom_sizes: data/reference/hg38/chrom_sizes.tsv
+    chrom_sizes_sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b
+    blacklist: data/reference/hg38/hg38-blacklist.v2.bed.gz
+    blacklist_sha256: 0eecd7c32eb0f5e735b297bbd886446f4829d23c698a5c7cfcde585f866cbc07
+    macs3_genome_size: hs
+
+  gse278007_human_melanoma_50um:
+    block: NU2
+    study_id: guo_deng_2025_ffpe_atac
+    accession: GSE278007
+    sample_id: GSM8831040_Human_melanoma_50um
+    species: human
+    genome_build: hg38
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE278007/GSM8831040_Human_melanoma_50um.fragments.tsv.gz
+    source_sha256: b4b500a15ccf3237679de35ca5556c68dc4cdea9d8e8a282610ac91e7f9dccb0
+    positions: data/raw/v1/GSE278007/GSM8831040_Human_melanoma_50um_spatial/tissue_positions_list.csv
+    positions_sha256: bd428c3177a7300a084be1753ac0cffb3baf24f910f2c10658ff75d245b80bfe
+    input_preflight: results/v1/audits/GSE278007_Human_melanoma_50um/fragment_spatial_schema_audit.json
+    expected_observations: 2500
+    chrom_sizes: data/reference/hg38/chrom_sizes.tsv
+    chrom_sizes_sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b
+    blacklist: data/reference/hg38/hg38-blacklist.v2.bed.gz
+    blacklist_sha256: 0eecd7c32eb0f5e735b297bbd886446f4829d23c698a5c7cfcde585f866cbc07
+    macs3_genome_size: hs
+
+rna_access_authorized: false
+label_access_authorized: false
+pathology_access_authorized: false
+image_access_authorized: false
+method_execution_authorized: false
+policy_refit_run: false
+universal_ranking_run: false
+final_ranking_run: false

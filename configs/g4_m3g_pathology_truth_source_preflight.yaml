@@ -1,0 +1,77 @@
+schema_version: 1
+gate: G4
+milestone: M3G_INDEPENDENT_PATHOLOGY_TRUTH_SOURCE_PREFLIGHT
+authorization: governance/authorizations/G4_M3G_PATHOLOGY_TRUTH_SOURCE_PREFLIGHT_AUTHORIZATION_2026-07-17.json
+authorization_sha256: 6383f3d93fa27310d3ee2d73012e3c939081111489f0158571c157ee86533a73
+previous_gate: governance/gates/G4_M3F_GSE288178_MALT_NONLINEAR_SPATIAL_SENSITIVITY_2026-07-17.json
+previous_gate_sha256: f6864f293b4d6368ef7c7a538e941f5a06d9edddaa875b129776395d40bc5227
+source_docx: data/raw/v1/g4_m3g_pathology_truth_candidate_audit/GSE304813_biorxiv_supplement_media-1.docx
+source_docx_sha256: 115cabe21134010e6c11500eee33bf4f8b63314f6e3128317b1e46f20e7086af
+source_docx_member: word/media/image7.png
+source_figure: results/v1/g4/m3g_pathology_truth_candidate_audit/source/pnet_extended_data_figure_7.png
+source_figure_sha256: f93ff767cad95788f3bb54d543b8f4c2424090dc2e67ee8dd2ee4d2e49155931
+source_image_width: 1432
+source_image_height: 1281
+color_distance_threshold: 75.0
+minimum_connected_outline_pixels: 100
+closure_iterations: 2
+annotation_classes:
+  tumor: [255, 0, 0]
+  fibroblast: [0, 112, 192]
+  stroma: [0, 176, 80]
+  normal_pancreas: [255, 112, 48]
+panels:
+  - sample_id: PNET1
+    crop: [0, 83, 358, 414]
+    expected_classes: [tumor]
+  - sample_id: PNET2
+    crop: [358, 83, 716, 414]
+    expected_classes: [tumor, fibroblast]
+  - sample_id: PNET3
+    crop: [716, 83, 1074, 414]
+    expected_classes: [tumor, normal_pancreas]
+  - sample_id: PNET4
+    crop: [1074, 83, 1432, 414]
+    expected_classes: [tumor, fibroblast]
+  - sample_id: PNET5
+    crop: [0, 464, 358, 814]
+    expected_classes: [tumor]
+  - sample_id: PNET6
+    crop: [358, 464, 716, 814]
+    expected_classes: [tumor]
+  - sample_id: PNET7
+    crop: [716, 464, 1074, 814]
+    expected_classes: [tumor, fibroblast]
+  - sample_id: PNET8
+    crop: [1074, 464, 1432, 814]
+    expected_classes: [tumor, stroma]
+  - sample_id: PNET9
+    crop: [0, 879, 358, 1240]
+    expected_classes: [tumor, stroma]
+  - sample_id: PNET10
+    crop: [358, 879, 716, 1240]
+    expected_classes: [tumor, fibroblast]
+  - sample_id: PNET11
+    crop: [716, 879, 1074, 1240]
+    expected_classes: [tumor]
+  - sample_id: PNET15
+    crop: [1074, 879, 1432, 1240]
+    expected_classes: [tumor, fibroblast]
+output_root: results/v1/g4/m3g_pathology_truth_candidate_audit/preflight
+source_is_composite_figure: true
+histology_is_serial_section: true
+gse_publicly_accessible: false
+outline_line_masks_only: true
+filled_region_masks_created: false
+atac_accessed: false
+gene_activity_accessed: false
+rna_accessed: false
+source_clusters_accessed: false
+holdout_accessed: false
+method_comparison_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false
+redistribution_authorized: false
+

@@ -1,0 +1,53 @@
+schema_version: 1
+registry_status: g4_preregistered
+
+tracks:
+  atac_annotation_only:
+    information_budget: accessibility_plus_gene_annotation
+    methods:
+      promoter_only_2kb_pc: {status: implemented, role: baseline}
+      gene_body_pc: {status: implemented, role: baseline}
+      promoter_plus_gene_body_2kb_pc: {status: implemented, role: baseline}
+      distance_weighted_distal_250kb_decay50kb_pc: {status: implemented, role: baseline}
+      promoter_plus_distal_2kb_250kb_decay50kb_pc: {status: implemented, role: baseline}
+
+  software_standard:
+    information_budget: method_specific_accessibility_input_plus_annotation
+    methods:
+      signac_geneactivity: {status: runtime_container_pass, version: 1.17.1, role: software, image_digest: "sha256:5df60a2b3dedb840aa4f4dfe8983bd562a06ecb65d090bfe4416944fc2e5ecfb"}
+      archr_genescorematrix: {status: runtime_container_pass, version: 1.0.3, role: software, image_digest: "sha256:a05555fa5900a23e0345aae1bd65e665c0b4a678401b1c32091707eb7662705d"}
+      snapatac2_geneactivity: {status: runtime_container_pass, version: 2.9.0, role: software, image_digest: "sha256:de84d6eab3fe9c2bdfe26e5e7771727e70c602b4c0465a9ac987550cf17caa69"}
+      cicero_geneactivity: {status: runtime_container_pass_subset_only, version: 1.29.2, role: software, image_digest: "sha256:19fc67fe35be610f1f2d3539f4eb54de8400b9c85b59288ed4bff386e40fc441"}
+
+  controls:
+    information_budget: matched_to_tested_representation
+    methods:
+      random_peak_to_gene_negative_control_pc: {status: implemented, role: negative_control}
+      accessibility_matched_random_peak_to_gene_control_pc: {status: implemented, role: negative_control}
+      raw_peak_lsi_baseline: {status: implemented, role: representation_control}
+
+  reference_assisted:
+    information_budget: accessibility_plus_external_or_paired_reference
+    methods: {}
+    status: literature_refresh_required
+
+excluded_claims:
+  spagact:
+    status: removed_unimplemented_placeholder
+    reason: resource_paper_scope_has_no_new_method_claim
+
+simulation_resources:
+  mechanistic_v2:
+    status: g3_smoke_pass
+    role: evaluation_truth_generator
+    schema_version: 2
+    benchmark_method_input: simulated_accessibility_only
+  empirical_semisynthetic_v2:
+    status: g3_smoke_pass_development_only
+    role: evaluation_truth_generator
+    schema_version: 2
+    calibration_inputs: [development_accessibility, spatial_coordinates]
+    redistribution_policy: local_only_source_derived
+  scdesign3_labelled_v0_1:
+    status: retired_mislabelled_non_invoking_path
+    role: excluded

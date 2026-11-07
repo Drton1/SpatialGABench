@@ -1,0 +1,75 @@
+schema_version: 1
+gate: G4
+milestone: M3E_GSE288178_MOUSE_BRAIN_DOMAIN_EVALUATION
+authorization: governance/authorizations/G4_M3E_GSE288178_MOUSE_BRAIN_DOMAIN_EVALUATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: da96245b5f0dac147cbc953bf323a22562a42dcea1715f6a3e6a2cae2ee6cc50
+authorized_task: fixed_pipeline_author_cluster_cross_study_replication
+construction_evidence: results/v1/g4/m3e_gse288178_mouse_brain/construction/gse288178_mouse_brain_construction_evidence.json
+construction_evidence_sha256: 0c7f740e5579c5e55a256fa24a7183fb1be900a8dbd1cafb1223b76fc18aff28
+environment_amendment: governance/authorizations/G4_M3D_DOMAIN_ENVIRONMENT_AMENDMENT_2026-07-16.json
+environment_amendment_sha256: 6ff4d76993d56b4d3ce6ecacbc514d2af2ecd697587c8f84b725eea8f2219089
+additional_amendments:
+  - path: governance/authorizations/G4_M3E_ACCESSIBILITY_MATCHED_CONTROL_SCALABILITY_AMENDMENT_2026-07-16.json
+    sha256: 969584b23bf95c9f26d1797ae04e8c499260a9ca9d612e7d7a04abd2eb8a9adf
+input_h5ad: results/v1/g4/m3e_gse288178_mouse_brain/input/gse288178_mouse_brain_500bp_accessibility_only.h5ad
+input_h5ad_sha256: 2e35be33b1aa95e8dd048d7d70bb21102d49df967f1aac74c53c0e1519e8846b
+labels: results/v1/g4/m3e_gse288178_mouse_brain/input/gse288178_mouse_brain_author_clusters_evaluation_only.tsv.gz
+labels_sha256: 7a417412a8733b7d22d251a3ba63c8bb7407dfdc9377f4862ee31b7837868f95
+construction_root: results/v1/g4/m3e_gse288178_mouse_brain/construction
+output_root: results/v1/g4/m3e_gse288178_mouse_brain/domain_evaluation
+dataset_id: gse288178_mouse_brain_author_500bp_bins
+study_id: li_2026
+representation_id: author_selected_fixed_500bp_bins_unmatched
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+  - raw_peak_lsi_baseline
+gene_activity_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+primary_endpoint: median_fixed_pipeline_ari_across_seeds
+secondary_endpoints: [NMI, AMI, homogeneity, completeness, v_measure]
+preprocessing:
+  normalize_total_target_sum: 10000
+  log1p: true
+  hvg_n_top_genes: 3000
+  hvg_flavors: [seurat]
+  pca_n_comps: 30
+  preprocessing_seed: 4160
+clustering:
+  n_neighbors: 15
+  n_pcs: 30
+  leiden_resolution: 1.0
+  seeds: [1, 2, 3, 4, 5]
+  raw_lsi_components: 30
+label_column: author_cluster
+expected_clusters: 10
+label_interpretation: author_defined_atac_cluster_not_independent_anatomy_histology_or_pathology_truth
+control_method: accessibility_matched_random_peak_to_gene_control_pc
+raw_lsi_method: raw_peak_lsi_baseline
+context_columns: []
+contingency_context_column: null
+domain_seed_metrics_name: gse288178_mouse_brain_domain_seed_metrics.tsv
+domain_method_summary_name: gse288178_mouse_brain_domain_method_summary.tsv
+domain_resource_summary_name: gse288178_mouse_brain_domain_resource_summary.tsv
+domain_contrasts_name: gse288178_mouse_brain_domain_descriptive_contrasts.tsv
+domain_context_audit_name: gse288178_mouse_brain_author_label_context_audit.tsv
+domain_evidence_name: gse288178_mouse_brain_domain_evaluation_evidence.json
+domain_milestone: M3E_GSE288178_mouse_brain_cross_study_author_cluster_concordance
+label_based_parameter_selection: false
+resolution_search_run: false
+holdout_accessed: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false

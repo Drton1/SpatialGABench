@@ -1,0 +1,83 @@
+schema_version: 1
+gate: NM_UPGRADE
+milestone: NU3_external_controlled_depth_stress
+protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+completion_protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+project_config: configs/nm_upgrade_external_project.yaml
+project_config_sha256: 5d2655c0d2d76cdf67d5c038a24a096a4351e59c89ab89b130ca7698d656144f
+software_panel: configs/g4_m2_software_methods.yaml
+software_panel_sha256: 9e7237a308155b2902138917f5d4b567a2621c02556dd459d10140942e8c3255
+output_root: results/v1/nm_upgrade/nu3_external_depth_stress
+depth_fractions: [1.0, 0.25, 0.05, 0.01]
+thinning_seeds: [42001, 42002, 42003]
+full_depth_seed: 0
+sample_interval_seconds: 0.05
+threads: 8
+macs3:
+  qvalue: 0.01
+  max_count: 1
+  format: FRAG
+  call_summits: true
+  peak_width_bp: 501
+matrix_representations: [macs3_summit_501bp, fixed_bin_25kb]
+bin_sizes_bp: [25000]
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+software_methods:
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+studies:
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    sample_id: P2S3
+    species: mouse
+    genome_build: mm10
+    observations: 7122
+    fragments: results/v1/nm_upgrade/nu3_external_depth_stress/input/gse308623_p2s3__eligible.bgzf.tsv.gz
+    fragments_sha256: de8f9024de28b41080d40da7a8e36b1f56466f0a8a209c293ce0e6756b2ee8a1
+    fragments_index: results/v1/nm_upgrade/nu3_external_depth_stress/input/gse308623_p2s3__eligible.bgzf.tsv.gz.tbi
+    fragments_index_sha256: a8f059e332e20084e295f3e43b48e9230fbec24a38fa07c58cc445e6b83917eb
+    fragment_rows: 16687952
+    uncompressed_sha256: a1ea7aa5ba00f318ea95edd052d35614163f9007b8b9d774ef11c79c4ce903cc
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    positions_sha256: 8a10102fd9c6fe772f6e299ead6b8d97ce5af54e8143cd1d77a7399bc5d45e65
+    macs3_genome_size: mm
+references:
+  mm10:
+    chrom_sizes: {path: data/reference/mm10/chrom_sizes.tsv, sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f}
+    blacklist: {path: data/reference/mm10/mm10-blacklist.v2.bed.gz, sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46}
+    genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+    gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+    software_annotation: {path: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz, sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a}
+    software_chrom_sizes: {path: results/v1/g4/m2/references/mm10/canonical.chrom.sizes.tsv, sha256: e08ce8d40e33e9197cb50cf7a5f116e5f5cf4ddd232a173ef266c9bc5c7f5715}
+full_anchor:
+  condition_id: gse308623_p2s3__d100__s0
+  h5a_evidence: {path: results/v1/g5/h5a_external_representations/evidence/completion_evidence.json, sha256: cb2ceedeb08406b64296799609ad18926ed0e6dbb3441a9e099e3d41c5791c23}
+  h5b_evidence: {path: results/v1/g5/h5b_external_method_construction/evidence/completion_evidence.json, sha256: 420f53c38b38092481c132e4ab5f3ff62173fd0786462c2693a5cf613b56cc83}
+  h5b_root: results/v1/g5/h5b_external_method_construction
+planned_conditions: 10
+planned_contracts_per_condition: 13
+planned_contracts: 130
+reused_full_depth_contracts: 13
+new_reduced_depth_contracts: 117
+construction_inputs_only: true
+rna_access_authorized: false
+label_access_authorized: false
+pathology_access_authorized: false
+simulation_truth_access_authorized: false
+policy_refit_run: false
+universal_ranking_run: false
+final_ranking_run: false

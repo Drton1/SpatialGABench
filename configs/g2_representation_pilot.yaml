@@ -1,0 +1,27 @@
+project_config: configs/frozen/g2_project_contract_2026-07-10.yaml
+
+pilot:
+  study_id: guo_deng_2025_ffpe_atac
+  dataset_id: gse278007_ffpe_s4_rep1
+  sample_id: GSM8831026_FFPE_S4_1
+  genome_build: mm10
+  fragments: data/raw/v1/GSE278007/GSM8831026_FFPE_S4_1.fragments.tsv.gz
+  positions: data/raw/v1/GSE278007/GSM8831026_FFPE_S4_1_spatial/tissue_positions_list.csv
+  chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+  blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+
+peak_calling:
+  format: FRAG
+  genome_size: mm
+  qvalue: 0.01
+  max_count: 1
+  call_summits: true
+  frozen_peak_width: 501
+
+representations:
+  bin_sizes_bp: [10000, 25000, 50000]
+  counting_unit: one_filtered_fragment_row_midpoint
+  read_support_policy: force_filtered_fifth_column_to_one
+  standard_chromosomes_only: true
+
+output_dir: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1

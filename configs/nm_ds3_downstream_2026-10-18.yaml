@@ -1,0 +1,197 @@
+schema_version: 1
+task: NM-DS3
+target_journal: Briefings in Bioinformatics
+protocol: docs/NM_DS3_PREREG_2026-10-18.md
+protocol_sha256: 0b3639f776ee9a41f79dc055415342afb160711122b855d01845d3f67c4dc1b7
+output_root: results/v1_ds3
+forbidden_input_roots:
+  - data/external_risk1
+  - results/v1_risk1
+forbidden_accessions:
+  - GSE308623
+  - GSE279771
+seeds:
+  clustering: [20261018, 20261019, 20261020, 20261021, 20261022]
+  clustering_primary: 20261018
+  bootstrap: 20261018
+statistics:
+  materiality_margin: 0.05
+  alpha: 0.05
+  n_bootstrap: 10000
+  confidence_interval: 0.95
+  equivalence_interval: 0.90
+  bh_family: experiment_dataset_depth_metric
+  verdict_order:
+    - EQUIVALENT_WITHIN_0.05
+    - MATERIAL_DIFFERENCE
+    - DETECTABLE_SUB_MATERIAL
+    - INCONCLUSIVE
+clustering:
+  normalize_total_target_sum: 10000.0
+  log1p: true
+  hvg_flavor: seurat
+  n_top_genes: 2000
+  n_pcs: 30
+  pca_solver: arpack
+  spatial_weight: 0.5
+  kmeans_n_init: 20
+  k: 8
+markers:
+  method: wilcoxon
+  max_adjusted_p: 0.05
+  min_log_fold_change: 1.0
+  min_fraction_in_group: 0.1
+  top_n_per_cluster: 100
+  atac_pseudocount: 1.0e-6
+svg:
+  n_spatial_neighbors: 6
+  top_n: 500
+compute:
+  max_workers_total: 16
+  nice: 10
+  memory_max_bytes: 68719476736
+  blas_threads: 4
+  keep_cpu_idle_fraction: 0.05
+  time_limit_seconds: 1800
+e1:
+  dataset_key: d2_human_gse205055
+  dataset_id: gse205055_humanbrain_50um
+  study_id: zhang_2023
+  species: human
+  genome_build: hg38
+  gene_map: data/reference/hg38/gene_table.tsv
+  rna_matrix: data/raw/v1/GSE205055/GSM6206885_HumanBrain_50um_matrix.tsv.gz
+  spatial_positions: data/raw/v1/GSE205055/spatial/HumanBrain_50um_spatial/tissue_positions_list.csv
+  spatial_positions_columns: [barcode, in_tissue, array_row, array_col, pxl_row_in_fullres, pxl_col_in_fullres]
+  barcode_order_check: set_equality
+  duplicate_symbol_policy: drop_ambiguous_symbol
+  duplicate_rna_rows_policy: sum
+  primary_representations: [P, B, F]
+  sensitivity_representations: [B10, B50, ArchR, SnapATAC2]
+  representations:
+    P:
+      representation_id: macs3_summit_501bp
+      method_id: distance_weighted_distal_250kb_decay50kb_pc
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/macs3_summit_501bp/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      control_path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/macs3_summit_501bp/accessibility_matched_random_peak_to_gene_control_pc/gene_activity.h5ad
+    B:
+      representation_id: fixed_bin_25kb
+      method_id: distance_weighted_distal_250kb_decay50kb_pc
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/fixed_bin_25kb/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      control_path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/fixed_bin_25kb/accessibility_matched_random_peak_to_gene_control_pc/gene_activity.h5ad
+    F:
+      representation_id: signac_geneactivity
+      method_id: signac_geneactivity
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/software/gse205055_humanbrain_50um/signac_geneactivity/gene_activity.h5ad
+      control_path: null
+    B10:
+      representation_id: fixed_bin_10kb
+      method_id: distance_weighted_distal_250kb_decay50kb_pc
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/fixed_bin_10kb/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      control_path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/fixed_bin_10kb/accessibility_matched_random_peak_to_gene_control_pc/gene_activity.h5ad
+    B50:
+      representation_id: fixed_bin_50kb
+      method_id: distance_weighted_distal_250kb_decay50kb_pc
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/fixed_bin_50kb/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      control_path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/annotation/gse205055_humanbrain_50um/fixed_bin_50kb/accessibility_matched_random_peak_to_gene_control_pc/gene_activity.h5ad
+    ArchR:
+      representation_id: archr_genescorematrix
+      method_id: archr_genescorematrix
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/software/gse205055_humanbrain_50um/archr_genescorematrix/gene_activity.h5ad
+      control_path: null
+    SnapATAC2:
+      representation_id: snapatac2_geneactivity
+      method_id: snapatac2_geneactivity
+      path: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/software/gse205055_humanbrain_50um/snapatac2_geneactivity/gene_activity.h5ad
+      control_path: null
+  primary_contrasts:
+    - [P, B]
+    - [P, F]
+    - [B, F]
+e2:
+  mouse_dataset_key: d2_gse205052
+  mouse_depth_fraction: 1.0
+  mouse_tables:
+    domain: results/v1_ds1/tables/domain_pairwise.tsv
+    marker: results/v1_ds1/tables/marker_pairwise.tsv
+    svg: results/v1_ds1/tables/svg_pairwise.tsv
+  risk2_human_endpoints: results/v1_risk2/cross_platform/human_endpoints.tsv
+  risk2_method_id: distance_weighted_distal_250kb_decay50kb_pc
+  endpoints:
+    domain_ari: {experiment: domain, metric: ARI, label: domain_ARI}
+    domain_nmi: {experiment: domain, metric: NMI, label: domain_NMI}
+    marker: {experiment: markers, metric: mean_marker_percentile, label: marker_mean_percentile}
+    svg: {experiment: svg, metric: svg_spearman_to_rna, label: svg_spearman}
+  pass_min_sign_agreement: 9
+  partial_min_sign_agreement: 6
+  endpoint_min_pairs: 2
+  endpoint_required_fraction: 0.6666666666666666
+e3:
+  ds1_tables:
+    domain: results/v1_ds1/tables/domain_pairwise.tsv
+    marker: results/v1_ds1/tables/marker_pairwise.tsv
+    svg: results/v1_ds1/tables/svg_pairwise.tsv
+    motif: results/v1_ds1/tables/motif_pairwise.tsv
+  ds1_domain_seed_metrics: results/v1_ds1/tables/domain_seed_metrics.tsv
+  fb1_ranking_reversals: results/v1/full_benchmark/fb1_three_study_rna_synthesis/ranking_reversals.tsv
+  fb1_ranges: results/v1/full_benchmark/fb1_three_study_rna_synthesis/study_method_representation_ranges.tsv
+  d1_dataset_key: d1_gse263333
+  depths: [1.0, 0.25, 0.05, 0.01]
+  primary_contrasts: [B-P, F_signac_geneactivity-P, F_signac_geneactivity-B]
+e4:
+  ds1_tables:
+    domain_pairwise: results/v1_ds1/tables/domain_pairwise.tsv
+    marker_pairwise: results/v1_ds1/tables/marker_pairwise.tsv
+    svg_pairwise: results/v1_ds1/tables/svg_pairwise.tsv
+    domain_seed_metrics: results/v1_ds1/tables/domain_seed_metrics.tsv
+    marker_summary: results/v1_ds1/tables/marker_top100_summary.tsv
+    marker_percentiles: results/v1_ds1/per_unit/marker_percentiles.tsv.gz
+    svg_summary: results/v1_ds1/tables/svg_summary.tsv
+  ds2_endpoint_summary: results/v1_ds2/e2_simulation_truth_recovery/e2_endpoint_summary.tsv
+  ds2_paired_control_deltas: results/v1_ds2/e2_simulation_truth_recovery/e2_paired_control_deltas.tsv
+  risk2_ceiling_distribution: results/v1_risk2/ceiling/distribution.tsv
+  thresholds:
+    ceiling_median: 0.90
+    floor_median: 0.01
+    saturation_range: 0.02
+    zero_inflated_fraction: 0.50
+    high_control_floor: 0.20
+    sparse_prevalence: 0.02
+    near_chance_median: 0.05
+e5:
+  ds1_tables:
+    domain: results/v1_ds1/tables/domain_pairwise.tsv
+    marker: results/v1_ds1/tables/marker_pairwise.tsv
+    svg: results/v1_ds1/tables/svg_pairwise.tsv
+  risk2_retention: results/v1_risk2/depth/retention.tsv
+  risk2_decomposition: results/v1_risk2/depth/decomposition.tsv
+  d1_dataset_key: d1_gse263333
+  depths: [1.0, 0.25, 0.05, 0.01]
+  risky_depths: [0.05, 0.01]
+  stable_depths: [1.0, 0.25]
+  primary_method_id: distance_weighted_distal_250kb_decay50kb_pc
+  primary_representation: fixed_bin_25kb
+  peak_representation: macs3_summit_501bp
+e6:
+  items:
+    - id: D05_D13_label_transfer_deconvolution
+      status: INFEASIBLE
+      reason: no matched single-cell RNA reference is registered locally; data/reference contains genome annotation only
+    - id: D04_full_chromvar_tf_benchmark
+      status: PARTIAL
+      reason: DS1 provides an 18-motif concordance analysis; no chromVAR container, motif database, and peak-level deviation outputs are registered, and deriving motif truth from truth matrices would leak evaluation data
+    - id: D18_runtime_vs_downstream
+      status: NOT_SELECTED
+      reason: NM-RISK1 owns runtime/memory framing; DS3 does not produce a speed ranking
+    - id: D14_independent_pathology_truth
+      status: INFEASIBLE
+      reason: no independent pathology truth authorized or registered locally
+    - id: D16_causal_perturbation
+      status: NEEDS_DATA
+      reason: no causal perturbation dataset or intervention labels registered locally
+    - id: D15_second_external_paired_rna
+      status: INFEASIBLE
+      reason: only one independent external paired-RNA dataset is registered locally and it is not authorized for this task
+    - id: D17_reference_assisted_integration
+      status: NEEDS_DATA
+      reason: no matched multiome/reference dataset or authorized reference-assisted container

@@ -1,0 +1,22 @@
+{
+  "data/paper/context/fam1_endpoint_family_effects.tsv": "d984b671da3f52c62e75d90d82829155afba9f854670b45f2e7ff94979f9190c",
+  "data/paper/context/rank2_context_rankings.tsv": "3ef583875a43888276d4ed43db87c153a9e61cca5eca73b78478de4cbafc8c07",
+  "data/paper/context/xend1_unit_scores.tsv": "44764e36c91ae1c53a3ed9e3b3c98f2eb2eb841fa2bbacc5a23de3b95018ef9d",
+  "data/paper/depth/coverage.tsv": "c845f4e8d4462b903137dc5bfe8a430703976615939e9e13f2bc851632f6f95d",
+  "data/paper/depth/feature_occupancy.tsv": "9118943446f828557de0304f5ddbbc3754708292d133e8ed27393d676cbc3b8e",
+  "data/paper/depth/gene_quantiles.tsv": "2f2d740b606ff3fef0ca2004b8d2153ee9b28f135f4a4739b9c5e0281a1d05c6",
+  "data/paper/evidence/common_variable.tsv": "e5fb405aa9de8ccadb712c174d6a265c4cd4e752aaae4965cbdfbd492a5aa020",
+  "data/paper/evidence/completion/Fig1b_analysis_cohort.tsv": "ce4a2a2a73dabe889d199efc149e296bc38170d6b989ca272d54ba1c4163adcc",
+  "data/paper/evidence/random_controls.tsv": "b3a0e6ffae8a71c3c5f94bc1ef939c5d9b6de56873f2c8b74d8c2361574455e9",
+  "data/paper/evidence/spatial_program_controls.tsv": "fdf3f893329202609ba520cfd6ffcc84b8d54abab4c8ca1efb061f5c7f17c893",
+  "data/paper/evidence/spatial_program_depth.tsv": "450e9d12b54d0fbc3ea71174b26c9efc7c697a7b335813d55f21785b6d9157b9",
+  "data/paper/frozen_peak/frozen_peak_rna_metrics.tsv": "315b2bd2bae62c23361914011f482023abbb27c91856b2da22f5ce48b72f37d2",
+  "data/paper/human/e1_domain_pairwise.tsv": "51ee510ebda9d0c4593e11c412761787f4c366b4d8785223120e4eccf9440e8b",
+  "data/paper/human/e1_domain_seed_metrics.tsv": "1c6c1eb667e00ea73e0437c258ffb45a1959e77de28b94ece33d6726b1fb23ab",
+  "data/paper/human/e1_marker_pairwise.tsv": "530d99726500bfd8d26d306ebd73a8ed7de5904353fbdbe2df7b9e066060dde7",
+  "data/paper/human/e1_svg_pairwise.tsv": "a212b3ff80ed5c46119ffce9f6236ac7d76e60b4dc69a1ca0ecd0fb91625f812",
+  "data/paper/spatial/domain_seed_metrics.tsv": "c4b8a1d9bd070a52bd88fe7f098bfcf702ae9cd900f0807fc0c593a082697a77",
+  "data/paper/spatial/fig2_real_spatial_sample.json.gz": "d5b2112ab2258074ce7c2501da7f088c9e2533f67079db1e1e1a8d1a95d80baf",
+  "data/paper/spatial/marker_percentiles_cluster_matched.tsv.gz": "819897c40747498096775b9b463d2f91500a84f1909bafaf90cb4b470f3fa6d7",
+  "data/paper/spatial/svg_moran_i.tsv.gz": "b7e85dad795db073f68f4d3657e2057ff46427b306a93ed8e0ad442774f04520"
+}

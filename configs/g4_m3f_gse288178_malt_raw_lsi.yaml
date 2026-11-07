@@ -1,0 +1,29 @@
+schema_version: 1
+gate: G4
+milestone: M3F_GSE288178_MALT_RAW_LSI_CONSTRUCTION
+authorization: governance/authorizations/G4_M3F_GSE288178_MALT_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 09715fd4675f36b13e5c33a626c7d8ac235cb35304d04c839e504f41ef5f5aec
+authorization_milestone: M3F_MALT_METHOD_CONSTRUCTION
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+previous_gate: governance/gates/G4_M3F_GSE288178_MALT_MATCHED_REPRESENTATIONS_2026-07-16.json
+previous_gate_sha256: 2f6d258c59308d3fbd20eeb4fc1f8f26a5a2b0f83db048f1cb4fd3ef4a1a987c
+representation_summary: results/v1/g4/m3f_gse288178_malt_matched_representations/evidence/matched_representation_summary.tsv
+representation_summary_sha256: 2e94dce09471cc42c4a3d325c7f78114e29e4416523148e613e8372f3248ae9b
+frozen_artifacts: [authorization, preregistration, previous_gate, representation_summary]
+output_root: results/v1/g4/m3f_gse288178_malt_method_construction/raw_lsi
+dataset_id: gse288178_human_malt_ffpe_atac_20um
+study_id: li_2026
+sample_id: GSM8760699
+genome_build: hg38
+run_id_prefix: g4_m3f_malt
+comparison_scope: matched_representation_morphology_candidate_control_construction_only
+method_id: raw_peak_lsi_baseline
+n_components: 50
+seed: 4160
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+forbidden_inputs: [he_pixels, image_features, rna, labels, clusters, pathology, simulation_truth]
+evaluation_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+final_ranking_run: false

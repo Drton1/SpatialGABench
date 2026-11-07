@@ -1,0 +1,38 @@
+schema_version: 1
+gate: G4
+milestone: M3D_GSE214986_INPUT_PREPARATION
+authorization: governance/authorizations/G4_M3D_GSE214986_INPUT_PREPARATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 933a56a7b825b7e621fef5ef09541a1efcdf67d9aeacd53225a1937f218b048b
+previous_gate: governance/gates/G4_M3C_REPLICATED_SIMULATION_TRUTH_RECOVERY_2026-07-16.json
+previous_gate_sha256: 778f56a80e46a74af267ab4fdd2626d2e2d70e13f4e3b82df177b65e5b892cc5
+schema_audit: results/v1/audits/GSE214986_embryo_sATAC/peak_h5_spatial_schema_audit.json
+schema_audit_sha256: d8382769b518678c96fd1d614d55ea2cba72ffbc9df93e0ff6a50354fdd5dd83
+source_h5: data/raw/gse214986_spatial_atac_mouse_embryo/GSE214986_counts_embryo_satac.h5
+source_h5_sha256: 2fb87787b27b96da11d082f1864286ba33e6202c8540b9fe37cf5a2797fc4d21
+source_metadata: data/raw/gse214986_spatial_atac_mouse_embryo/GSE214986_metadata_embryo_satac.csv.gz
+source_metadata_sha256: 6c210b7453fb057b322151ed4a1f5b9b035a0093a2a451b6bd3ff66a04311124
+output_root: results/v1/g4/m3d_gse214986/input
+dataset_id: gse214986_author_peak
+study_id: llorens_bobadilla_2023
+sample_id: gse214986_embryo_satac_all_sections
+accession: GSE214986
+species: mouse
+genome_build: mm10
+representation_id: author_peak_unmatched
+input_track: P
+expected_observations: 17787
+expected_features: 248047
+expected_matrix_nnz: 25567086
+expected_clusters: 11
+expected_sections: 6
+allowed_construction_obs_columns: [x, y, pixel_x, pixel_y, input_role]
+evaluation_label_column: clusters
+evaluation_context_columns: [section, sample, age]
+forbidden_construction_obs_tokens: [rna, cluster, label, pathology, truth, disease]
+holdout_accessions: [GSE308623, GSE279771]
+method_construction_run: false
+domain_metrics_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+final_ranking_run: false
+

@@ -1,0 +1,1561 @@
+{
+  "source": "scientific supplementary software snapshot",
+  "files": [
+    {
+      "file": "spatialgabench/nm_human_representation_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_human_representation_validation.py",
+      "sha256": "ba7f1ae72962c6fe6cc48c2e9e0e85523188214f8ccf349368560ec6e9709c16"
+    },
+    {
+      "file": "spatialgabench/g5_h5c_evaluation.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h5c_evaluation.py",
+      "sha256": "b766d942c0e5f06f7d70c84515603ec755a4aba78adf043e0fe67c0933b81ac4"
+    },
+    {
+      "file": "spatialgabench/preprocessing.py",
+      "upstream_entry": "source_implementation/spatialgabench/preprocessing.py",
+      "sha256": "908b417f4b2f594b21dab9585ec02e1d1c031dc101d37a496e35b45472cdf22f"
+    },
+    {
+      "file": "spatialgabench/nm_human_portability_synthesis.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_human_portability_synthesis.py",
+      "sha256": "6c642140b9c1b18cd91f1badfb87c4a93ecde49aee6d303353281a8bd61fd5f6"
+    },
+    {
+      "file": "spatialgabench/nm_u4_gene_identity_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_u4_gene_identity_validation.py",
+      "sha256": "419fcb10790af44823accda4080a6ac532a96df7f6b456d3b195108878b32da2"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_depth_synthesis.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_depth_synthesis.py",
+      "sha256": "d56b7d8342bcdfb9d36125fdca80f13772a25c4d85372dab2cbdc818ebbe7be5"
+    },
+    {
+      "file": "spatialgabench/g4_m2c_summary.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m2c_summary.py",
+      "sha256": "65dcc31a22dd25c30711ddeb5d3693f4d0cdad83302e6638ffa68cba56805e71"
+    },
+    {
+      "file": "spatialgabench/nm_rwga_feasibility.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_rwga_feasibility.py",
+      "sha256": "896d6ad58718f17533a4d39d2655abba33eda589af41dd7d33096a111d7afa63"
+    },
+    {
+      "file": "spatialgabench/nm_reliability_multiscale_toy.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_reliability_multiscale_toy.py",
+      "sha256": "a684c5d1c204e75f99e5738f94bc91bb9df7ae3ad9c8470b013091905bb7dc0e"
+    },
+    {
+      "file": "spatialgabench/g4_m3d_construct.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3d_construct.py",
+      "sha256": "cf864f3ff30da3ed009e5bb34e502233fcec26ba14a069cb132f5626f4514232"
+    },
+    {
+      "file": "spatialgabench/g4_m2_software.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m2_software.py",
+      "sha256": "9790de9ee5bc4cd91e4c35fec97b8dfef9298327309458b351cd90379cfdada5"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_r1_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_r1_validation.py",
+      "sha256": "bc99452eeee82debb706ac2e1ea8fd4f26f2dc6f1de64ce42ac3e0a8955c85d7"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_r2_transfer.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_r2_transfer.py",
+      "sha256": "bf6487e06844167a798f6ef937e7b0118e37f3d25224d50a39c54c5032844448"
+    },
+    {
+      "file": "spatialgabench/g4_m3a.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3a.py",
+      "sha256": "b91639fbaa038518649fa208d61618dab4cefecd7a26bf921c6591aae2912938"
+    },
+    {
+      "file": "spatialgabench/nm_ds3_downstream.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_ds3_downstream.py",
+      "sha256": "feafe5377438a6810ae0ce19a2072c17e13c36de683aeaa7f7582efaaf9177e9"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_image_features.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_image_features.py",
+      "sha256": "696815d5d4f649c9e4106b47b21c2bb15874c3a6587df30ce0c98adc6fe35507"
+    },
+    {
+      "file": "spatialgabench/io.py",
+      "upstream_entry": "source_implementation/spatialgabench/io.py",
+      "sha256": "4d9ebcefdd0006852931c2ee1c25a0c0301001468bf9d8f009a7f6ce633add17"
+    },
+    {
+      "file": "spatialgabench/g5_h1_candidate.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h1_candidate.py",
+      "sha256": "00eb8c273af19ccad8185b3837214e14302059288b2ce34159e8c9b228708a81"
+    },
+    {
+      "file": "spatialgabench/nm_external_depth_synthesis.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_external_depth_synthesis.py",
+      "sha256": "7edd829840fa2f4e13c4223122102756fa064862d8a2b3fe8533defb5520169c"
+    },
+    {
+      "file": "spatialgabench/g4_m3e_input.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3e_input.py",
+      "sha256": "8747860b19b30911cca74e97bcadfeb15409e7f52e8f38d75ab5c3740ac45bd5"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_portability_synthesis.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_portability_synthesis.py",
+      "sha256": "217380225d75b9afdb113734224ecb5e2b85aeaeb53d4470e9430d5e5f4f887b"
+    },
+    {
+      "file": "spatialgabench/g4_m4_policy.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m4_policy.py",
+      "sha256": "7d316d87cc1505590a84457e132740dec4cccdd59df655f494865a3e7206ac07"
+    },
+    {
+      "file": "spatialgabench/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/__init__.py",
+      "sha256": "826a0cfe6a3754bb07f30a45cd083a47d3a845acc3663a242bf2a6d45f82fc20"
+    },
+    {
+      "file": "spatialgabench/g4_m3c_factorial.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3c_factorial.py",
+      "sha256": "90db81eb871e94b91e646199d129137aa0fc6134b5de613ed2831d6fbe2c1b27"
+    },
+    {
+      "file": "spatialgabench/nm_spatial_program_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_spatial_program_preflight.py",
+      "sha256": "2002c67ca3b99f7e1f2b103f545cd278d3300436360e98c4b73141a5675b1093"
+    },
+    {
+      "file": "spatialgabench/g4_m3e_synthesis.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3e_synthesis.py",
+      "sha256": "02dc4cfe7f6e5d15ed763d24ce810b0ae5e0d088aa76bcfef97dec986d1d40e3"
+    },
+    {
+      "file": "spatialgabench/nm_tnull1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_tnull1.py",
+      "sha256": "bfee990854040411939aed21467c95280fa0faaf549f434f159fb2e689864606"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_gse279771.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_gse279771.py",
+      "sha256": "649ce34f664bebaf17c8423004eac2a1455d981016de8fd58d1d1dede9f6aa35"
+    },
+    {
+      "file": "spatialgabench/nm_u1_rna.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_u1_rna.py",
+      "sha256": "d4a6aa716b779c3a7abdafbe9b4e681c41ec0018a5a9ab79be83ed02eca8e90f"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_rna_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_rna_validation.py",
+      "sha256": "1af2cd4a07bd7822b724a5271b109925b42ca8fa759dc7313282c17aa6dd9ded"
+    },
+    {
+      "file": "spatialgabench/g4_m3c_simulation.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3c_simulation.py",
+      "sha256": "91649253bf4b97581341f84f92ac1619d39c2236112d74077662b2c987ced046"
+    },
+    {
+      "file": "spatialgabench/nm_spatial_program_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_spatial_program_validation.py",
+      "sha256": "358f5a99b07e8264c6b5a89d3af05b88e8208a98c7362a74716576a79b821e26"
+    },
+    {
+      "file": "spatialgabench/_version.py",
+      "upstream_entry": "source_implementation/spatialgabench/_version.py",
+      "sha256": "da1802e5f50f81ab3288cbc0d2162be3454e2a6442c5c59f470c85b72cdee6dd"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_image_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_image_preflight.py",
+      "sha256": "afcab3d3484a4c0b9953726decbb0b1fdc17b5a5fb8960b2f3f69fa8d4e95573"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_v1_finite_diagnostic.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_v1_finite_diagnostic.py",
+      "sha256": "0e63bd734471ec1c6533701df0afd21a7b41387f8cec4f2549ed2fab8bcdaf44"
+    },
+    {
+      "file": "spatialgabench/g5_h0_preaccess.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h0_preaccess.py",
+      "sha256": "64eb988d191d757b79c0845860270eb7555b93e5a20cd26046706e6e02deb8dc"
+    },
+    {
+      "file": "spatialgabench/nm_upgrade_completion.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_upgrade_completion.py",
+      "sha256": "cd92a528a0066356b1f7d85613dd4d7f21fd92a44a317f66d0797133f7f835b3"
+    },
+    {
+      "file": "spatialgabench/nm_human_method_construction.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_human_method_construction.py",
+      "sha256": "00e700356144a0e37363451d39a167f6f2d16177e703ede844c23bca64973ea2"
+    },
+    {
+      "file": "spatialgabench/g5_h5c_summary.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h5c_summary.py",
+      "sha256": "68cb4f8dd2fbeb8e6b3c0a585ac9d39d2218c47925f213916898b68264c866e2"
+    },
+    {
+      "file": "spatialgabench/nm_risk2.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_risk2.py",
+      "sha256": "45d69474b61885b473dd3fcefecdb87b990655362d827dd951d4715eff4a6521"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_v1_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_v1_validation.py",
+      "sha256": "f2ca6d64634ba42ff32027b3f93c1df1722ae02dc78b618a18fa38dbcac0ccb9"
+    },
+    {
+      "file": "spatialgabench/nm_ds2_downstream.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_ds2_downstream.py",
+      "sha256": "d83e4aef2ab5fc23ad938e1b54d6008f1c80afb26e10b368f5cbad23d5a91da8"
+    },
+    {
+      "file": "spatialgabench/toy.py",
+      "upstream_entry": "source_implementation/spatialgabench/toy.py",
+      "sha256": "5bef0f90a8101410e3550da09af26b73ccc07a9e9ccaf40fa4a308630e0a1665"
+    },
+    {
+      "file": "spatialgabench/nm_external_depth_setup.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_external_depth_setup.py",
+      "sha256": "0d2ba38f131c2c58464cea5d441f9fbce7e204d7b5c874f93e358afa9d24c681"
+    },
+    {
+      "file": "spatialgabench/nm_human_method_setup.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_human_method_setup.py",
+      "sha256": "4e61ad7b01defcbc4f82ca8a8f1da8fd284068d322b7836ccdb2d49b7d521709"
+    },
+    {
+      "file": "spatialgabench/nm_external_depth_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_external_depth_validation.py",
+      "sha256": "fc0cddaa872e47952c796d05a2134282b6514c6b7120f7b37e166f02e33219df"
+    },
+    {
+      "file": "spatialgabench/g4_m3h_rna_replication.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3h_rna_replication.py",
+      "sha256": "192cc4ef6a81a8e616423ad38f10a95097c1a70367a410251f92b182d2d0c7fc"
+    },
+    {
+      "file": "spatialgabench/g4_m3d_domain.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3d_domain.py",
+      "sha256": "74a2b954f8471cd337e534be4418a45fbb65b57f0ac6b58caa931e6b1e3c4ad9"
+    },
+    {
+      "file": "spatialgabench/nm_spatial_program_evaluation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_spatial_program_evaluation.py",
+      "sha256": "042ef6d1b6a614ed74727a483f4a2f752f23529caa299dd3586a102432db8de6"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_v1_1_feasibility.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_v1_1_feasibility.py",
+      "sha256": "e41f4f3c62eb5dc003479e15e0645b5d6ed821ea51d7ecf71b9832a33f94e4bd"
+    },
+    {
+      "file": "spatialgabench/nm_rank1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_rank1.py",
+      "sha256": "ba5dc3d0fab99273777b7f869a0c0e33c6c1898983216bbc7e05f2756d5dafa5"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_depth_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_depth_validation.py",
+      "sha256": "f0b8dec4a265723c9557d11d2d6506c31900d8dc221ca25cd59f083125326345"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_v1_feasibility.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_v1_feasibility.py",
+      "sha256": "5341d09219a1d28d35623bb5e06e35c0c29c356736e72b7c388414a4a20dde93"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_gse279771_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_gse279771_validation.py",
+      "sha256": "c582c7a2a76f5aaec4f793f1be9f006d6371377eb6914f0f2a3ce9a3042103e1"
+    },
+    {
+      "file": "spatialgabench/nm_paired_depth_accuracy.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_paired_depth_accuracy.py",
+      "sha256": "6616f9d859647830137e3e9c8641a343a2be56d80b21da713ff711bd222e1762"
+    },
+    {
+      "file": "spatialgabench/nm_null1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_null1.py",
+      "sha256": "0c715cddec165e62e0596d2201c499bda4344bd2537c83baf73bb8dc50b27854"
+    },
+    {
+      "file": "spatialgabench/g4_m3b_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3b_preflight.py",
+      "sha256": "16479b79dd05a73986926f1690f74f843b74184191259fb97ea7ff15cc795418"
+    },
+    {
+      "file": "spatialgabench/nm_rwga_feasibility_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_rwga_feasibility_validation.py",
+      "sha256": "c76be31e19d1f4fc43356fe749e195ce45ebfc73a852ffef5de0ea256ca51b4e"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_morphology_sensitivity.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_morphology_sensitivity.py",
+      "sha256": "42b80ae11ec63e0f1cc41c5c19729e09dc7d9503dd6c05510cdae11feeadedd9"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_portability_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_portability_validation.py",
+      "sha256": "83fde353f6dba5760b0abe2379ac463940bdf0bb84d4a06386bbfc6717dbbac7"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_malt_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_malt_preflight.py",
+      "sha256": "2d925e3a2e12d7d0c7b572312e79f5a1e3e187a464f024910ec6f16d5d5a2f6f"
+    },
+    {
+      "file": "spatialgabench/g4_m1.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m1.py",
+      "sha256": "a0ef7ce0820c6466dd0871e267512fe8d5aa3760200106cc980da6fe637a24cd"
+    },
+    {
+      "file": "spatialgabench/nm_paired_depth_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_paired_depth_validation.py",
+      "sha256": "579c4126208a78c9f32e3ff3374a3477cfd0e34bf823395b5b483ffde2e0f925"
+    },
+    {
+      "file": "spatialgabench/g4_m2.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m2.py",
+      "sha256": "41edc4dfd40f07b3a433890fe9a655afd69cf0e3be279413f69e2a970cf0320e"
+    },
+    {
+      "file": "spatialgabench/nm_frozen_peak_rescue_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_frozen_peak_rescue_validation.py",
+      "sha256": "ce29d593a39cf67f27652651057ef3ba1b46ccade7cec79ee3042744f8fd3b39"
+    },
+    {
+      "file": "spatialgabench/nm_human_representations.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_human_representations.py",
+      "sha256": "66b4c6109ea35115200b037b34763d8a6ba080c64bd07dce0dc5d1fd5d6b7531"
+    },
+    {
+      "file": "spatialgabench/g5_h3_schema.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h3_schema.py",
+      "sha256": "6fc3e68509262eb5b6d49879ba851f7906d19f905098d040b3da44e0059577d1"
+    },
+    {
+      "file": "spatialgabench/g5_h5b_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h5b_preflight.py",
+      "sha256": "083eb1363a28fd209b001160cf2f37fc1fc4ca9990c119c99acb94995b35267e"
+    },
+    {
+      "file": "spatialgabench/nm_fam1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_fam1.py",
+      "sha256": "39e1f48abf1ab58c8681367616a9f09bfc32342038f483ef68160499316c9103"
+    },
+    {
+      "file": "spatialgabench/g4_m3c_analysis.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3c_analysis.py",
+      "sha256": "56182e6c821c5d6685f234c1c6c99a2cf2a3f57c42597b59f0cc38ebe450c0e4"
+    },
+    {
+      "file": "spatialgabench/g4_m3g_pathology_truth_audit.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3g_pathology_truth_audit.py",
+      "sha256": "d29d5b1068c2678bad6afdee16e2cd2b436cce97acf356979fac370c5a99bc58"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_v1_1_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_v1_1_validation.py",
+      "sha256": "96117fdd2cc737d988e0fbb18b2f28630e5dbc2a58c741dd6b8f2070532b450f"
+    },
+    {
+      "file": "spatialgabench/nm_peakfree_r1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_peakfree_r1.py",
+      "sha256": "e7bf4108dcf88e2721f0a5917dad451c78709f82a78d15b6753bde1df7cce010"
+    },
+    {
+      "file": "spatialgabench/nm_rank2.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_rank2.py",
+      "sha256": "bb59db15ad04511fab80b6a23b1719acf07ca4168db1c8210ae551a005273635"
+    },
+    {
+      "file": "spatialgabench/g4_m3b_rna.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3b_rna.py",
+      "sha256": "417e2be36f82d3abfb69cef579e0b834ca1052e1271f28b82ea60587d62a089b"
+    },
+    {
+      "file": "spatialgabench/g4_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_validation.py",
+      "sha256": "75192fc723568055cfb14c27819a00f5740edc8cf1ab16c2dff57aa2a26245da"
+    },
+    {
+      "file": "spatialgabench/nm_reliability_multiscale_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_reliability_multiscale_validation.py",
+      "sha256": "31dd552ebc8fe7fc9b301019b895785de063ee03285abbb7c72731ec8a2c23b9"
+    },
+    {
+      "file": "spatialgabench/g5_h4_protocol.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h4_protocol.py",
+      "sha256": "bc571d34591b9798cdd92695b5ef20d4f82c0749fa0033c6e46b9552b075682e"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_morphology.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_morphology.py",
+      "sha256": "a845ec44322b0904c7e5631fa2eb517a9836cdc26efbc6124ccfcfb169b834b4"
+    },
+    {
+      "file": "spatialgabench/g4_m2c_cicero.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m2c_cicero.py",
+      "sha256": "3a3e5008f3c6944c24320090fe05f226e4eab685934dbbd2965a58f8bb5f50ae"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_rna_synthesis.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_rna_synthesis.py",
+      "sha256": "7f33578dc91d414dfefbbee2e10730b985a14e0cda98ab43963e1ad939994294"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_malt_methods.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_malt_methods.py",
+      "sha256": "27fcceb4f17093987fd4f9c6c97ec337ef747aa5788106de131f88199f5a1187"
+    },
+    {
+      "file": "spatialgabench/g5_h5b_summary.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h5b_summary.py",
+      "sha256": "3b207d4118407c254526bb3d7016ddcb84ecdc4eca85d57ae587874075de83e5"
+    },
+    {
+      "file": "spatialgabench/full_benchmark_depth_stress.py",
+      "upstream_entry": "source_implementation/spatialgabench/full_benchmark_depth_stress.py",
+      "sha256": "3d0a3a812bed2598c626462af0e19d3ab46551ac89b165cc437da0d5eed191de"
+    },
+    {
+      "file": "spatialgabench/g5_h5a_representations.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h5a_representations.py",
+      "sha256": "090a0c038a343798eea67226f52610576518176fc0b06c0fa1311e3a48784544"
+    },
+    {
+      "file": "spatialgabench/nm_frozen_peak_rescue.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_frozen_peak_rescue.py",
+      "sha256": "0bac2f916a3f5da4e1dfa3a74e6449502b413be097e49c2965e89932f9c7eff4"
+    },
+    {
+      "file": "spatialgabench/config.py",
+      "upstream_entry": "source_implementation/spatialgabench/config.py",
+      "sha256": "3f072724dee0a2b02d9b7302713e314876bad7bf502e63666885535ba87489f5"
+    },
+    {
+      "file": "spatialgabench/nm_u1_rna_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_u1_rna_validation.py",
+      "sha256": "f13e6c0b1d2a321a8fa1b7e1f27f3876afd23d4773e562c0a3dcc638ea617773"
+    },
+    {
+      "file": "spatialgabench/nm_xend1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_xend1.py",
+      "sha256": "8fd698328922082acf8a8270b164b054d58ebd93eceece81c2e4af8c415ba8f9"
+    },
+    {
+      "file": "spatialgabench/nm_nc1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_nc1.py",
+      "sha256": "97d26b77f9502a5cd1713e06e86327c0f242d1011dd4e3942117c935a0d87224"
+    },
+    {
+      "file": "spatialgabench/nm_human_method_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_human_method_validation.py",
+      "sha256": "a373b6556f38652001635f89bde7527d60655e26c715c9ec65e7651f8483a4df"
+    },
+    {
+      "file": "spatialgabench/nm_u1_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_u1_preflight.py",
+      "sha256": "3a4d91e32e737deb795af751d87050ba49433e3e334a265768166806c54b1c15"
+    },
+    {
+      "file": "spatialgabench/nm_snull1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_snull1.py",
+      "sha256": "8d10de47ba5fd04712dc8298c31130447c6159e214de3d4c099865f06fc8e1f6"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_malt_representations.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_malt_representations.py",
+      "sha256": "9df97119fe3df94b6d515ef259693286fbb0be665285afb04131470705cac6d8"
+    },
+    {
+      "file": "spatialgabench/g4_m3f_morphology_analysis.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3f_morphology_analysis.py",
+      "sha256": "33024bbeb7cbe1522c849db79c8a70f371529784190ff5162305d07913d8ec98"
+    },
+    {
+      "file": "spatialgabench/registry.py",
+      "upstream_entry": "source_implementation/spatialgabench/registry.py",
+      "sha256": "3363a1c35a71e5431f929bfeda11238fdc1f2d46f61c048dca97085988738f4d"
+    },
+    {
+      "file": "spatialgabench/g5_h5c_preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h5c_preflight.py",
+      "sha256": "cb24614d5e88d524d3b65a58901061e0e282b17ef0ab7291c73347fe645524c2"
+    },
+    {
+      "file": "spatialgabench/nm_risk1.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_risk1.py",
+      "sha256": "7eff79e4e89d5309100b9249d4d2b85c6858b00688189fa07ba9ad7e2b51c09a"
+    },
+    {
+      "file": "spatialgabench/nm_u4_gene_identity_correction.py",
+      "upstream_entry": "source_implementation/spatialgabench/nm_u4_gene_identity_correction.py",
+      "sha256": "e33137c896bfa0f0c8945340f4e5747b2d5d613b4705dfc0231534da7cb76a1f"
+    },
+    {
+      "file": "spatialgabench/g4_m2_software_summary.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m2_software_summary.py",
+      "sha256": "9e3aecb33a58e369393c594fba98419b4390c6bbd00667926c4160db1cb55271"
+    },
+    {
+      "file": "spatialgabench/g5_h2_download.py",
+      "upstream_entry": "source_implementation/spatialgabench/g5_h2_download.py",
+      "sha256": "291a9f17b346592a326e9a3e6921761de6beda1340ca12b290e10b5214de4b9f"
+    },
+    {
+      "file": "spatialgabench/g4_m3d_input.py",
+      "upstream_entry": "source_implementation/spatialgabench/g4_m3d_input.py",
+      "sha256": "6312ace1f2e40a639b5bcc1bbb64747505681cb9d3f2c4af80fe102be3401ea9"
+    },
+    {
+      "file": "spatialgabench/project_validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/project_validation.py",
+      "sha256": "10d3231a3775a9e6754dcc597515821cbb20a07a338e6cc4cb060cf90a434198"
+    },
+    {
+      "file": "spatialgabench/gene_activity/promoter.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/promoter.py",
+      "sha256": "c85cb48ee43cae93f609e652cdb3c490cb1a900dc4fca9d25294c616a285a14b"
+    },
+    {
+      "file": "spatialgabench/gene_activity/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/__init__.py",
+      "sha256": "0e7545786a85a6d2662b4f4bd31f808aed3d851959fe850c94165ebc16561a85"
+    },
+    {
+      "file": "spatialgabench/gene_activity/atomic_multiresolution.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/atomic_multiresolution.py",
+      "sha256": "8be175d2190a346dd55b9fcfa7604b193efedd78cf211c9d6299f14c2d0a2677"
+    },
+    {
+      "file": "spatialgabench/gene_activity/interval_aggregation.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/interval_aggregation.py",
+      "sha256": "1fe4d5fb7b1da620bfb899b138b76147d21b0f5ccc95082e2189c2b23bb844f7"
+    },
+    {
+      "file": "spatialgabench/gene_activity/accessibility_matched_random.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/accessibility_matched_random.py",
+      "sha256": "3c1e61d83d0c2e96b766f832137b5b9fd8e803448d247deef46f56590951049d"
+    },
+    {
+      "file": "spatialgabench/gene_activity/random_control.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/random_control.py",
+      "sha256": "a3d86b8da5cbbe865cb14ccb2f54fd099bb3b70fb7972c7277cd48bc255fd8ec"
+    },
+    {
+      "file": "spatialgabench/gene_activity/raw_peak_lsi.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/raw_peak_lsi.py",
+      "sha256": "87cb49d9ddbbbb5b1e70cd851424b9c8a392df8f3d3f2bb9000e41f1cf4a3c10"
+    },
+    {
+      "file": "spatialgabench/gene_activity/reliability_multiscale.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/reliability_multiscale.py",
+      "sha256": "e6f2f9c88cb914542449fc85742802d6abc50231a9787ca7d0de3741f84ebc72"
+    },
+    {
+      "file": "spatialgabench/gene_activity/distal.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/distal.py",
+      "sha256": "2b3d422e482d7c5a32b51da29ec95403afc1f07076ac088292fea2eb20c8e8a4"
+    },
+    {
+      "file": "spatialgabench/gene_activity/promoter_gene_body.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/promoter_gene_body.py",
+      "sha256": "7a60c1421f12cd4270ce78898b646f092dff671ab727cb2e5866918f722782dc"
+    },
+    {
+      "file": "spatialgabench/gene_activity/gene_body.py",
+      "upstream_entry": "source_implementation/spatialgabench/gene_activity/gene_body.py",
+      "sha256": "e0b052c21bcf5fb98f5e7893fc4f9abcb1e176a59514664cb43e0c9c06697ca5"
+    },
+    {
+      "file": "spatialgabench/software_wrappers/contracts.py",
+      "upstream_entry": "source_implementation/spatialgabench/software_wrappers/contracts.py",
+      "sha256": "d5f10dd3e36efc05ad67648227cc31bf8955e7aad440229e0d6b47412d3b9b0f"
+    },
+    {
+      "file": "spatialgabench/software_wrappers/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/software_wrappers/__init__.py",
+      "sha256": "7839343e2c70750c1c3c99f40d25d4a68279fa54ee91455926124cacfdd3b5d4"
+    },
+    {
+      "file": "spatialgabench/software_wrappers/toy.py",
+      "upstream_entry": "source_implementation/spatialgabench/software_wrappers/toy.py",
+      "sha256": "f68781819cce522b5e5a9e421f50b982811ad97e0abf0f3f71613122fbff64aa"
+    },
+    {
+      "file": "spatialgabench/software_wrappers/summary.py",
+      "upstream_entry": "source_implementation/spatialgabench/software_wrappers/summary.py",
+      "sha256": "ac858f6d76afa2937e76b408b533e0cc323ba1fa1eaa311748215a851d15ccc1"
+    },
+    {
+      "file": "spatialgabench/software_wrappers/common.py",
+      "upstream_entry": "source_implementation/spatialgabench/software_wrappers/common.py",
+      "sha256": "e77ef968a575a61eaf3046102c23338a92118ed55c4dbfec93c558788c0c8f08"
+    },
+    {
+      "file": "spatialgabench/software_wrappers/preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/software_wrappers/preflight.py",
+      "sha256": "3fdbd882f1b319ba7823a0d2f5da442cd56f280ecfec85e0fb056eaa0f89a001"
+    },
+    {
+      "file": "spatialgabench/visualization/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/visualization/__init__.py",
+      "sha256": "54695b6870741f470a23e80bbd3e1840ee8133867bb2bf026d4847f8cbe4194d"
+    },
+    {
+      "file": "spatialgabench/simulation/truth.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/truth.py",
+      "sha256": "175e21753707456d5cac6d5aadd2207362be162e82f37cf1779a6041687b6318"
+    },
+    {
+      "file": "spatialgabench/simulation/validation.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/validation.py",
+      "sha256": "52373fb92850a1b9fb156b95e5e338311955abe65f08b42d66c37f4b6289946f"
+    },
+    {
+      "file": "spatialgabench/simulation/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/__init__.py",
+      "sha256": "b45ba89c1ec4bb00eb1ef8cb86d1a8e732f67ef58dfb339fdfbef8370145d418"
+    },
+    {
+      "file": "spatialgabench/simulation/generator.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/generator.py",
+      "sha256": "2d3b7a7dee87d0ea66b2b4dfcf7f6d71c6b2362f36a05330ffa080a9f760ea08"
+    },
+    {
+      "file": "spatialgabench/simulation/design.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/design.py",
+      "sha256": "aae071589efacc8b064ac80f3966341c921a43d96b3b773fd577e6d238d5cb80"
+    },
+    {
+      "file": "spatialgabench/simulation/fragments.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/fragments.py",
+      "sha256": "0ab90c6e6de558296cffa845334cfcfe6ba14e5d91f45b4fd8be1cbaf4fb2bd4"
+    },
+    {
+      "file": "spatialgabench/simulation/config.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/config.py",
+      "sha256": "ccb5603a53b7a45a78682e37ee824dc85e84efed57c605bea1ed241060102bab"
+    },
+    {
+      "file": "spatialgabench/simulation/api.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/api.py",
+      "sha256": "cccc11ca490454567e9fbf240800ce222cd89469fc2ab6673c6e16e8e2f84946"
+    },
+    {
+      "file": "spatialgabench/simulation/calibration.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/calibration.py",
+      "sha256": "fede63d8db4bc08879a925de103e034a5c0896b39bc36c154be019a62eed27bb"
+    },
+    {
+      "file": "spatialgabench/simulation/g3.py",
+      "upstream_entry": "source_implementation/spatialgabench/simulation/g3.py",
+      "sha256": "34d164d3fc65d44fa5f921c99f7282fd314c01c24f4d18611ee62f87c5ac0727"
+    },
+    {
+      "file": "spatialgabench/datasets/schema_audit.py",
+      "upstream_entry": "source_implementation/spatialgabench/datasets/schema_audit.py",
+      "sha256": "595ba670fb3331c0b2bb919c1319c4179a25d8b3c5cbfbba996c10e6dfd6b46d"
+    },
+    {
+      "file": "spatialgabench/datasets/peak_h5_audit.py",
+      "upstream_entry": "source_implementation/spatialgabench/datasets/peak_h5_audit.py",
+      "sha256": "4a0f81f5b210fa3b8baeb9a12625666394540f7ff1237b50ad78688f21b190bb"
+    },
+    {
+      "file": "spatialgabench/datasets/fragment_h5ad_audit.py",
+      "upstream_entry": "source_implementation/spatialgabench/datasets/fragment_h5ad_audit.py",
+      "sha256": "e35f902305b0cc6be89b274a6248efc62375c1cc8730ca2181c3d878c0ba7eb5"
+    },
+    {
+      "file": "spatialgabench/datasets/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/datasets/__init__.py",
+      "sha256": "5d0da0d685182200a9f52e94db9740de43edfa9869d2c3426d57e052ec65b9f2"
+    },
+    {
+      "file": "spatialgabench/datasets/paired_h5_audit.py",
+      "upstream_entry": "source_implementation/spatialgabench/datasets/paired_h5_audit.py",
+      "sha256": "687563922e4df02addf14c6d5a63828dce69f8a7d261372e02419cb0bb602a5f"
+    },
+    {
+      "file": "spatialgabench/datasets/downloads.py",
+      "upstream_entry": "source_implementation/spatialgabench/datasets/downloads.py",
+      "sha256": "9f0982808d9eb5db35ec0b99365a296f98c58cef0e5a1ddc53bec744885f7847"
+    },
+    {
+      "file": "spatialgabench/representations/guard.py",
+      "upstream_entry": "source_implementation/spatialgabench/representations/guard.py",
+      "sha256": "1742ba7855304dae2997207bf582ba7c6f7c454780965b5f7a1d4580c49b038c"
+    },
+    {
+      "file": "spatialgabench/representations/h5ad_fragments.py",
+      "upstream_entry": "source_implementation/spatialgabench/representations/h5ad_fragments.py",
+      "sha256": "290577ec80b0fb3dddbf9fa570c9f22d00a81cb2474c2533ae91e29bf8efd13c"
+    },
+    {
+      "file": "spatialgabench/representations/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/representations/__init__.py",
+      "sha256": "baef8cb6bc1eaaca5e27ca169726f9ce9bd6a42a1b4601e0466015e438905a0f"
+    },
+    {
+      "file": "spatialgabench/representations/peaks.py",
+      "upstream_entry": "source_implementation/spatialgabench/representations/peaks.py",
+      "sha256": "54c3a1d1be8d82f2d5834b58d0d516fb3fa2f17ec18ba0b1fe82ed740b323fe4"
+    },
+    {
+      "file": "spatialgabench/representations/fragments.py",
+      "upstream_entry": "source_implementation/spatialgabench/representations/fragments.py",
+      "sha256": "3d1fa26e016edb6ad19364777482b8a48675fe0538290cd9709428547bd30c90"
+    },
+    {
+      "file": "spatialgabench/representations/matched.py",
+      "upstream_entry": "source_implementation/spatialgabench/representations/matched.py",
+      "sha256": "6bfee6ba2611d9487e9894bf44eb36161759b5c55d62391b501eb177df157382"
+    },
+    {
+      "file": "spatialgabench/reporting/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/reporting/__init__.py",
+      "sha256": "c208e78f94480c331c06e57a0eb62450545e4178b08cff8533c1ddcf637e67d9"
+    },
+    {
+      "file": "spatialgabench/recommendation/report.py",
+      "upstream_entry": "source_implementation/spatialgabench/recommendation/report.py",
+      "sha256": "396a66d4027266c2a287546ac2b2bc2772130ba0335a96c9257cef68ac3f5266"
+    },
+    {
+      "file": "spatialgabench/recommendation/rules.py",
+      "upstream_entry": "source_implementation/spatialgabench/recommendation/rules.py",
+      "sha256": "2bbfc7267b82a2a95ef898374fbbfe1e09a06da59d58f57e989923113e2e54bb"
+    },
+    {
+      "file": "spatialgabench/recommendation/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/recommendation/__init__.py",
+      "sha256": "1ecad495f4086e9fc0e59e6e068229a7f4df0108cd19031c5e9e3141bda141cf"
+    },
+    {
+      "file": "spatialgabench/recommendation/frozen.py",
+      "upstream_entry": "source_implementation/spatialgabench/recommendation/frozen.py",
+      "sha256": "cec8f7bf572cc7d8af0aadf471dcf83d8f01c3c0cafeb21460c79e7752e7b6fa"
+    },
+    {
+      "file": "spatialgabench/recommendation/schema.py",
+      "upstream_entry": "source_implementation/spatialgabench/recommendation/schema.py",
+      "sha256": "b73f394891192889b23e1be43ddeaf5c694f050f0c6e2e47640cf388bec34255"
+    },
+    {
+      "file": "spatialgabench/recommendation/engine.py",
+      "upstream_entry": "source_implementation/spatialgabench/recommendation/engine.py",
+      "sha256": "e363a714bf36bb5d8402c425df99b118ae58817b79228d463d666db19b40b2e3"
+    },
+    {
+      "file": "spatialgabench/cli/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/cli/__init__.py",
+      "sha256": "58354292952d15419620f1f871e01bf0aede579a400140cab65a263237c7afee"
+    },
+    {
+      "file": "spatialgabench/cli/main.py",
+      "upstream_entry": "source_implementation/spatialgabench/cli/main.py",
+      "sha256": "2aed00caefbfa6a974b8ab39205be4e73f145db919c1a67091e3c5735a40c848"
+    },
+    {
+      "file": "spatialgabench/utils/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/utils/__init__.py",
+      "sha256": "9894b89ec2d53779b8d15b9ce040e003f05fb4af29f8711470a9b2a605e3970f"
+    },
+    {
+      "file": "spatialgabench/downstream/clustering_eval.py",
+      "upstream_entry": "source_implementation/spatialgabench/downstream/clustering_eval.py",
+      "sha256": "69c3b8f8c0b9efe7cacc6b4dd96b961d30337c65249d1e4b6d549a2449e6548e"
+    },
+    {
+      "file": "spatialgabench/downstream/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/downstream/__init__.py",
+      "sha256": "1fb22041afb512572b6ad7e34238b7a5cf86004186fe70e57a785295afb57e09"
+    },
+    {
+      "file": "spatialgabench/evaluation/ranking.py",
+      "upstream_entry": "source_implementation/spatialgabench/evaluation/ranking.py",
+      "sha256": "cd9a4c020cb081e67aff0ef6ee72595c782375c94e21e3facb2ed31e77d135cc"
+    },
+    {
+      "file": "spatialgabench/evaluation/rna_agreement.py",
+      "upstream_entry": "source_implementation/spatialgabench/evaluation/rna_agreement.py",
+      "sha256": "8db1cf5e936db2f6fc03f8c6a677f787f088abb0296d418e60c97f22e753f54b"
+    },
+    {
+      "file": "spatialgabench/evaluation/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/evaluation/__init__.py",
+      "sha256": "b214b201a7c6a26237942404b4ca09d15f92d2607f4c8467668894357fa05ffb"
+    },
+    {
+      "file": "spatialgabench/wrappers/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/wrappers/__init__.py",
+      "sha256": "7f9e846d3951c3c8cb4dbb50cefb8c4ace3a9fadc13661fdbc962afbadbcc7f0"
+    },
+    {
+      "file": "spatialgabench/runtime/__init__.py",
+      "upstream_entry": "source_implementation/spatialgabench/runtime/__init__.py",
+      "sha256": "2fe7120de2026d50ae148748b7c3e9adb883d16aada0db11b6c61cf0e0eab562"
+    },
+    {
+      "file": "spatialgabench/runtime/process_tree.py",
+      "upstream_entry": "source_implementation/spatialgabench/runtime/process_tree.py",
+      "sha256": "eb2172f26f89e7e5d89388ef2e6d56a02241bf509e4a37b2e6ca17180a33208b"
+    },
+    {
+      "file": "spatialgabench/runtime/preflight.py",
+      "upstream_entry": "source_implementation/spatialgabench/runtime/preflight.py",
+      "sha256": "f69a9d81bba5306b8cfc0ea9e9ddd6e24785eed9208ba189105788aa0753d096"
+    },
+    {
+      "file": "configs/nm_sat1_rework_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_sat1_rework_2026-10-18.yaml",
+      "sha256": "6e0995c48e48f239baafcbca62e804d60024b3ae228d705f71297905b65c54c9"
+    },
+    {
+      "file": "configs/g4_m3e_gse288178_mouse_brain_construction.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3e_gse288178_mouse_brain_construction.yaml",
+      "sha256": "27d6b11be2b36c7c59b4784eb268538fe82175312c187c97228d86369cfeba72"
+    },
+    {
+      "file": "configs/g3_simulation_design.yaml",
+      "upstream_entry": "source_implementation/configs/g3_simulation_design.yaml",
+      "sha256": "803db824a9973bd7e7817cae563874625a5a19667466e9aaad69c3f46d99d82d"
+    },
+    {
+      "file": "configs/nm_null1_domain_label_null_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_null1_domain_label_null_2026-10-18.yaml",
+      "sha256": "9844e379f73b6ae3c4723df0136684b1755f5f278555e5e84800b43703700cbc"
+    },
+    {
+      "file": "configs/nm_upgrade_human_software_methods.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_human_software_methods.yaml",
+      "sha256": "f029ef3df3d0437a3091dbbe9ed77c59c52d9fbd48d084bacc30ab050e067dd0"
+    },
+    {
+      "file": "configs/nm_sat1_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_sat1_2026-10-18.yaml",
+      "sha256": "40dc512f24e18b3c59b4eb5cc5d1b5c3c3bde7dac0f0ea200f694ae9279a3127"
+    },
+    {
+      "file": "configs/g2_representation_pilot.yaml",
+      "upstream_entry": "source_implementation/configs/g2_representation_pilot.yaml",
+      "sha256": "84e1fb8eba1716c18420a4e74f8add34518d5f423fed43d6415edfa20dc12da9"
+    },
+    {
+      "file": "configs/g4_m3g_pathology_truth_source_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3g_pathology_truth_source_preflight.yaml",
+      "sha256": "b51d4b1e596233865ab73bbc6c3ee3d3d3ba3b8e1db3fb85d53766363a018e87"
+    },
+    {
+      "file": "configs/nm_peakfree_r2_rna_eval_2026-10-17.yaml",
+      "upstream_entry": "source_implementation/configs/nm_peakfree_r2_rna_eval_2026-10-17.yaml",
+      "sha256": "5091a4f97e1a5559f99d03b3960a425a64d436b45f13f8a89e133ef3d80ebd6f"
+    },
+    {
+      "file": "configs/g5_h1_supplemental_holdout_candidate_audit.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h1_supplemental_holdout_candidate_audit.yaml",
+      "sha256": "a990fe15ec0471bfce2aef4606f13b4817639f277776f5f8a8ab320d12fbcf69"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_input_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_input_preflight.yaml",
+      "sha256": "f82b271ebc534d6df997c307878168154f707e0100656eb93382d1fef33fa5d7"
+    },
+    {
+      "file": "configs/g4_m3h_cross_study_rna_synthesis.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3h_cross_study_rna_synthesis.yaml",
+      "sha256": "c0523505f779365717405ed5b746fad1f6e974512054db54bbe4240e751e4c2e"
+    },
+    {
+      "file": "configs/nm_peakfree_v1_feasibility.yaml",
+      "upstream_entry": "source_implementation/configs/nm_peakfree_v1_feasibility.yaml",
+      "sha256": "8549fa67619a8c631ee43fb09b1989dac179afdfeedf2093073962a4a03a95bd"
+    },
+    {
+      "file": "configs/nm_p0g1_phase0_raw_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_p0g1_phase0_raw_2026-10-18.yaml",
+      "sha256": "9390a562f0ac995a36bf4066c06b4511d2e523b670111a359341c2aeedda76a2"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_raw_lsi.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_raw_lsi.yaml",
+      "sha256": "6ba4df2f8388719ec0588514f3bdbe9203afaf9e92b68a4b85fec30a289f9c45"
+    },
+    {
+      "file": "configs/nm_upgrade_human_annotation_methods.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_human_annotation_methods.yaml",
+      "sha256": "a744b82c327980cc8746a544024158f47def2162e7351aa6ef265c7aa827d860"
+    },
+    {
+      "file": "configs/g4_m3c_replicated_simulation_truth_recovery_v2.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3c_replicated_simulation_truth_recovery_v2.yaml",
+      "sha256": "c241f5a30bb751ef1203faf677b9012f7eb261e57019a4e487a4e6ce7af5c965"
+    },
+    {
+      "file": "configs/nm_adaptive_ad0_2026-10-17.yaml",
+      "upstream_entry": "source_implementation/configs/nm_adaptive_ad0_2026-10-17.yaml",
+      "sha256": "4d8c97804004e4743d5d727251be25f552eeae38611516ca8e9e013e02b49042"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_method_construction.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_method_construction.yaml",
+      "sha256": "781ffc0f6abee50e5cdd32f44754fa1c1b211b37aba8ece3b532d053fd1c0518"
+    },
+    {
+      "file": "configs/g4_m3c_simulation_component_identifiable_canary_v2.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3c_simulation_component_identifiable_canary_v2.yaml",
+      "sha256": "b65ee48cbd7badcf12bf64f75f3557d520a4c15cabcf58e35b55b4ced36a7ea7"
+    },
+    {
+      "file": "configs/g4_m3c_replicated_simulation_generation_v2.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3c_replicated_simulation_generation_v2.yaml",
+      "sha256": "26dd332b06d77ce57ccc1b72802b597cfe59f58ec3410aba4657709b00001db4"
+    },
+    {
+      "file": "configs/nm_rank2_real_rank_stability_rework_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_rank2_real_rank_stability_rework_2026-10-18.yaml",
+      "sha256": "71a306a31e062d3506aa5511635655029c632fac26a8bf3b446cdbe14a334582"
+    },
+    {
+      "file": "configs/nm_null1_domain_label_null_rework_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_null1_domain_label_null_rework_2026-10-18.yaml",
+      "sha256": "b630d82ed91633dc47bb4c6b9184752a988dd94ef92c564fd9c8d5367680207e"
+    },
+    {
+      "file": "configs/g5_h0_preaccess_feasibility.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h0_preaccess_feasibility.yaml",
+      "sha256": "5dc13ce2f44e13716bb19206213d2ad34983425d075919efeac12188d23ed718"
+    },
+    {
+      "file": "configs/nm_fam1_family_uncertainty_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_fam1_family_uncertainty_2026-10-18.yaml",
+      "sha256": "1d1ef4428509c27e5f7dd3e3082050b857ef6c21d92665c5cb47bf2925062941"
+    },
+    {
+      "file": "configs/g5_h3a_gse307620_accessibility_schema_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h3a_gse307620_accessibility_schema_preflight.yaml",
+      "sha256": "0ecaca560a85b50965ba248387028e4a11d77536c467707c126c6935b8605088"
+    },
+    {
+      "file": "configs/g4_m3e_cross_study_author_domain_synthesis.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3e_cross_study_author_domain_synthesis.yaml",
+      "sha256": "09b8c54c61daf02c4aa787676b4d53dc4c9b462c622563460e4955e16903debb"
+    },
+    {
+      "file": "configs/g3_software_smoke.yaml",
+      "upstream_entry": "source_implementation/configs/g3_software_smoke.yaml",
+      "sha256": "ac238e45a1b48d921d76e819cfbbc3f3a0439061e3a9eef270a15c5ba8ef1292"
+    },
+    {
+      "file": "configs/nm_nc1_negative_control_oracle_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_nc1_negative_control_oracle_2026-10-18.yaml",
+      "sha256": "08b0095804543fae9d26cab1a8b6783bd6907dec51747a9e589f08644a074385"
+    },
+    {
+      "file": "configs/nm_u4_human_snap_gene_identity_correction.yaml",
+      "upstream_entry": "source_implementation/configs/nm_u4_human_snap_gene_identity_correction.yaml",
+      "sha256": "af5ce538449b1918f52c9090e50a29d4114d7a838d3610dae211c9b3bfabe000"
+    },
+    {
+      "file": "configs/g4_m1_matched_representations.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m1_matched_representations.yaml",
+      "sha256": "daa3db737f6b1be543cd5df5da4aa90795b6a379e7cf60b9652258596662ded8"
+    },
+    {
+      "file": "configs/g5_h4_one_pass_external_validation_protocol.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h4_one_pass_external_validation_protocol.yaml",
+      "sha256": "83ed27efb6179af69aa9a24f36ff86135e955700c3de414002ff07ff1ca26b38"
+    },
+    {
+      "file": "configs/g4_m3c_simulation_design_v2.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3c_simulation_design_v2.yaml",
+      "sha256": "4900995341a51d96c5ea8bebd2d46977487fd7d50ce0c446fcb4644f13671150"
+    },
+    {
+      "file": "configs/nm_ds1_downstream_rework_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_ds1_downstream_rework_2026-10-18.yaml",
+      "sha256": "3fba99c9e509cf33df1f8275ab00e3b51377943c032ad88e0933a8a09dd00088"
+    },
+    {
+      "file": "configs/g4_m3f_gse278007_melanoma_he_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse278007_melanoma_he_preflight.yaml",
+      "sha256": "83c565fb2eaefdaa3af528a7696b6e72a209504d06d4da9c1c8407659055e631"
+    },
+    {
+      "file": "configs/g5_h5a_external_representations.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h5a_external_representations.yaml",
+      "sha256": "ef98223686a1c183db97a979bd719486bfed2bbd2d794540a40844ce289186cf"
+    },
+    {
+      "file": "configs/nm_xend1_cross_endpoint_rank_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_xend1_cross_endpoint_rank_2026-10-18.yaml",
+      "sha256": "e8265e7e37a1b91b8ecd1a214c76abe24a5fb0105a071042f767c7e8dda3a46b"
+    },
+    {
+      "file": "configs/nm_paired_depth_accuracy.yaml",
+      "upstream_entry": "source_implementation/configs/nm_paired_depth_accuracy.yaml",
+      "sha256": "fe3b18bc1cc768593c0bd4b9674de50afe71a2c83cad802d58c073a9971a3f32"
+    },
+    {
+      "file": "configs/nm_upgrade_human_representations.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_human_representations.yaml",
+      "sha256": "7d349c79457af3cc76edcc47ba55c14bc488b71538cb028aecf261424a845e33"
+    },
+    {
+      "file": "configs/g5_h5b_software_methods.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h5b_software_methods.yaml",
+      "sha256": "f36492f5d7ae4ddf7ab3dd1c480472ba53554fd8ee30466e26aa6ecbff81f62e"
+    },
+    {
+      "file": "configs/nm_snull1_spatial_null_rework_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_snull1_spatial_null_rework_2026-10-18.yaml",
+      "sha256": "a70b3ab9e33ed6707500ed27053ada93a219d3611ad7c15dfdd4d35d1c82288f"
+    },
+    {
+      "file": "configs/g4_m3h_gse205052_rna_fidelity.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3h_gse205052_rna_fidelity.yaml",
+      "sha256": "e98c6e15f87798f9c6fb9e79970050213e1d041c2f3f311ce22257892f5d717a"
+    },
+    {
+      "file": "configs/nm_frozen_peak_rescue_methods_external.yaml",
+      "upstream_entry": "source_implementation/configs/nm_frozen_peak_rescue_methods_external.yaml",
+      "sha256": "95a55f6d4df0751c897636da9053d651462e985aa6c87106be71856d555fc02e"
+    },
+    {
+      "file": "configs/nm_ds2_downstream_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_ds2_downstream_2026-10-18.yaml",
+      "sha256": "b83f8e8a004c8ae28e2d4d514ce9e350b8e1ee19b88b32b2d55c2f45e2721145"
+    },
+    {
+      "file": "configs/g4_m3d_gse214986_construction.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3d_gse214986_construction.yaml",
+      "sha256": "4cf26df429a0a49d0a016f14b28296955ca0a118ee18b6556663746bfaec2d05"
+    },
+    {
+      "file": "configs/g4_m3b_input_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3b_input_preflight.yaml",
+      "sha256": "069f119e7bfb400e06ac2e690e9273a9f4ae359628700e0a97a3a5d83045ab44"
+    },
+    {
+      "file": "configs/nm_rank2_real_rank_stability_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_rank2_real_rank_stability_2026-10-18.yaml",
+      "sha256": "7be9c27a01d3c03be20c54d2eb74713bf4ded1280ecdc8e92deae8844b742567"
+    },
+    {
+      "file": "configs/g5_h3_gse307620_accessibility_schema_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h3_gse307620_accessibility_schema_preflight.yaml",
+      "sha256": "d57c28ecdcef80a812f2d625b0c83ba25798e163bbaf6e593f3eabc607b45f54"
+    },
+    {
+      "file": "configs/nm_snull1_spatial_null_rework_v2_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_snull1_spatial_null_rework_v2_2026-10-18.yaml",
+      "sha256": "5227c1e1b9a05fede902541a99c54f75a9db772047f212e59ca00714e3b3f09b"
+    },
+    {
+      "file": "configs/nm_upgrade_external_project.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_external_project.yaml",
+      "sha256": "5d2655c0d2d76cdf67d5c038a24a096a4351e59c89ab89b130ca7698d656144f"
+    },
+    {
+      "file": "configs/nm_peakfree_r1_paired_rna.yaml",
+      "upstream_entry": "source_implementation/configs/nm_peakfree_r1_paired_rna.yaml",
+      "sha256": "c96f3c367de460271223fa887fb55e7f7517c8e528f2b9f7f514a95eb94cc4df"
+    },
+    {
+      "file": "configs/full_benchmark_fb2_portability_synthesis.yaml",
+      "upstream_entry": "source_implementation/configs/full_benchmark_fb2_portability_synthesis.yaml",
+      "sha256": "341c035babc20b39f8d0c3d1d75192961c0528b33153a0cf972dcea5fc23202d"
+    },
+    {
+      "file": "configs/g4_m3a_admissibility_recert_2026-10-17.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3a_admissibility_recert_2026-10-17.yaml",
+      "sha256": "c3fc03d04816e1e86746f5d8ae426911668479b52cfd58627effc2c9d3865324"
+    },
+    {
+      "file": "configs/nm_upgrade_external_depth_stress.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_external_depth_stress.yaml",
+      "sha256": "719236e9cc9df376bfbc98d2879d7b090fb14061d8d800baaa0f1e4134aef17d"
+    },
+    {
+      "file": "configs/nm_ds1_downstream_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_ds1_downstream_2026-10-18.yaml",
+      "sha256": "a17bd96a5f9a348bac3cd96dfbf3472a7e171832749c0989fda6a12330bc2c65"
+    },
+    {
+      "file": "configs/g5_h5b_method_construction_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h5b_method_construction_preflight.yaml",
+      "sha256": "9c575ac7c87e72b433f823600069e193caaba26c65b624e8e29fd5cb33795bb8"
+    },
+    {
+      "file": "configs/nm_frozen_peak_rescue.yaml",
+      "upstream_entry": "source_implementation/configs/nm_frozen_peak_rescue.yaml",
+      "sha256": "24313a4c86543e3aebf85afbcc4b06e04601a4620ca8d84e4d22078bdc7dacc0"
+    },
+    {
+      "file": "configs/full_benchmark_fb1_rna_synthesis.yaml",
+      "upstream_entry": "source_implementation/configs/full_benchmark_fb1_rna_synthesis.yaml",
+      "sha256": "5a688c73f889e02951659b864aa40e33b6dc3bb17ff93e86ea77443ede231829"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_nonlinear_spatial_sensitivity.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_nonlinear_spatial_sensitivity.yaml",
+      "sha256": "e82ad414ebd573b4e3b8a9b4c03ca2524f91c7b088b2a9da9869aa4b6f8a108c"
+    },
+    {
+      "file": "configs/g4_m3a_admissibility_recert_measured_2026-10-17.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3a_admissibility_recert_measured_2026-10-17.yaml",
+      "sha256": "88abb61d255d2bf7c120b9fbdaae31e7f34181ba4ee4f685b17828dd69d6415a"
+    },
+    {
+      "file": "configs/nm_sat1_rework_r2_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_sat1_rework_r2_2026-10-18.yaml",
+      "sha256": "35cf7a87ef50892b2e21a7d0ade2092e48614288f73257f4c9aa9a5c60dca7e7"
+    },
+    {
+      "file": "configs/g5_h5b_annotation_methods.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h5b_annotation_methods.yaml",
+      "sha256": "6b82349071289512783282cc29eb33e2360f3301be4bae8ab7d8b15f18f9b6a5"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_image_features.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_image_features.yaml",
+      "sha256": "dbd60b07a4d354fa5876fff143190f910237ad436c1dcdf8a7a2781beff298f9"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_morphology_evaluation.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_morphology_evaluation.yaml",
+      "sha256": "dca2a2b9653630394c2f57efd06db6685d567f99bc464dd0fbd627bc9b86b164"
+    },
+    {
+      "file": "configs/g5_h5c_external_evaluation_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h5c_external_evaluation_preflight.yaml",
+      "sha256": "25094b6f4e09c5f65ec53b784025535abf3d49a5ee6c89441584bda66c6e05ba"
+    },
+    {
+      "file": "configs/nm_upgrade_u1_human_rna.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_u1_human_rna.yaml",
+      "sha256": "166739281b4e738d23abe9622cdaf92454633da60e8978443ea578027e4b7e07"
+    },
+    {
+      "file": "configs/nm_upgrade_spatial_programs.yaml",
+      "upstream_entry": "source_implementation/configs/nm_upgrade_spatial_programs.yaml",
+      "sha256": "b76bb213d9f883c37b31ef589d0525c5650b1d85f3ca06e3341fc57d6198c527"
+    },
+    {
+      "file": "configs/g4_m2c_raw_lsi.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m2c_raw_lsi.yaml",
+      "sha256": "cc60b769b9dfadac99f1021f56b00ffb8444cf62cd88462e388220c417ea8aef"
+    },
+    {
+      "file": "configs/nm_tnull1_whole_tissue_null_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_tnull1_whole_tissue_null_2026-10-18.yaml",
+      "sha256": "a6cfa47ae26af9d8a3fca11c0253b530e665d07026bac9ba87cc0610cd6b1fb6"
+    },
+    {
+      "file": "configs/full_benchmark_fb4_gse279771_insertion_rna.yaml",
+      "upstream_entry": "source_implementation/configs/full_benchmark_fb4_gse279771_insertion_rna.yaml",
+      "sha256": "4c7fc85861578ebc1217173a41cb41f3d3e6b850395b2e0e2d42496a70da39df"
+    },
+    {
+      "file": "configs/full_benchmark_fb3_depth_resource_stress.yaml",
+      "upstream_entry": "source_implementation/configs/full_benchmark_fb3_depth_resource_stress.yaml",
+      "sha256": "ca09a578c331f900fc7f4e23d8bb83d0fa0bac2eff30272194916bec95482a6f"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_morphology_folds.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_morphology_folds.yaml",
+      "sha256": "f7797381185d16a577451c75100a1d8eea9135dc0602f6831fab8e29d7610425"
+    },
+    {
+      "file": "configs/nm_ds3_rework_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_ds3_rework_2026-10-18.yaml",
+      "sha256": "06db946a6badf1e541e4a091ecdf220844de908561249fb5e8fb5903ca61f70f"
+    },
+    {
+      "file": "configs/main.yaml",
+      "upstream_entry": "source_implementation/configs/main.yaml",
+      "sha256": "3fd1eeb3814f1fdd4455c3450ef185abc18fe16e327e4e2f4e7b2639c0de309e"
+    },
+    {
+      "file": "configs/g4_m3c_simulation_canary.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3c_simulation_canary.yaml",
+      "sha256": "a9fa82c8a4a9925bdd7c064d9f55d3a5989a527a24e09fa1b2f01949dcb298d4"
+    },
+    {
+      "file": "configs/nm_ds3_downstream_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_ds3_downstream_2026-10-18.yaml",
+      "sha256": "4c27e4c77dcbe97d6a5426e282c1a043a2572bfc43bac8ab1ed9a7aeeb154e63"
+    },
+    {
+      "file": "configs/nm_snull1_spatial_null_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_snull1_spatial_null_2026-10-18.yaml",
+      "sha256": "19ff36028fbcb83d3505452f0e1c4f069c67c1934339ea489538534b51882df4"
+    },
+    {
+      "file": "configs/g4_m3c_simulation_factorial_analysis_v2.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3c_simulation_factorial_analysis_v2.yaml",
+      "sha256": "a48067d1fbdc48cd9351a8e706e24c95741875a7593a7b8e675351b72e308678"
+    },
+    {
+      "file": "configs/nm_peakfree_r2_transfer.yaml",
+      "upstream_entry": "source_implementation/configs/nm_peakfree_r2_transfer.yaml",
+      "sha256": "21a0935422ddb1c83a63920353e6d0b1c2aff913a090603fb7a37d9048f13c34"
+    },
+    {
+      "file": "configs/nm_rwga_low_depth_feasibility.yaml",
+      "upstream_entry": "source_implementation/configs/nm_rwga_low_depth_feasibility.yaml",
+      "sha256": "f1edeea4021a51d9bd82a47f4b1d1797df3d78540c96996d519aaf79810b5ed8"
+    },
+    {
+      "file": "configs/g4_m3b_rna_fidelity.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3b_rna_fidelity.yaml",
+      "sha256": "630314a3e7e2d51b2411bb2b40f4a3a2b86abe631019da94c79c73f8ff27b26f"
+    },
+    {
+      "file": "configs/nm_peakfree_v1_1_feasibility.yaml",
+      "upstream_entry": "source_implementation/configs/nm_peakfree_v1_1_feasibility.yaml",
+      "sha256": "9c3590d3a3bb4f0f8963bcbc44e2e8b41646d40539136242e4f84d0fae950770"
+    },
+    {
+      "file": "configs/nm_rank1_rank_stability_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/nm_rank1_rank_stability_2026-10-18.yaml",
+      "sha256": "4c4b66c8a6fabd0ba574ad9ccfcf2cd81caec612d8912a4617a4800e9c7b0898"
+    },
+    {
+      "file": "configs/g4_m3e_gse288178_mouse_brain_domain_evaluation.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3e_gse288178_mouse_brain_domain_evaluation.yaml",
+      "sha256": "6d7a385353d4d3501af5f0bea216edab0bb53ee62bde5237bcdbd94a33ccf3f3"
+    },
+    {
+      "file": "configs/g4_m3d_gse214986_domain_evaluation.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3d_gse214986_domain_evaluation.yaml",
+      "sha256": "f4d6c532c0f3936b83fdbae133b30f4563c867f5cbeaa0fed0500735fae3077e"
+    },
+    {
+      "file": "configs/g4_m4_recommendation_policy_freeze.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m4_recommendation_policy_freeze.yaml",
+      "sha256": "edea54bf51baa7c546a05e666451ab111c3ba70e217a30880325c2034506dea1"
+    },
+    {
+      "file": "configs/g4_m2_annotation_methods.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m2_annotation_methods.yaml",
+      "sha256": "b1972d4a2dbe059e510387cb40615871a6c6dd3d9c70bfd5e6f9ef1e35066041"
+    },
+    {
+      "file": "configs/g4_m3d_gse214986_input_preparation.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3d_gse214986_input_preparation.yaml",
+      "sha256": "bfb109a54be05516039fdda0eab01cece080b76976c8a65b82b73a69f4e3add7"
+    },
+    {
+      "file": "configs/g4_m3a_admissibility.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3a_admissibility.yaml",
+      "sha256": "382a994424ee39905591108efabae5ff9c92a63628d9610b99fd36b7d2527d49"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_morphology_analysis.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_morphology_analysis.yaml",
+      "sha256": "50638c8752e2918e61be297c86f0f38f4e4f3a78cbb1b2af99279e6ba9562128"
+    },
+    {
+      "file": "configs/g4_m3f_gse288178_malt_matched_representations.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3f_gse288178_malt_matched_representations.yaml",
+      "sha256": "bb559a6b3ee22e5354662b546f738282d649f2fb32c5209c52368fd368f072b6"
+    },
+    {
+      "file": "configs/g4_m2_software_methods.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m2_software_methods.yaml",
+      "sha256": "9e7237a308155b2902138917f5d4b567a2621c02556dd459d10140942e8c3255"
+    },
+    {
+      "file": "configs/nm_reliability_multiscale_toy.yaml",
+      "upstream_entry": "source_implementation/configs/nm_reliability_multiscale_toy.yaml",
+      "sha256": "918ebc1632e6cfaf86e489160a79bf7a0c7fd39fd7074b7921e8cb803d77862b"
+    },
+    {
+      "file": "configs/nm_frozen_peak_rescue_methods_development.yaml",
+      "upstream_entry": "source_implementation/configs/nm_frozen_peak_rescue_methods_development.yaml",
+      "sha256": "3095f623e1922073963d3078d1f2dbbf55674979c80795ab4fb88a8c8e034300"
+    },
+    {
+      "file": "configs/g5_h2_gse307620_minimal_download.yaml",
+      "upstream_entry": "source_implementation/configs/g5_h2_gse307620_minimal_download.yaml",
+      "sha256": "39a820f49fd8a9b1c245825575a22b6f71a0e871de28ab4c306498e1291912cd"
+    },
+    {
+      "file": "configs/g4_m2c_cicero.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m2c_cicero.yaml",
+      "sha256": "896c01cd1ff4080bfb7852d138feef57433b6d230463f5a66e9d9f03e7415c19"
+    },
+    {
+      "file": "configs/g4_m3e_gse288178_mouse_brain_input_preparation.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3e_gse288178_mouse_brain_input_preparation.yaml",
+      "sha256": "7ef2b93354a93caac87a9576a428f47a061e9b8b9f66d5dd85cb708146c45a13"
+    },
+    {
+      "file": "configs/g4_m3h_gse205052_rna_preflight.yaml",
+      "upstream_entry": "source_implementation/configs/g4_m3h_gse205052_rna_preflight.yaml",
+      "sha256": "7710350a699c44c6e2e511f4f2865dc52c7ebb9419ca0dea7e53cf971dadc36e"
+    },
+    {
+      "file": "configs/risk2/nm_risk2_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/risk2/nm_risk2_2026-10-18.yaml",
+      "sha256": "19113b522ea2e79cf8023cbd9b82b74d6923a7e1bc20e225b4f346a644a9c9f7"
+    },
+    {
+      "file": "configs/frozen/g2_project_contract_2026-07-10.yaml",
+      "upstream_entry": "source_implementation/configs/frozen/g2_project_contract_2026-07-10.yaml",
+      "sha256": "978a9eef1a2e802aa49f14f130c622dc4787ed4f84f44c37087071019cdf820c"
+    },
+    {
+      "file": "configs/risk1/nm_risk1_2026-10-18.yaml",
+      "upstream_entry": "source_implementation/configs/risk1/nm_risk1_2026-10-18.yaml",
+      "sha256": "dfdc76d4889efb7fbc0f97fb8182b17d25bbdc1fcd0458c485eaf1ac637c3014"
+    },
+    {
+      "file": "configs/templates/recommendation_smoke.yaml",
+      "upstream_entry": "source_implementation/configs/templates/recommendation_smoke.yaml",
+      "sha256": "1b63b6f9d7d805d7a9056055b877091dd95ad0101fc6243458ae52a08d6a9747"
+    },
+    {
+      "file": "configs/wrappers/toy_snapatac2.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/toy_snapatac2.yaml",
+      "sha256": "4ad6d623265a822ed93117a9475b590c177f26cbac2248e21309cfd7836f29c5"
+    },
+    {
+      "file": "configs/wrappers/g4_memory_preflight_mouse_signac.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_memory_preflight_mouse_signac.yaml",
+      "sha256": "d7f307535673c6fa70e17896afd3b8fd7f6821f4cc24f9569c36a7dd1f6b588c"
+    },
+    {
+      "file": "configs/wrappers/g4_preflight_mouse_snapatac2.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_preflight_mouse_snapatac2.yaml",
+      "sha256": "ebb5a19227def21baf42ed1d144e7cfa285d2c042ef0bedeb2dcf14f25542f07"
+    },
+    {
+      "file": "configs/wrappers/toy_archr.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/toy_archr.yaml",
+      "sha256": "d81b68ea16643bee39bc5e197d40cd5c85f76dbf5059bfdfd5a26f686ce725b2"
+    },
+    {
+      "file": "configs/wrappers/g4_preflight_human_signac.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_preflight_human_signac.yaml",
+      "sha256": "4bdb6361365d6394d99cb6bb6546c15496acf0477441040acbac18a0cd7a74d7"
+    },
+    {
+      "file": "configs/wrappers/toy_signac.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/toy_signac.yaml",
+      "sha256": "a20df4ac2487310fd014f020ad9cc5b281df8d1a5837860676593df9117d6842"
+    },
+    {
+      "file": "configs/wrappers/g4_preflight_human_archr.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_preflight_human_archr.yaml",
+      "sha256": "f63eff4102e436e0c886d0b912da389e3c86a02fc310926604fddceb126e7b9f"
+    },
+    {
+      "file": "configs/wrappers/toy_cicero.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/toy_cicero.yaml",
+      "sha256": "939a7cf4f5b71fb67858cccfaa30d75961e98ecfc28a5b01b797707642eb7637"
+    },
+    {
+      "file": "configs/wrappers/g4_preflight_human_snapatac2.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_preflight_human_snapatac2.yaml",
+      "sha256": "c51b3fdbcb58a32268c0daee101966dc81c0f65e6b7d240bebcee4c79a96fb88"
+    },
+    {
+      "file": "configs/wrappers/g4_preflight_mouse_archr.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_preflight_mouse_archr.yaml",
+      "sha256": "7ceb6287f9ca649a631f3d256b798c85ea08d7fcad9c580dfe5ff046de646060"
+    },
+    {
+      "file": "configs/wrappers/g4_preflight_mouse_signac.yaml",
+      "upstream_entry": "source_implementation/configs/wrappers/g4_preflight_mouse_signac.yaml",
+      "sha256": "86d4a75f3b6c884649a4ae2b828447e84da719d93750e696702625545898dec6"
+    },
+    {
+      "file": "registries/v1/methods.yaml",
+      "upstream_entry": "source_implementation/registries/v1/methods.yaml",
+      "sha256": "0a778a3194d6f1c3744ffe18884ee714281847f04fa20dbd986c1c357375f869"
+    },
+    {
+      "file": "registries/v1/g5_supplemental_holdouts.yaml",
+      "upstream_entry": "source_implementation/registries/v1/g5_supplemental_holdouts.yaml",
+      "sha256": "475ed4660546f62ac56bc1836cd8cdf4772cd09524283cf13cb4f724aa600f56"
+    },
+    {
+      "file": "registries/v1/datasets.yaml",
+      "upstream_entry": "source_implementation/registries/v1/datasets.yaml",
+      "sha256": "661bf7cbf3d8146f6224054108825bf6108bbc4a1c403402656b854d888af951"
+    },
+    {
+      "file": "registries/v1/tasks.yaml",
+      "upstream_entry": "source_implementation/registries/v1/tasks.yaml",
+      "sha256": "db177dd16ce72cb592831c255ba8630c305056fec70e95205379580312752cd2"
+    },
+    {
+      "file": "pyproject.toml",
+      "upstream_entry": "source_implementation/pyproject.toml",
+      "sha256": "0d8c32fd76e9555a1ed8a6b15b7756af865c2fed843e93776fc97411818a3913"
+    },
+    {
+      "file": "data/paper/spatial/fig2_real_spatial_sample.json.gz",
+      "upstream_entry": "analysis_from_tables/work/fig2_real_spatial_sample.json.gz",
+      "sha256": "d5b2112ab2258074ce7c2501da7f088c9e2533f67079db1e1e1a8d1a95d80baf"
+    },
+    {
+      "file": "data/paper/spatial/domain_seed_metrics.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig4_data/domain_seed_metrics.tsv",
+      "sha256": "c4b8a1d9bd070a52bd88fe7f098bfcf702ae9cd900f0807fc0c593a082697a77"
+    },
+    {
+      "file": "data/paper/spatial/marker_percentiles_cluster_matched.tsv.gz",
+      "upstream_entry": "analysis_from_tables/work/fig4_data/marker_percentiles_cluster_matched.tsv.gz",
+      "sha256": "819897c40747498096775b9b463d2f91500a84f1909bafaf90cb4b470f3fa6d7"
+    },
+    {
+      "file": "data/paper/spatial/svg_moran_i.tsv.gz",
+      "upstream_entry": "analysis_from_tables/work/fig4_data/svg_moran_i.tsv.gz",
+      "sha256": "b7e85dad795db073f68f4d3657e2057ff46427b306a93ed8e0ad442774f04520"
+    },
+    {
+      "file": "data/paper/context/fam1_endpoint_family_effects.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig5_data/fam1_endpoint_family_effects.tsv",
+      "sha256": "d984b671da3f52c62e75d90d82829155afba9f854670b45f2e7ff94979f9190c"
+    },
+    {
+      "file": "data/paper/context/rank2_context_rankings.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig5_data/rank2_context_rankings.tsv",
+      "sha256": "3ef583875a43888276d4ed43db87c153a9e61cca5eca73b78478de4cbafc8c07"
+    },
+    {
+      "file": "data/paper/context/xend1_unit_scores.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig5_data/xend1_unit_scores.tsv",
+      "sha256": "44764e36c91ae1c53a3ed9e3b3c98f2eb2eb841fa2bbacc5a23de3b95018ef9d"
+    },
+    {
+      "file": "data/paper/human/e1_domain_pairwise.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig6_data/e1_domain_pairwise.tsv",
+      "sha256": "51ee510ebda9d0c4593e11c412761787f4c366b4d8785223120e4eccf9440e8b"
+    },
+    {
+      "file": "data/paper/human/e1_domain_seed_metrics.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig6_data/e1_domain_seed_metrics.tsv",
+      "sha256": "1c6c1eb667e00ea73e0437c258ffb45a1959e77de28b94ece33d6726b1fb23ab"
+    },
+    {
+      "file": "data/paper/human/e1_marker_pairwise.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig6_data/e1_marker_pairwise.tsv",
+      "sha256": "530d99726500bfd8d26d306ebd73a8ed7de5904353fbdbe2df7b9e066060dde7"
+    },
+    {
+      "file": "data/paper/human/e1_svg_pairwise.tsv",
+      "upstream_entry": "analysis_from_tables/work/fig6_data/e1_svg_pairwise.tsv",
+      "sha256": "a212b3ff80ed5c46119ffce9f6236ac7d76e60b4dc69a1ca0ecd0fb91625f812"
+    },
+    {
+      "file": "data/paper/evidence/common_variable.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_manuscript_20261106/evidence/common_variable.tsv",
+      "sha256": "e5fb405aa9de8ccadb712c174d6a265c4cd4e752aaae4965cbdfbd492a5aa020"
+    },
+    {
+      "file": "data/paper/evidence/random_controls.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_manuscript_20261106/evidence/random_controls.tsv",
+      "sha256": "b3a0e6ffae8a71c3c5f94bc1ef939c5d9b6de56873f2c8b74d8c2361574455e9"
+    },
+    {
+      "file": "data/paper/evidence/spatial_program_controls.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_manuscript_20261106/evidence/spatial_program_controls.tsv",
+      "sha256": "fdf3f893329202609ba520cfd6ffcc84b8d54abab4c8ca1efb061f5c7f17c893"
+    },
+    {
+      "file": "data/paper/evidence/spatial_program_depth.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_manuscript_20261106/evidence/spatial_program_depth.tsv",
+      "sha256": "450e9d12b54d0fbc3ea71174b26c9efc7c697a7b335813d55f21785b6d9157b9"
+    },
+    {
+      "file": "data/paper/depth/coverage.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/extracted/coverage.tsv",
+      "sha256": "c845f4e8d4462b903137dc5bfe8a430703976615939e9e13f2bc851632f6f95d"
+    },
+    {
+      "file": "data/paper/depth/feature_occupancy.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/extracted/feature_occupancy.tsv",
+      "sha256": "9118943446f828557de0304f5ddbbc3754708292d133e8ed27393d676cbc3b8e"
+    },
+    {
+      "file": "data/paper/depth/gene_quantiles.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/extracted/gene_quantiles.tsv",
+      "sha256": "2f2d740b606ff3fef0ca2004b8d2153ee9b28f135f4a4739b9c5e0281a1d05c6"
+    },
+    {
+      "file": "data/paper/frozen_peak/frozen_peak_rna_metrics.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/sources/results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/evaluation/frozen_peak_rna_metrics.tsv",
+      "sha256": "315b2bd2bae62c23361914011f482023abbb27c91856b2da22f5ce48b72f37d2"
+    },
+    {
+      "file": "data/paper/evidence/completion/Fig1b_analysis_cohort.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_manuscript_20261106/evidence/completion/Fig1b_analysis_cohort.tsv",
+      "sha256": "ce4a2a2a73dabe889d199efc149e296bc38170d6b989ca272d54ba1c4163adcc"
+    },
+    {
+      "file": "scripts/selection_analysis.py",
+      "upstream_entry": "analysis_from_tables/work/gr_selection_analysis.py",
+      "sha256": "21f6397247e1cddb70aeeecc96790f3ab8e1bad0b926ba74a6f34ee7951dff64"
+    },
+    {
+      "file": "scripts/plot_paper_figures.py",
+      "upstream_entry": "analysis_from_tables/work/gr_figures_v8.py",
+      "sha256": "e0c19d0229c60e467bcf34b767d99daea9c6ee44e6ae7ac9e35b7544935e4005"
+    },
+    {
+      "file": "reference/selection/corrected_unit_scores.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/corrected_unit_scores.tsv",
+      "sha256": "707e55049310dbb954ac50ec269e495c1618e9e04bf048888637b68a3b9fc204"
+    },
+    {
+      "file": "reference/selection/cross_task_loss.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/cross_task_loss.tsv",
+      "sha256": "cb163757d1d203a787cb90125cd5213ad79bcadca34688aad5c47c1f1e1c150f"
+    },
+    {
+      "file": "reference/selection/cross_task_summary.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/cross_task_summary.tsv",
+      "sha256": "93ce05794bca2ea67f2bacd5f81de9e093e30c38f77979b0c43ea42134540f0d"
+    },
+    {
+      "file": "reference/selection/endpoint_tau.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/endpoint_tau.tsv",
+      "sha256": "c951572110e83c08aa676336a9e2bd12ada5eeaaa67c67009091663c4a720d33"
+    },
+    {
+      "file": "reference/selection/leave_family_out.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/leave_family_out.tsv",
+      "sha256": "0b59ef2dbfde06dfdf5577783c05ddcd78f1a4aad03171f54b8196821a46d5b0"
+    },
+    {
+      "file": "reference/selection/leave_family_out_applicability.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/leave_family_out_applicability.tsv",
+      "sha256": "4c6f200faa447377ca3dc9827117e8fab099ff9fdf38412632238049e6888eda"
+    },
+    {
+      "file": "reference/selection/marker_correction_audit.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/marker_correction_audit.tsv",
+      "sha256": "dd3158aa8d49aa725bbd0f9363775b0a84ccf0727c2517ae4298ba3f793d7ebf"
+    },
+    {
+      "file": "reference/selection/matched_marker_clusters.tsv",
+      "upstream_entry": "analysis_from_tables/outputs/GR_completion_20261106/selection/matched_marker_clusters.tsv",
+      "sha256": "d095b47f549da181cb35ef5b089226991d212f2822df11eb16e6a9eb17afd97a"
+    }
+  ],
+  "public_export_changes": [
+    "Relocated paper input/output paths",
+    "Made feature-occupancy provenance paths project-relative",
+    "Added portable font discovery"
+  ],
+  "license_authorization": "MIT selected by project owner"
+}

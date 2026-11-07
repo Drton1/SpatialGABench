@@ -1,0 +1,131 @@
+schema_version: 1
+project_config: configs/main.yaml
+dataset_role: external_holdout
+authorization: governance/authorizations/NM_U1_U2_HUMAN_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-30.json
+authorization_sha256: 96aeb87836e0606d7f7f5953bd34ad7c263970749d41e63b5dcbb86cf8702249
+planned_execution_manifest: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/planned_method_execution_manifest.tsv
+planned_execution_manifest_sha256: 59fa21e072fe1d3137e33f61546ca3b78234582a9fd47ad9c80265fa07480f54
+representation_summary: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/representation_summary.tsv
+representation_summary_sha256: 81168cab53d6e25d348e62ed2502332c02068520532480cd9f55009e7da9f7aa
+representation_completion: results/v1/nm_upgrade/nu1_nu2_human_representations/evidence/completion_evidence.json
+representation_completion_sha256: d3927859c4ed8ba02c1a3f13a2d7973eb56e70f9317fac6a55365a21e80e158a
+upgrade_protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+upgrade_protocol_sha256: a0ef35060c9c4b2496e6676b5c666560caa479c86ffa6839118c4de8db2623d0
+frozen_artifacts:
+- authorization
+- planned_execution_manifest
+- representation_summary
+- representation_completion
+- upgrade_protocol
+output_root: results/v1/g5/h5b_external_method_construction/nm_upgrade_human/software
+run_id_prefix: nm_u1_u2
+comparison_scope: locked_human_fragment_native_construction_only
+representation_id: filtered_fragments_with_frozen_macs3_observation_contract
+subset_policy: full
+threads: 8
+seed: 4160
+forbidden_holdout_accessions: []
+forbidden_construction_inputs:
+- rna
+- labels
+- clusters
+- pathology
+- images
+- simulation_truth
+- method_outcomes
+oci:
+  runtime_dir: /tmp/podman-run-1002
+  podman: /tmp/spatialgabench-podman-root/usr/bin/podman
+  root: /tmp/spatialgabench-podman-storage
+  runroot: /tmp/spatialgabench-podman-runroot
+  storage_driver: vfs
+  runtime: containers/tools/run_crun_local.sh
+  conmon: /tmp/spatialgabench-podman-root/usr/bin/conmon
+  cgroup_manager: cgroupfs
+methods:
+  snapatac2_geneactivity:
+    software_name: SnapATAC2
+    image: localhost/spatialgabench-snapatac2@sha256:de84d6eab3fe9c2bdfe26e5e7771727e70c602b4c0465a9ac987550cf17caa69
+    environment_lock: envs/containers/snapatac2-py311.lock.txt
+    adapter: adapters/snapatac2_geneactivity.py
+    method_script: null
+    implementation_files:
+    - configs/g4_m2_software_methods.yaml
+    - adapters/snapatac2_geneactivity.py
+    - adapters/g4_m2_software_driver.py
+    - spatialgabench/g4_m2_software.py
+    - spatialgabench/software_wrappers/common.py
+    - spatialgabench/software_wrappers/contracts.py
+    - spatialgabench/runtime/process_tree.py
+    - containers/tools/run_with_memory_tracking.py
+    construction_input_classes:
+    - accessibility_fragments
+    - gene_annotation
+  signac_geneactivity:
+    software_name: Signac
+    image: localhost/spatialgabench-signac@sha256:5df60a2b3dedb840aa4f4dfe8983bd562a06ecb65d090bfe4416944fc2e5ecfb
+    environment_lock: envs/containers/signac-r.lock.tsv
+    adapter: adapters/r_geneactivity_driver.py
+    method_script: adapters/signac_geneactivity.R
+    implementation_files:
+    - configs/g4_m2_software_methods.yaml
+    - adapters/r_geneactivity_driver.py
+    - adapters/signac_geneactivity.R
+    - adapters/g4_m2_software_driver.py
+    - spatialgabench/g4_m2_software.py
+    - spatialgabench/software_wrappers/common.py
+    - spatialgabench/software_wrappers/contracts.py
+    - spatialgabench/runtime/process_tree.py
+    - containers/tools/run_rscript_in_oci.sh
+    - containers/tools/run_with_memory_tracking.py
+    construction_input_classes:
+    - accessibility_fragments
+    - frozen_peak_matrix
+    - gene_annotation
+  archr_genescorematrix:
+    software_name: ArchR
+    image: localhost/spatialgabench-archr@sha256:a05555fa5900a23e0345aae1bd65e665c0b4a678401b1c32091707eb7662705d
+    environment_lock: envs/containers/archr-r.lock.tsv
+    adapter: adapters/r_geneactivity_driver.py
+    method_script: adapters/archr_genescorematrix.R
+    implementation_files:
+    - configs/g4_m2_software_methods.yaml
+    - adapters/r_geneactivity_driver.py
+    - adapters/archr_genescorematrix.R
+    - adapters/g4_m2_software_driver.py
+    - spatialgabench/g4_m2_software.py
+    - spatialgabench/software_wrappers/common.py
+    - spatialgabench/software_wrappers/contracts.py
+    - spatialgabench/runtime/process_tree.py
+    - containers/tools/run_rscript_in_oci.sh
+    - containers/tools/run_with_memory_tracking.py
+    construction_input_classes:
+    - accessibility_fragments
+    - gene_annotation
+samples:
+  gse205055_humanbrain_50um:
+    study_id: zhang_2023
+    sample_id: GSM6206884_HumanBrain_50um
+    genome_build: hg38
+    input_h5ad: results/v1/nm_upgrade/nu1_nu2_human_representations/gse205055_humanbrain_50um/matched/gse205055_humanbrain_50um__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/nm_upgrade/nu1_nu2_human_representations/gse205055_humanbrain_50um/filtered_fragments/gse205055_humanbrain_50um__eligible.fragments.tsv.gz
+    source_fragments_sha256: a889491cf8331efac7b6d84d740e4b30b58c11cf7b4eeec460e653620ccf8497
+  gse278007_human_melanoma_50um:
+    study_id: guo_deng_2025_ffpe_atac
+    sample_id: GSM8831040_Human_melanoma_50um
+    genome_build: hg38
+    input_h5ad: results/v1/nm_upgrade/nu1_nu2_human_representations/gse278007_human_melanoma_50um/matched/gse278007_human_melanoma_50um__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/nm_upgrade/nu1_nu2_human_representations/gse278007_human_melanoma_50um/filtered_fragments/gse278007_human_melanoma_50um__eligible.fragments.tsv.gz
+    source_fragments_sha256: 2c8a73d99ab477361574109e418d68ce6663c4e523a02294f1f1abb048273b99
+references:
+  hg38:
+    source_gene_annotation: data/reference/hg38/gene_annotation.gtf.gz
+    source_gene_annotation_sha256: 82b0e52bc4956486528152e3850660b3c41767ab103d87949e41d38f92ef8b38
+    source_chrom_sizes: data/reference/hg38/chrom_sizes.tsv
+    source_chrom_sizes_sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b
+    chrom_sizes: results/v1/g4/m2/references/hg38/canonical.chrom.sizes.tsv
+    chrom_sizes_sha256: d4fca5ae94e449e9cc5cf5267be8006dcb2063fe6d32c35a01b776660fd52d3e
+    gene_annotation: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz
+    gene_annotation_sha256: 4866d04bb1ae47e73ced74aa57d480be437243e0744e328db634e101e5b7b368
+    audit: results/v1/g4/m2/references/hg38/canonical.annotation.audit.json
+    audit_sha256: 47f5feb130dd704fa955700fb4cc374587005044d59b0bc80d0b5e38b6815267

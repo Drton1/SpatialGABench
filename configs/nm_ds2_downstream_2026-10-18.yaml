@@ -1,0 +1,104 @@
+schema_version: 1
+task_id: NM-DS2
+analysis_date: 2026-10-18
+preregistration: docs/NM_DS2_PREREG_2026-10-18.md
+preregistration_sha256: 4c94efd3e9b42f3e9cc1de4c3dc1f1e22f20fe6f1864384eed30a8ea78c77c92
+output_root: results/v1_ds2
+
+execution:
+  workers: 8
+  nice_priority: 10
+  bootstrap_draws: 10000
+  bootstrap_seed: 20261018
+  materiality: 0.05
+  tost_margin: 0.05
+  alpha: 0.05
+  bh_q: 0.05
+
+e1:
+  enabled: true
+  output_subdir: e1_failure_metric_sensitivity
+  inputs:
+    ta1_metrics: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/contract_rna_accuracy_metrics.tsv
+    ta1_gene_correlations: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/gene_level_correlations.tsv.gz
+    ta1_completion_evidence: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/completion_evidence.json
+    fb3_failure_accounting: results/v1/full_benchmark/fb3_depth_resource_stress/structured_failure_accounting.tsv
+    nu3_failure_accounting: results/v1/nm_upgrade/nu3_external_depth_stress/structured_failure_accounting.tsv
+  included_study_families:
+    - guo_2025_spatial_mux
+    - zhang_2023
+  excluded_study_families:
+    - zhang_2025_brain_triomics
+  frozen_primary_column: coverage_adjusted_median_gene_wise_spearman
+  failure_value: 0.0
+  group_keys:
+    - study_family
+    - dataset_id
+    - representation_id
+    - method_id
+    - depth_fraction
+  ordering_group_keys:
+    - study_family
+    - dataset_id
+    - representation_id
+    - depth_fraction
+
+e2:
+  enabled: true
+  output_subdir: e2_simulation_truth_recovery
+  inputs:
+    metrics: results/v1/g4/m3c_simulation_truth_recovery_v2/simulation_truth_recovery_metrics.tsv
+    design: results/v1/g4/m3c_simulation_factorial_v2/simulation_factorial_design.tsv
+    simulation_root: results/v1/g4/m3c_simulation_factorial_v2/runs
+    construction_root: results/v1/g4/m3c_simulation_truth_recovery_v2/construction
+  strata:
+    - mechanistic
+    - empirical_semisynthetic
+  methods:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+    - random_peak_to_gene_negative_control_pc
+    - accessibility_matched_random_peak_to_gene_control_pc
+  controls:
+    accessibility_matched_random_peak_to_gene_control_pc: accessibility_matched_random_peak_to_gene_control_pc
+    random_peak_to_gene_negative_control_pc: random_peak_to_gene_negative_control_pc
+  factors:
+    - distal_fraction
+    - depth_multiplier
+    - zero_inflation_rate
+    - domain_log_effect
+    - decoy_fraction
+    - rna_latent_correlation
+  normalization:
+    target_sum: 10000.0
+  domain:
+    n_clusters: 4
+    pca_components: 10
+    kmeans_n_init: 20
+    seed: 20261018
+  svg:
+    neighbors: 6
+    top_fraction: 0.25
+  endpoint_columns:
+    - activity_fidelity
+    - marker_domain_auroc
+    - peak_gene_link_auprc
+    - domain_ari
+    - domain_nmi
+    - svg_precision_at_10
+    - svg_recall_at_10
+    - svg_jaccard_at_10
+    - svg_moran_rank_spearman
+  existing_metric_map:
+    activity_fidelity: coverage_adjusted_mean_gene_wise_spearman_to_true_gene_activity
+    marker_domain_auroc: mean_gene_marker_domain_auroc
+    peak_gene_link_auprc: peak_gene_link_auprc
+  expected:
+    simulations: 640
+    method_rows: 4480
+    methods: 7
+    seeds: 5
+    conditions: 64

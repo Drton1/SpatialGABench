@@ -1,0 +1,35 @@
+schema_version: 1
+gate: G4
+milestone: M3E_CROSS_STUDY_AUTHOR_DOMAIN_SYNTHESIS
+authorization: governance/authorizations/G4_M3E_CROSS_STUDY_AUTHOR_DOMAIN_SYNTHESIS_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 2cae77e79fc4dae1f9db15d863456a17e5d13becbbe78d2497f8492d84daf34d
+studies:
+  - study_id: llorens_bobadilla_2023
+    dataset_id: gse214986_author_peak
+    representation_id: author_peak_unmatched
+    evidence: results/v1/g4/m3d_gse214986/domain_evaluation/gse214986_domain_evaluation_evidence.json
+    evidence_sha256: ce083ac619ecbb2a7425316cdcc9d6e5e407b61ff78c11eb3541a58486cdc66b
+    contrasts: results/v1/g4/m3d_gse214986/domain_evaluation/gse214986_domain_descriptive_contrasts.tsv
+    contrasts_sha256: ca524f079e43848421db35fe3c84def3e2e35cb547a13513d32eb017d1a9c26a
+  - study_id: li_2026
+    dataset_id: gse288178_mouse_brain_author_500bp_bins
+    representation_id: author_selected_fixed_500bp_bins_unmatched
+    evidence: results/v1/g4/m3e_gse288178_mouse_brain/domain_evaluation/gse288178_mouse_brain_domain_evaluation_evidence.json
+    evidence_sha256: c15be303a5f9ed95a25f7e2ca82d4154fee3d3efc1dcaef3f348e69c1a5cf612
+    contrasts: results/v1/g4/m3e_gse288178_mouse_brain/domain_evaluation/gse288178_mouse_brain_domain_descriptive_contrasts.tsv
+    contrasts_sha256: 497b40c7511be2f7a31e63ca6904fe5b58b4d7604eb59fb9bfc72baeb91a4edb
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+control_method: accessibility_matched_random_peak_to_gene_control_pc
+negative_control_method: random_peak_to_gene_negative_control_pc
+raw_lsi_method: raw_peak_lsi_baseline
+output_root: results/v1/g4/m3e_cross_study_author_domain
+holdout_accessed: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false

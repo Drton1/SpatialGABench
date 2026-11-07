@@ -1,0 +1,58 @@
+schema_version: 1
+task_id: NM-FAM1
+date: 2026-10-18
+
+protocol:
+  path: docs/NM_NEXT5_PREREG_2026-10-18.md
+  freeze_manifest: results/v1_next5/manifests/prereg_freeze.json
+
+inputs:
+  e7_study_dots: results/v1_ds3_rework/attempts/run_20261018T050315Z/e7_study_meta/e7_study_dots.tsv
+  e7_study_summary: results/v1_ds3_rework/attempts/run_20261018T050315Z/e7_study_meta/e7_study_summary.tsv
+
+output:
+  root: results/v1_next5
+
+seeds:
+  bootstrap: 20261018
+
+thresholds:
+  material_effect: 0.05
+  stability_probability: 0.80
+  bootstrap_draws: 10000
+  numeric_tolerance: 1.0e-12
+
+contrast: B-P
+
+endpoints:
+  - domain_ARI
+  - domain_NMI
+  - marker
+  - svg
+
+study_families:
+  - guo_2025_spatial_mux
+  - llorens_bobadilla_2023
+  - zhang_2023
+
+datasets:
+  - d1_gse263333
+  - d2_gse205052
+  - d2_human_gse205055
+  - d3_gse214986
+
+expected:
+  dataset_endpoint_rows: 14
+  study_family_endpoint_rows: 10
+  endpoints: 4
+  study_families: 3
+  datasets: 4
+  family_loo_rows: 10
+  dataset_loo_rows: 14
+  bootstrap_rows: 4
+  hypotheses: 5
+
+resources:
+  workers: 1
+  nice: 15
+  memory_limit_mb: 4096

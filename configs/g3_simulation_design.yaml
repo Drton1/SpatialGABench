@@ -1,0 +1,39 @@
+schema_version: 1
+design_id: g3_identifiable_factorial_v1
+tracks:
+  - mechanistic
+  - empirical_semisynthetic
+seeds: [3101, 3102, 3103, 3104, 3105]
+factors:
+  distal_fraction: [0.0, 0.65]
+  depth_multiplier: [0.6, 1.6]
+  zero_inflation_rate: [0.0, 0.35]
+  domain_log_effect: [0.2, 1.0]
+  decoy_fraction: [0.0, 0.5]
+  rna_latent_correlation: [0.3, 0.85]
+fixed_parameters:
+  generator_schema_version: 2
+  n_cells: 96
+  n_peaks: 288
+  n_genes: 40
+  n_domains: 4
+  distal_peaks_per_gene: 2
+  domain_geometry: quadrants
+  causal_signal_fraction: 0.65
+  base_library_size: 100
+  rna_mean_count: 8
+  tf_program_enabled: true
+  fragments_enabled: true
+calibration:
+  source_h5ad: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__macs3_summit_501bp.h5ad
+  authorization_json: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/development_authorization.json
+  source_dataset_id: gse278007_ffpe_s4_rep1
+  source_study_id: guo_deng_2025_ffpe_atac
+  source_role: development_only
+  redistribution_policy: local_only_source_derived
+execution:
+  full_benchmark_enabled: false
+  holdout_access_allowed: false
+  g3_smoke_policy: first_seed_baseline_plus_one_factor_at_a_time
+  software_methods_run: false
+  final_ranking_run: false

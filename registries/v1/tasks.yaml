@@ -1,0 +1,51 @@
+schema_version: 1
+registry_status: g4_preregistered
+
+tasks:
+  construction_qc:
+    tier: core
+    status: frozen
+    primary_endpoint: valid_output_indicator
+    direction: higher
+    analysis_unit: eligible_method_run
+    leakage_inputs_forbidden: [rna, labels, clusters, pathology, simulation_truth]
+  paired_rna_fidelity:
+    tier: core
+    status: frozen
+    primary_endpoint: coverage_adjusted_median_gene_wise_spearman
+    direction: higher
+    allowed_development_studies: [guo_2025_spatial_mux]
+    construction_use_forbidden: true
+  spatial_domain_and_pathology:
+    tier: conditional
+    status: frozen_conditional_on_audited_labels
+    primary_endpoint: median_fixed_pipeline_ari_across_seeds
+    direction: higher
+    labels_use: post_hoc_only
+    no_label_policy: no_ari_nmi_or_accuracy
+  simulation_truth_recovery:
+    tier: core
+    status: frozen
+    primary_endpoint: coverage_adjusted_mean_gene_wise_spearman_to_true_gene_activity
+    direction: higher
+    real_data_ranking_use_forbidden: true
+    strata: [mechanistic, empirical_semisynthetic]
+    design: replicated_full_factorial_six_factors_five_seeds
+    construction_inputs_forbidden: [simulated_rna, true_domain_labels, simulation_truth]
+    g3_status: generator_and_factor_isolation_smoke_pass
+  portability_runtime_failure:
+    tier: core
+    status: frozen
+    primary_endpoint: eligible_attempt_success_rate
+    direction: higher
+    not_applicable_policy: exclude_from_denominator_and_report
+    subset_policy: separate_scalability_track
+  marker_recovery:
+    tier: secondary
+    status: requires_independent_marker_source
+  tf_motif_consistency:
+    tier: secondary
+    status: requires_all_peak_method_and_spatial_permutation
+  cross_modality_integration:
+    tier: extended
+    status: paired_data_required

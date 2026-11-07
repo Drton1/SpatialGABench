@@ -1,0 +1,39 @@
+schema_version: 1
+gate: G4
+milestone: M2
+authorization: governance/authorizations/G4_M2_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-15.json
+authorization_sha256: 262869c077852f4cf40539482a8d3fe8d024d912f23b9ea8fdff19e1186d9a9d
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+m1_evidence: results/v1/g4/m1/evidence/g4_m1_completion_evidence.json
+m1_evidence_sha256: 07d49bbd2f9b202d30f74e3d1ef737f6044115ac75122efff1425a882d64aa61
+representation_summary: results/v1/g4/m1/evidence/g4_m1_representation_summary.tsv
+representation_summary_sha256: 2047db1dec5fc6ba269fe33e711e541af6c8a076e94c9007aa83d12dbf7d3f80
+output_root: results/v1/g4/m2/annotation
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+forbidden_construction_inputs: [rna, labels, clusters, pathology, simulation_truth]
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+references:
+  mm10:
+    genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+    gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+  hg38:
+    genes: {path: data/reference/hg38/protein_coding_genes.bed, sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b}
+    promoters: {path: data/reference/hg38/protein_coding_promoters_2kb.bed, sha256: f5ff2b427be9c186a5e0694fd949bc81d8216a6ac0153ad8d0118b672ac4176b}
+    gene_body: {path: data/reference/hg38/protein_coding_gene_body.bed, sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b}
+    tss: {path: data/reference/hg38/protein_coding_tss.bed, sha256: 13b97f010a5c4c2fa147f58fd5e7148db13054f6731bdc04dc789656b80f84c3}

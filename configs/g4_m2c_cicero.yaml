@@ -1,0 +1,28 @@
+schema_version: 1
+project_config: configs/main.yaml
+authorization: governance/authorizations/G4_M2C_CONTROLS_SCALABILITY_AUTHORIZATION_2026-07-15.json
+authorization_sha256: 32bc82d67689ee77b32a6cf61bc16f30577a7a5b2d0caaf5db6dbda854022497
+representation_summary: results/v1/g4/m1/evidence/g4_m1_representation_summary.tsv
+representation_summary_sha256: 2047db1dec5fc6ba269fe33e711e541af6c8a076e94c9007aa83d12dbf7d3f80
+output_root: results/v1/g4/m2/cicero_scalability
+cell_ladder: [500, 1000, 2500, 5000]
+max_peaks: 50000
+seed: 4160
+threads: 8
+image: localhost/spatialgabench-cicero@sha256:19fc67fe35be610f1f2d3539f4eb54de8400b9c85b59288ed4bff386e40fc441
+environment_lock: envs/containers/cicero-r.lock.tsv
+gene_annotations:
+  mm10: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+  hg38: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz
+chrom_sizes:
+  mm10: results/v1/g4/m2/references/mm10/canonical.chrom.sizes.tsv
+  hg38: results/v1/g4/m2/references/hg38/canonical.chrom.sizes.tsv
+oci:
+  runtime_dir: /tmp/podman-run-1002
+  podman: /tmp/spatialgabench-podman-root/usr/bin/podman
+  root: /tmp/spatialgabench-podman-storage
+  runroot: /tmp/spatialgabench-podman-runroot
+  storage_driver: vfs
+  runtime: containers/tools/run_crun_local.sh
+  conmon: /tmp/spatialgabench-podman-root/usr/bin/conmon
+  cgroup_manager: cgroupfs

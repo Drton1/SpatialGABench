@@ -1,0 +1,30 @@
+schema_version: 1
+run_id: toy_snapatac2_v1
+project_config: configs/main.yaml
+study_id: toy_wrapper_contract
+dataset_id: toy_wrapper_dataset
+sample_id: toy_wrapper_sample
+dataset_role: toy
+method_id: snapatac2_geneactivity
+software_name: SnapATAC2
+genome_build: mm10
+input_track: F
+representation_id: toy_frozen_peaks
+comparison_scope: toy_contract_only
+input_h5ad: results/v1/g3/software_smoke/toy_fixture/toy_peak_matrix.h5ad
+fragments: results/v1/g3/software_smoke/toy_fixture/toy.fragments.tsv.gz
+gene_annotation: results/v1/g3/software_smoke/toy_fixture/toy.annotation.gtf
+chrom_sizes: results/v1/g3/software_smoke/toy_fixture/toy.chrom.sizes.tsv
+environment_lock: envs/methods/snapatac2-2.9.0-py310.lock.txt
+adapter: adapters/snapatac2_geneactivity.py
+method_script: null
+implementation_files:
+  - adapters/snapatac2_geneactivity.py
+  - spatialgabench/software_wrappers/common.py
+construction_input_classes:
+  - accessibility_fragments
+  - gene_annotation
+subset_policy: toy_smoke
+threads: 1
+seed: 1601
+output_dir: results/v1/g3/software_smoke/snapatac2/toy_snapatac2_v1

@@ -1,0 +1,40 @@
+schema_version: 1
+gate: G4
+milestone: M3F_GSE288178_MALT_MATCHED_REPRESENTATION_CONSTRUCTION
+authorization: governance/authorizations/G4_M3F_GSE288178_MALT_MATCHED_REPRESENTATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 0f0629d2f0f1c4d92ddd3516bccc67f233bb110cce0064400ef0ebda631cad37
+source_h5ad: data/raw/v1/GSE288178/GSM8760699_MALT_raw_8444.h5ad
+source_h5ad_sha256: 01f258ec40cead28eb8fdd51b8ae9fab618936c1105e22be62b9c2e1a80e4fac
+source_locs: data/raw/v1/GSE288178/malt_morphology/locs.tsv
+source_locs_sha256: 7d55a549d8560f5736850553a78b837097a38335c73f2a1f9fb9c05d8fb59a58
+chrom_sizes: data/reference/hg38/chrom_sizes.tsv
+chrom_sizes_sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b
+blacklist: data/reference/hg38/hg38-blacklist.v2.bed.gz
+blacklist_sha256: 0eecd7c32eb0f5e735b297bbd886446f4829d23c698a5c7cfcde585f866cbc07
+dataset_id: gse288178_human_malt_ffpe_atac_20um
+study_id: li_2026
+accession: GSE288178
+sample_id: GSM8760699
+species: human
+genome_build: hg38
+expected_source_observations: 8444
+expected_selected_observations: 7825
+expected_excluded_observations: 619
+expected_unexplained_source_exclusions: 272
+expected_selected_n_fragment_sum: 38239249
+expected_selected_encoded_fragment_rows: 38875070
+development_studies: [li_2026]
+holdout_studies: [zhang_2025_brain_triomics, huang_2025]
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+construction_contract:
+  representations: [macs3_summit_501bp, fixed_bin_10kb, fixed_bin_25kb, fixed_bin_50kb]
+  bin_sizes_bp: [10000, 25000, 50000]
+  counting_unit: one_filtered_fragment_row_midpoint
+  standard_chromosomes_only: true
+  peak_width_bp: 501
+  macs3_format: FRAG
+  macs3_qvalue: 0.01
+  macs3_max_count: 1
+  macs3_genome_size: hs
+  call_summits: true
+output_root: results/v1/g4/m3f_gse288178_malt_matched_representations

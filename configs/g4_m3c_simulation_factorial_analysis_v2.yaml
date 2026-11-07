@@ -1,0 +1,35 @@
+schema_version: 1
+gate: G4
+milestone: M3C_SIMULATION_FACTORIAL_ANALYSIS
+authorization: governance/authorizations/G4_M3C_SIMULATION_FACTORIAL_ANALYSIS_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 6fbf7bdd101fbe35a5b22218f1d97cfff2ff73458f80dc85184416eb4a039708
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+amendment: governance/preregistration/G4_SIMULATION_COMPONENT_IDENTIFIABILITY_AMENDMENT_2026-07-16.yaml
+amendment_sha256: 077c3f5bf40b59accca6ed7cf8b0527bf4f8c3e77dfba449ca3ac1ed1a6978ab
+truth_recovery_evidence: results/v1/g4/m3c_simulation_truth_recovery_v2/g4_m3c_replicated_simulation_truth_recovery_evidence.json
+truth_recovery_evidence_sha256: efb483122d3c1e54b60ea0aeb750d0477b26a247378771bda0d0ce2db6c4491d
+metrics: results/v1/g4/m3c_simulation_truth_recovery_v2/simulation_truth_recovery_metrics.tsv
+metrics_sha256: ea9211f51a099abb5b337445610c0d9af7d3dfcca8dcfb42f3c972a34d070387
+output_root: results/v1/g4/m3c_simulation_truth_recovery_v2/analysis
+expected_rows: 4480
+expected_methods: 7
+expected_seeds: [3101, 3102, 3103, 3104, 3105]
+expected_tracks: [mechanistic, empirical_semisynthetic]
+factors: [distal_fraction, depth_multiplier, zero_inflation_rate, domain_log_effect, decoy_fraction, rna_latent_correlation]
+metrics_panel:
+  - coverage_adjusted_mean_gene_wise_spearman_to_true_gene_activity
+  - peak_gene_link_auprc_over_prevalence
+  - promoter_component_spearman
+  - distal_component_spearman
+  - mean_gene_marker_domain_auroc
+distal_component_policy: analyze_only_distal_fraction_high_subset
+control_method: accessibility_matched_random_peak_to_gene_control_pc
+confidence_level: 0.95
+multiplicity: benjamini_hochberg_within_stratum_and_metric
+higher_order_interactions_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false
+

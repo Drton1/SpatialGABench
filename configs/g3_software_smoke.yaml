@@ -1,0 +1,27 @@
+project_config: configs/main.yaml
+toy_fixture_dir: results/v1/g3/software_smoke/toy_fixture
+summary_dir: results/v1/g3/software_smoke
+method_order:
+  - snapatac2
+  - signac
+  - archr
+  - cicero
+snapatac2:
+  config: configs/wrappers/toy_snapatac2.yaml
+  python: environment/snapatac2_venv/bin/python
+  output_dir: results/v1/g3/software_smoke/snapatac2/toy_snapatac2_v1
+signac:
+  config: configs/wrappers/toy_signac.yaml
+  rscript: /usr/bin/Rscript
+  r_library: environment/r_libs_user_4.1
+  output_dir: results/v1/g3/software_smoke/signac/toy_signac_v1
+archr:
+  config: configs/wrappers/toy_archr.yaml
+  rscript: /usr/bin/Rscript
+  r_library: environment/r_libs_user_4.1
+  output_dir: results/v1/g3/software_smoke/archr/toy_archr_v1
+cicero:
+  config: configs/wrappers/toy_cicero.yaml
+  rscript: /usr/bin/Rscript
+  r_library: environment/r_libs_user_4.1
+  output_dir: results/v1/g3/software_smoke/cicero/toy_cicero_v1

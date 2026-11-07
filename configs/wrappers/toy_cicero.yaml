@@ -1,0 +1,31 @@
+schema_version: 1
+run_id: toy_cicero_v1
+project_config: configs/main.yaml
+study_id: toy_wrapper_contract
+dataset_id: toy_wrapper_dataset
+sample_id: toy_wrapper_sample
+dataset_role: toy
+method_id: cicero_geneactivity
+software_name: Cicero
+genome_build: mm10
+input_track: P
+representation_id: toy_frozen_peaks
+comparison_scope: toy_contract_only_subset_method
+input_h5ad: results/v1/g3/software_smoke/toy_fixture/toy_peak_matrix.h5ad
+fragments: null
+gene_annotation: results/v1/g3/software_smoke/toy_fixture/toy.annotation.gtf
+chrom_sizes: results/v1/g3/software_smoke/toy_fixture/toy.chrom.sizes.tsv
+environment_lock: envs/methods/r-4.1-wrapper-packages.lock.tsv
+adapter: adapters/r_geneactivity_driver.py
+method_script: adapters/cicero_geneactivity.R
+implementation_files:
+  - adapters/r_geneactivity_driver.py
+  - adapters/cicero_geneactivity.R
+  - spatialgabench/software_wrappers/common.py
+construction_input_classes:
+  - peak_matrix
+  - gene_annotation
+subset_policy: toy_smoke
+threads: 1
+seed: 1601
+output_dir: results/v1/g3/software_smoke/cicero/toy_cicero_v1

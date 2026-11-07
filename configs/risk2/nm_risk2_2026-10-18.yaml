@@ -1,0 +1,89 @@
+schema_version: 1
+milestone: NM_RISK2_EVALUATION_SENSITIVITY
+date: 2026-10-18
+protocol: docs/NM_RISK2_PREREG_2026-10-18.md
+output_root: results/v1_risk2
+log_root: logs
+
+thresholds:
+  tost_margin: 0.05
+  alpha: 0.05
+  materiality: 0.05
+  signal_margin: 0.01
+  coverage_retention_boundary: 0.25
+  bh_q: 0.05
+  reproduction_tolerance: 1.0e-8
+
+seeds:
+  primary_bootstrap: 20261018
+  permutation: 20261020
+
+bootstrap:
+  draws: 10000
+  permutation_draws: 10000
+
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+
+representations:
+  P: macs3_summit_501bp
+  B10: fixed_bin_10kb
+  B25: fixed_bin_25kb
+  B50: fixed_bin_50kb
+
+standard_depth:
+  common_metrics: results/v1/full_benchmark/fb1_three_study_rna_synthesis/common_study_metrics.tsv
+  risk1_decisions: results/v1_risk1/equivalence/tost_primary_family.tsv
+  studies:
+    guo_2025_spatial_mux:
+      dataset_id: gse263333_5m_20um_atac
+      gene_table: results/v1/g4/m3b_rna/g4_m3b_rna_gene_level_correlations.tsv.gz
+    zhang_2023:
+      dataset_id: gse205052_mousebrain_20um
+      gene_table: results/v1/g4/m3h_gse205052_rna_replication/gene_level_correlations.tsv.gz
+    zhang_2025_brain_triomics:
+      dataset_id: gse308623_p2s3
+      gene_table: results/v1/g5/h5c_external_evaluation/gene_level_correlations.tsv.gz
+
+depth:
+  gene_table: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/gene_level_correlations.tsv.gz
+  contract_metrics: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/contract_rna_accuracy_metrics.tsv
+  depth_summary: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/depth_seed_summary.tsv
+  studies:
+    - guo_2025_spatial_mux
+    - zhang_2025_brain_triomics
+  datasets:
+    gse263333_5m_20um_atac: guo_2025_spatial_mux
+    gse308623_p2s3: zhang_2025_brain_triomics
+  depths: [1.0, 0.25, 0.05, 0.01]
+  p_representation: macs3_summit_501bp
+  b25_representation: fixed_bin_25kb
+
+human:
+  study_family: zhang_2023
+  dataset_id: gse205055_humanbrain_50um
+  gene_table: results/v1/nm_upgrade/nu1_human_rna/gene_level_correlations.tsv.gz
+  metrics: results/v1/nm_upgrade/nu1_human_rna/rna_metrics.tsv
+
+cross_platform:
+  mouse_study_family: zhang_2023
+  mouse_dataset_id: gse205052_mousebrain_20um
+
+ceiling:
+  ceiling_threshold: 0.90
+  floor_threshold: 0.01
+  saturation_range: 0.02
+  zero_inflation_threshold: 0.50
+
+tests:
+  guard_path: results/v1
+  minimum_passing: 278
+
+compute:
+  workers: 1
+  nice: 10
+  memory_cap_gb: 60

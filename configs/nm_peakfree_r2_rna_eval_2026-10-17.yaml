@@ -1,0 +1,40 @@
+schema_version: 1
+gate: NM_METHOD_UPGRADE
+milestone: PEAKFREE_R2_TWO_STUDY_LOCKED_TRANSFER_RNA_EVAL
+date: 2026-10-17
+protocol: protocols/NM_PEAKFREE_R2_LOCKED_TWO_STUDY_TRANSFER_2026-08-02.md
+transfer_root: results/v1/nm_method_upgrade/peakfree_r2_transfer
+transfer_bindings: results/v1/nm_method_upgrade/peakfree_r2_transfer/transfer_bindings.tsv
+transfer_manifest: results/v1/nm_method_upgrade/peakfree_r2_transfer/transfer_matrix_manifest.tsv
+transfer_summary: results/v1/nm_method_upgrade/peakfree_r2_transfer/transfer_condition_summary.tsv
+transfer_completion: results/v1/nm_method_upgrade/peakfree_r2_transfer/completion_evidence.json
+r1_validation: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/independent_validation_evidence.json
+genes: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/genes.tsv
+rna_source_config: configs/nm_upgrade_spatial_programs.yaml
+output_root: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17
+authorization_path: governance/authorizations/NM_PEAKFREE_R2_RNA_EVAL_2026-10-17.json
+implementation: scripts/run_nm_peakfree_r2_rna_eval_2026-10-17.py
+rna_sample_by_dataset:
+  gse263333_5m_20um_atac: gse263333_5m_20um_atac
+  gse308623_p2s3: gse308623_p2s3
+expected_conditions: 8
+expected_branches: 40
+branches: [adaptive_v1_1, fixed_5kb, fixed_25kb, fixed_100kb, count_hard_switch]
+rna_evaluation:
+  normalization: normalize_total_log1p
+  target_sum: 10000.0
+  minimum_detected_observation_fraction: 0.05
+  correlation_chunk_genes: 128
+  undefined_or_absent_gene_correlation: 0.0
+bootstrap:
+  draws: 1000
+  seed: 20261017
+  descriptive_only: true
+gates:
+  maximum_regret_to_best_fixed: 0.01
+  maximum_deficit_to_fixed_25kb: 0.01
+rna_used_for_construction: false
+labels_clusters_pathology_allowed: false
+parameter_tuning_allowed: false
+universal_ranking_run: false
+final_ranking_run: false

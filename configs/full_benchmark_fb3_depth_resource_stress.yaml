@@ -1,0 +1,98 @@
+schema_version: 1
+gate: FULL_BENCHMARK
+milestone: FB3_controlled_depth_resource_stress
+protocol: protocols/FULL_BENCHMARK_FB3_DEPTH_RESOURCE_STRESS_PROTOCOL_2026-07-18.md
+completion_protocol: protocols/FULL_BENCHMARK_COMPLETION_PROTOCOL_2026-07-18.md
+project_config: configs/main.yaml
+project_config_sha256: 3fd1eeb3814f1fdd4455c3450ef185abc18fe16e327e4e2f4e7b2639c0de309e
+software_panel: configs/g4_m2_software_methods.yaml
+software_panel_sha256: 9e7237a308155b2902138917f5d4b567a2621c02556dd459d10140942e8c3255
+output_root: results/v1/full_benchmark/fb3_depth_resource_stress
+depth_fractions: [1.0, 0.25, 0.05, 0.01]
+thinning_seeds: [42001, 42002, 42003]
+full_depth_seed: 0
+sample_interval_seconds: 0.05
+threads: 8
+macs3:
+  qvalue: 0.01
+  max_count: 1
+  format: FRAG
+  call_summits: true
+  peak_width_bp: 501
+matrix_representations: [macs3_summit_501bp, fixed_bin_25kb]
+bin_sizes_bp: [25000]
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+software_methods:
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+studies:
+  gse263333_5m_20um_atac:
+    study_id: guo_2025_spatial_mux
+    sample_id: GSM8494157_5M_20um_ATAC
+    species: mouse
+    genome_build: mm10
+    observations: 9686
+    fragments: results/v1/g4/m2/software/_inputs/gse263333_5m_20um_atac/eligible.fragments.tsv.gz
+    fragments_sha256: 1175098f837aa5b1252d5913261fdb3862d9a5139e26dd1ade687ac6d3213a98
+    fragments_index: results/v1/g4/m2/software/_inputs/gse263333_5m_20um_atac/eligible.fragments.tsv.gz.tbi
+    fragments_index_sha256: 0407c41290055eda51ab8f513ea508e567db76a91f43e0a8cc68697b7bf0f624
+    fragment_rows: 24661145
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    positions_sha256: 3d9f4ad1c3a6a1e50d8023c69533d8d67d63dd4f0eb08e55989d20a6b8dc83db
+    macs3_genome_size: mm
+  gse288178_human_fl_atac:
+    study_id: li_2026
+    sample_id: GSM9123227_human_FL_ATAC
+    species: human
+    genome_build: hg38
+    observations: 2181
+    fragments: results/v1/g4/m2/software/_inputs/gse288178_human_fl_atac/eligible.fragments.tsv.gz
+    fragments_sha256: 59404de77215a4ef71e119479aee42bf75c78ddc877f3e10131dba31327fafff
+    fragments_index: results/v1/g4/m2/software/_inputs/gse288178_human_fl_atac/eligible.fragments.tsv.gz.tbi
+    fragments_index_sha256: aa71a4cf8f06735162f1baf2c359782bd823b9984a8b37805d5c74f0e848fa1f
+    fragment_rows: 43320418
+    positions: results/v1/g4/m1/gse288178_human_fl_atac/adapted/tissue_positions_list.csv
+    positions_sha256: 5bcde2642fbaab31733839f79c00c9b7e4b292b0fa2be8058e2384f267599d3f
+    macs3_genome_size: hs
+references:
+  mm10:
+    chrom_sizes: {path: data/reference/mm10/chrom_sizes.tsv, sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f}
+    blacklist: {path: data/reference/mm10/mm10-blacklist.v2.bed.gz, sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46}
+    genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+    gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+    software_annotation: {path: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz, sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a}
+    software_chrom_sizes: {path: results/v1/g4/m2/references/mm10/canonical.chrom.sizes.tsv, sha256: e08ce8d40e33e9197cb50cf7a5f116e5f5cf4ddd232a173ef266c9bc5c7f5715}
+  hg38:
+    chrom_sizes: {path: data/reference/hg38/chrom_sizes.tsv, sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b}
+    blacklist: {path: data/reference/hg38/hg38-blacklist.v2.bed.gz, sha256: 0eecd7c32eb0f5e735b297bbd886446f4829d23c698a5c7cfcde585f866cbc07}
+    genes: {path: data/reference/hg38/protein_coding_genes.bed, sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b}
+    promoters: {path: data/reference/hg38/protein_coding_promoters_2kb.bed, sha256: f5ff2b427be9c186a5e0694fd949bc81d8216a6ac0153ad8d0118b672ac4176b}
+    gene_body: {path: data/reference/hg38/protein_coding_gene_body.bed, sha256: e81322543c491e9daa67ac305c6e291e0befec6994dd2ea18ee9a7333e3c886b}
+    tss: {path: data/reference/hg38/protein_coding_tss.bed, sha256: 13b97f010a5c4c2fa147f58fd5e7148db13054f6731bdc04dc789656b80f84c3}
+    software_annotation: {path: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz, sha256: 4866d04bb1ae47e73ced74aa57d480be437243e0744e328db634e101e5b7b368}
+    software_chrom_sizes: {path: results/v1/g4/m2/references/hg38/canonical.chrom.sizes.tsv, sha256: d4fca5ae94e449e9cc5cf5267be8006dcb2063fe6d32c35a01b776660fd52d3e}
+planned_conditions: 20
+planned_contracts_per_condition: 13
+planned_contracts: 260
+construction_inputs_only: true
+rna_access_authorized: false
+label_access_authorized: false
+pathology_access_authorized: false
+simulation_truth_access_authorized: false
+policy_refit_run: false
+universal_ranking_run: false
+final_ranking_run: false

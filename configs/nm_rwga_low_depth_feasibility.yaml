@@ -1,0 +1,62 @@
+schema_version: 1
+gate: NM_METHOD_UPGRADE
+milestone: RWGA_M2_LOW_DEPTH_FEASIBILITY
+protocol: protocols/NM_RWGA_LOW_DEPTH_FEASIBILITY_PROTOCOL_2026-08-01.md
+proposal: refine-logs/depth_adaptive_multiscale_ga/FINAL_PROPOSAL.md
+output_root: results/v1/nm_method_upgrade/rwga_m2_low_depth_feasibility
+
+condition_id: gse263333_5m_20um_atac__d005__s42001
+dataset_id: gse263333_5m_20um_atac
+study_id: guo_2025_spatial_mux
+sample_id: GSM8494157_5M_20um_ATAC
+species: mouse
+genome_build: mm10
+expected_observations: 9686
+expected_source_fragment_rows: 1233929
+source_fragments: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/fragments/eligible.fragments.tsv.gz
+source_fragments_sha256: 2077b13325a8b6eb79bb59d1a3b6799d8583ddf1b6c5d7c673f7adcf029e3785
+source_fragment_audit: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/fragments/thinning_audit.json
+positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+project_config: configs/main.yaml
+
+full_peak_representation: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/representations/gse263333_5m_20um_atac__d005__s42001__macs3_summit_501bp.h5ad
+full_bin_representation: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/representations/gse263333_5m_20um_atac__d005__s42001__fixed_bin_25kb.h5ad
+full_peak_mapping: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/methods/annotation/gse263333_5m_20um_atac__d005__s42001/macs3_summit_501bp/promoter_plus_distal_2kb_250kb_decay50kb_pc/peak_gene_mapping.npz
+full_bin_mapping: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/methods/annotation/gse263333_5m_20um_atac__d005__s42001/fixed_bin_25kb/promoter_plus_distal_2kb_250kb_decay50kb_pc/peak_gene_mapping.npz
+
+delete_groups: 4
+fold_hash_seed: 1601
+scale: 10000.0
+minimum_spots: 97
+gene_chunk_size: 128
+threads: 8
+bin_sizes_bp: [25000]
+macs3:
+  qvalue: 0.01
+  max_count: 1
+  format: FRAG
+  peak_width_bp: 501
+  genome_size: mm
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+
+references:
+  chrom_sizes: {path: data/reference/mm10/chrom_sizes.tsv, sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f}
+  blacklist: {path: data/reference/mm10/mm10-blacklist.v2.bed.gz, sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46}
+  genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+  promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+  tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+
+gates:
+  minimum_nonzero_q2_gene_fraction: 0.005
+  minimum_structurally_valid_gene_fraction: 0.5
+  minimum_nonzero_gene_median_peak_weight: 0.01
+  maximum_nonzero_gene_median_peak_weight: 0.99
+
+rna_access_authorized: false
+labels_clusters_pathology_authorized: false
+parameter_tuning_authorized: false
+universal_ranking_authorized: false
+final_ranking_authorized: false

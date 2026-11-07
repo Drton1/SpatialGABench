@@ -1,0 +1,95 @@
+schema_version: 1
+gate: G5
+milestone: H5B_method_construction_preflight
+previous_gate: governance/gates/G5_H5A_EXTERNAL_REPRESENTATION_CONSTRUCTION_2026-07-18.json
+previous_gate_sha256: 1c9c73c7ac65e0c77debaf9d07985ac4c69cc4065f99b80c4873008e1ac76722
+frozen_execution_manifest: results/v1/g5/h4_one_pass_protocol_freeze/method_execution_manifest.tsv
+frozen_execution_manifest_sha256: aaae85f3d4cbb2cafe23141f94dad7963ad18a4c69c78b2b29671e56f7fd7d4a
+representation_summary: results/v1/g5/h5a_external_representations/evidence/representation_summary.tsv
+representation_summary_sha256: cf13df27a539fb90672db75154861350bb0bef0c61cedbfa83b0051a3c06ac11
+output_root: results/v1/g5/h5b_external_method_construction
+evidence_dir: results/v1/g5/h5b_method_construction_preflight
+expected_outputs: 50
+expected_annotation_outputs: 44
+expected_software_outputs: 6
+minimum_available_disk_bytes: 200000000000
+minimum_available_memory_bytes: 128000000000
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+software_methods:
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+samples:
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    accession: GSE308623
+    sample_id: P2S3
+    peak_h5ad: results/v1/g5/h5a_external_representations/gse308623_p2s3/matched/gse308623_p2s3__macs3_summit_501bp.h5ad
+    fragments: results/v1/g5/h5a_external_representations/gse308623_p2s3/filtered_fragments/gse308623_p2s3__eligible.fragments.tsv.gz
+    fragments_sha256: 8905b53ba28169fabc282510c24ca327b1c3025ce460875b8b93d7e2a54574f9
+  gse307620_mbr6:
+    study_id: xue_2026_spatial_atac_hic
+    accession: GSE307620
+    sample_id: GSM9228169_MouseBrain_R6
+    peak_h5ad: results/v1/g5/h5a_external_representations/gse307620_mbr6/matched/gse307620_mbr6__macs3_summit_501bp.h5ad
+    fragments: results/v1/g5/h5a_external_representations/gse307620_mbr6/filtered_fragments/gse307620_mbr6__eligible.fragments.tsv.gz
+    fragments_sha256: 7dffd324d09484cc8d91252a0d4f94ce3d0e4a2b88a05fd1cf41b6c0b10b2b23
+references:
+  annotation_bed:
+    genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+    gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+    tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+  software:
+    gene_annotation: {path: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz, sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a}
+    chrom_sizes: {path: results/v1/g4/m2/references/mm10/canonical.chrom.sizes.tsv, sha256: e08ce8d40e33e9197cb50cf7a5f116e5f5cf4ddd232a173ef266c9bc5c7f5715}
+oci:
+  runtime_dir: /tmp/podman-run-1002
+  podman: /tmp/spatialgabench-podman-root/usr/bin/podman
+  root: /tmp/spatialgabench-podman-storage
+  runroot: /tmp/spatialgabench-podman-runroot
+  storage_driver: vfs
+  runtime: containers/tools/run_crun_local.sh
+  conmon: /tmp/spatialgabench-podman-root/usr/bin/conmon
+  cgroup_manager: cgroupfs
+  images:
+    snapatac2_geneactivity: localhost/spatialgabench-snapatac2@sha256:de84d6eab3fe9c2bdfe26e5e7771727e70c602b4c0465a9ac987550cf17caa69
+    signac_geneactivity: localhost/spatialgabench-signac@sha256:5df60a2b3dedb840aa4f4dfe8983bd562a06ecb65d090bfe4416944fc2e5ecfb
+    archr_genescorematrix: localhost/spatialgabench-archr@sha256:a05555fa5900a23e0345aae1bd65e665c0b4a678401b1c32091707eb7662705d
+implementation_files:
+  - adapters/g4_m2_annotation_driver.py
+  - adapters/g4_m2_software_driver.py
+  - adapters/snapatac2_geneactivity.py
+  - adapters/r_geneactivity_driver.py
+  - adapters/signac_geneactivity.R
+  - adapters/archr_genescorematrix.R
+  - spatialgabench/g4_m2_software.py
+  - spatialgabench/software_wrappers/contracts.py
+  - spatialgabench/software_wrappers/common.py
+  - spatialgabench/gene_activity/interval_aggregation.py
+  - spatialgabench/gene_activity/gene_body.py
+  - spatialgabench/gene_activity/promoter_gene_body.py
+  - spatialgabench/gene_activity/distal.py
+  - spatialgabench/gene_activity/accessibility_matched_random.py
+  - spatialgabench/runtime/process_tree.py
+  - containers/tools/run_with_memory_tracking.py
+  - containers/tools/run_rscript_in_oci.sh
+  - containers/tools/run_crun_local.sh
+  - workflows/g5_h5b_external_method_construction.smk
+method_execution_run: false
+rna_value_access_run: false
+label_or_pathology_access_run: false
+holdout_utility_access_run: false
+regret_computation_run: false
+policy_refit_run: false
+GSE279771_accessed: false
+full_benchmark_run: false
+results_writing_run: false
+universal_ranking_run: false
+final_ranking_run: false

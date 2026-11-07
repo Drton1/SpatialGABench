@@ -1,0 +1,18 @@
+{
+  "selection_config": "configs/paper_selection.json",
+  "selection_script": "scripts/selection_analysis.py",
+  "figure_script": "scripts/plot_paper_figures.py",
+  "selection_output": "results/paper/selection",
+  "figure_output": "results/paper/figures",
+  "expected_selection_tables": [
+    "corrected_unit_scores.tsv",
+    "cross_task_loss.tsv",
+    "cross_task_summary.tsv",
+    "endpoint_tau.tsv",
+    "leave_family_out.tsv",
+    "leave_family_out_applicability.tsv",
+    "marker_correction_audit.tsv",
+    "matched_marker_clusters.tsv"
+  ],
+  "numeric_tolerance": 1e-12
+}

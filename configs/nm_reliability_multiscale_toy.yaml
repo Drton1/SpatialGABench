@@ -1,0 +1,28 @@
+schema_version: 1
+gate: NM_METHOD_UPGRADE
+milestone: RWGA_M1_TOY_DEPTH_LADDER
+proposal: refine-logs/depth_adaptive_multiscale_ga/FINAL_PROPOSAL.md
+output_root: results/v1/nm_method_upgrade/rwga_m1_toy
+
+depth_fractions: [1.0, 0.25, 0.05, 0.01]
+scale: 10000.0
+minimum_spots: 4
+expected_observations: 8
+expected_genes: 3
+expected_perturbations: 4
+
+gates:
+  peak_weight_nonincreasing_with_depth_loss: true
+  continuous_risk_nondecreasing_with_depth_loss: true
+  full_depth_median_peak_weight_min: 0.8
+  one_percent_median_peak_weight_max: 0.1
+  all_outputs_finite_nonnegative: true
+  output_within_branch_log_bounds: true
+
+rna_used_for_construction: false
+rna_used_for_evaluation: false
+labels_clusters_pathology_used: false
+parameter_tuning_run: false
+universal_ranking_run: false
+final_ranking_run: false
+

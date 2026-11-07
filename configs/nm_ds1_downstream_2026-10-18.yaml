@@ -1,0 +1,173 @@
+schema_version: 1
+task: NM-DS1
+target_journal: Briefings in Bioinformatics
+protocol: protocols/NM_DS1_DOWNSTREAM_PROTOCOL_2026-10-18.md
+protocol_sha256: 7916901b28d849b126a5b0ee3dd42006b530b72b33003842497bf73fb738850f
+output_root: results/v1_ds1
+forbidden_input_roots:
+  - data/external_risk1
+  - results/v1_risk1
+forbidden_accessions:
+  - GSE308623
+  - GSE279771
+seeds:
+  clustering: [20261018, 20261019, 20261020, 20261021, 20261022]
+  clustering_primary: 20261018
+  bootstrap: 20261018
+  depth_primary: 42001
+  depth_fallback: [42002, 42003]
+  full_depth: 0
+statistics:
+  materiality_margin: 0.05
+  alpha: 0.05
+  n_bootstrap: 10000
+  confidence_interval: 0.95
+  equivalence_interval: 0.90
+  bh_family: experiment_dataset_depth_metric
+  verdict_order:
+    - EQUIVALENT_WITHIN_0.05
+    - MATERIAL_DIFFERENCE
+    - DETECTABLE_SUB_MATERIAL
+    - INCONCLUSIVE
+clustering:
+  normalize_total_target_sum: 10000.0
+  log1p: true
+  hvg_flavor: seurat
+  n_top_genes: 2000
+  n_pcs: 30
+  pca_solver: arpack
+  spatial_weight: 0.5
+  kmeans_n_init: 20
+  k_by_dataset:
+    d1_gse263333: 8
+    d2_gse205052: 8
+    d3_gse214986: 11
+markers:
+  method: wilcoxon
+  max_adjusted_p: 0.05
+  min_log_fold_change: 1.0
+  min_fraction_in_group: 0.1
+  top_n_per_cluster: 100
+  atac_pseudocount: 1.0e-6
+svg:
+  n_spatial_neighbors: 6
+  top_n: 500
+  zero_variance_value: 0.0
+motif:
+  top_n: null
+compute:
+  max_workers_total: 24
+  nice: 10
+  memory_max_gb: 150
+  blas_threads: 8
+  keep_cpu_idle_fraction: 0.05
+representations:
+  P:
+    label: peak
+    primary_id: macs3_summit_501bp
+    method: distance_weighted_distal_250kb_decay50kb_pc
+  B:
+    label: fixed_bin
+    primary_id: fixed_bin_25kb
+    sensitivity_ids: [fixed_bin_10kb, fixed_bin_50kb]
+    method: distance_weighted_distal_250kb_decay50kb_pc
+  F:
+    label: fragment_native
+    primary_id: signac_geneactivity
+    sensitivity_ids: [archr_genescorematrix, snapatac2_geneactivity]
+datasets:
+  d1_gse263333:
+    dataset_id: gse263333_5m_20um_atac
+    study_id: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    n_atac_observations: 9686
+    role: depth_anchor
+    depth_fractions: [1.0, 0.25, 0.05, 0.01]
+    depth_root: results/v1/full_benchmark/fb3_depth_resource_stress/conditions
+    condition_prefix: gse263333_5m_20um_atac
+    full_depth_condition: gse263333_5m_20um_atac__d100__s0
+    reduced_depth_dir_template: gse263333_5m_20um_atac__d{depth:03d}__s{seed}
+    reduced_depth_seed: 42001
+    reduced_depth_fallback: [42002, 42003]
+    rna:
+      matrix: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/matrix.mtx.gz
+      features: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/features.tsv.gz
+      barcodes: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/barcodes.tsv.gz
+      eligible_genes: results/v1/g4/m3b_rna/g4_m3b_rna_eligible_genes.tsv
+    representation_paths:
+      P: "{depth_root}/{condition}/methods/annotation/{condition}/macs3_summit_501bp/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad"
+      B: "{depth_root}/{condition}/methods/annotation/{condition}/fixed_bin_25kb/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad"
+      F_signac_geneactivity: "{depth_root}/{condition}/methods/software/signac_geneactivity/gene_activity.h5ad"
+      F_archr_genescorematrix: "{depth_root}/{condition}/methods/software/archr_genescorematrix/gene_activity.h5ad"
+      F_snapatac2_geneactivity: "{depth_root}/{condition}/methods/software/snapatac2_geneactivity/gene_activity.h5ad"
+    primary_representations: [P, B, F_signac_geneactivity]
+    sensitivity_representations: [F_archr_genescorematrix, F_snapatac2_geneactivity]
+  d2_gse205052:
+    dataset_id: gse205052_mousebrain_20um
+    study_id: zhang_2023
+    species: mouse
+    genome_build: mm10
+    n_atac_observations: 2500
+    role: replication_100pct
+    depth_fractions: [1.0]
+    rna: data/processed/gse205054_mousebrain_20um_rna/gse205054_mousebrain_20um_raw_rna_pilot.h5ad
+    rna_eligible_genes: results/v1/g4/m3h_gse205052_rna_replication/rna_eligible_genes.tsv
+    representation_paths:
+      P: results/v1/g4/m2/annotation/gse205052_mousebrain_20um/macs3_summit_501bp/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      B: results/v1/g4/m2/annotation/gse205052_mousebrain_20um/fixed_bin_25kb/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      F_signac_geneactivity: results/v1/g4/m2/software/gse205052_mousebrain_20um/signac_geneactivity/gene_activity.h5ad
+      F_archr_genescorematrix: results/v1/g4/m2/software/gse205052_mousebrain_20um/archr_genescorematrix/gene_activity.h5ad
+      F_snapatac2_geneactivity: results/v1/g4/m2/software/gse205052_mousebrain_20um/snapatac2_geneactivity/gene_activity.h5ad
+    primary_representations: [P, B, F_signac_geneactivity]
+    sensitivity_representations: [F_archr_genescorematrix, F_snapatac2_geneactivity]
+  d3_gse214986:
+    dataset_id: gse214986_spatial_atac_mouse_embryo
+    study_id: llorens_bobadilla_2023
+    species: mouse
+    genome_build: mm10
+    n_atac_observations: 17787
+    role: author_annotation_and_motif_extension
+    depth_fractions: [1.0]
+    author_peak_h5ad: results/v1/g4/m3d_gse214986/input/gse214986_author_peak_accessibility_only.h5ad
+    author_label_h5ad: data/processed/gse214986_spatial_atac_mouse_embryo/gse214986_raw_peak_pilot.h5ad
+    author_label_column: clusters
+    representation_paths:
+      P: results/v1/g4/m3d_gse214986/construction/distance_weighted_distal_250kb_decay50kb_pc/gene_activity.h5ad
+      B: results/v1_ds1/derived/gse214986_b25/gene_activity.h5ad
+    primary_representations: [P, B]
+    sensitivity_representations: []
+    derived_b25:
+      enabled: true
+      bin_size_bp: 25000
+      method: distance_weighted_distal_250kb_decay50kb_pc
+      output_path: results/v1_ds1/derived/gse214986_b25/gene_activity.h5ad
+      output_manifest: results/v1_ds1/derived/gse214986_b25/output_manifest.json
+      references:
+        genes: data/reference/mm10/protein_coding_genes.bed
+        tss: data/reference/mm10/protein_coding_tss.bed
+      parameters:
+        promoter_window_bp: 2000
+        distal_window_bp: 250000
+        distance_decay_bp: 50000
+    motif_activity: data/motif_activity/gse214986_spatial_atac_mouse_embryo/gse214986_motif_accessibility.h5ad
+    motif_metadata: data/motif_activity/gse214986_spatial_atac_mouse_embryo/motif_metadata.tsv
+expected_status:
+  domain:
+    d1_gse263333: DONE
+    d2_gse205052: DONE
+    d3_gse214986: PARTIAL
+  markers:
+    d1_gse263333: DONE
+    d2_gse205052: DONE
+  svg:
+    d1_gse263333: DONE
+    d2_gse205052: DONE
+  motif:
+    d3_gse214986: PARTIAL
+  label_transfer:
+    status: INFEASIBLE
+    reason: no local single-cell reference in data/reference; genome annotations only
+  insertion:
+    status: INFEASIBLE
+    reason: no local non-holdout insertion representation; GSE279771/GSE308623 unopened

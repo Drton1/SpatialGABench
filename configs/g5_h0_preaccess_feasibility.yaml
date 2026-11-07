@@ -1,0 +1,60 @@
+schema_version: 1
+gate: G5
+milestone: H0_PREACCESS_FEASIBILITY_AUDIT
+authorization: governance/authorizations/G5_H0_PREACCESS_FEASIBILITY_AUDIT_AUTHORIZATION_2026-07-17.json
+authorization_sha256: d533d3fc00c7ac09ff99a0eeb6bee6294fe0dbd22a131f9f8b6f9c2af4d9e3ea
+holdout_freeze: governance/HOLDOUT_FREEZE_2026-07-10.md
+holdout_freeze_sha256: f82d5aad606cbbb2d134e8d6a2fc5242226afad81142aff7056643ccc2721074
+dataset_registry: registries/v1/datasets.yaml
+dataset_registry_sha256: 661bf7cbf3d8146f6224054108825bf6108bbc4a1c403402656b854d888af951
+m4_gate: governance/gates/G4_M4_TASK_SPECIFIC_RECOMMENDATION_POLICY_FREEZE_2026-07-17.json
+m4_gate_sha256: 115fcddad5fd0132afb9b09dcfaa43d9c85bb2a958ab5116af5b931704bede16
+m4_policy: results/v1/g4/m4_recommendation_policy/frozen_task_specific_recommendation_policy.json
+m4_policy_sha256: eb6e9ce5b8a73dfbc73d00b14295ae3b1d2c2cb1f55d5e609e3a260d51d3e9d4
+
+holdouts:
+  zhang_2025_brain_triomics:
+    accession: GSE308623
+    selected_sample: P2S3
+    species: mouse
+    genome_build: mm10
+    standard_fragment_level: true
+    paired_rna: true
+    schema_audit: results/v1/audits/GSE308623_P2S3/paired_spatial_schema_audit.json
+    schema_audit_sha256: 1eb1acbcf694e2143e85dfe5b582d995b202b5f9b0ca749f6e752ce5289ab108
+    receipt_manifest: data/manifests/v1_download_receipts.tsv
+    receipt_manifest_sha256: 51989c6c0c94b8874a3f2c84a1dec40c193c1c873e285ef5f739d15b1d8358db
+    source_semantics: standard_fragments
+  huang_2025:
+    accession: GSE279771
+    selected_sample: GBM_1-A1
+    species: human
+    genome_build: hg38
+    standard_fragment_level: false
+    paired_rna: true
+    schema_audit: results/v1/audits/GSE279771_GBM_paired/paired_spatial_h5_schema_audit.json
+    schema_audit_sha256: b01eb7de7aeebbc30b142a0c356adeb0aa6edd75b7ed5f98d6a8097ce330b2f8
+    receipt_manifest: data/manifests/v1_round2_download_receipts.tsv
+    receipt_manifest_sha256: c7653348e937f94b580b7ec6187a2cbf73395dcf89168a5035200beaa189a734
+    upstream_provenance: data/manifests/space_seq_upstream_provenance.tsv
+    upstream_provenance_sha256: 60e06a5b02f06b684fa5b3b90916186be7bd383a477c3f5673d5712efdb6c5cc
+    source_semantics: author_single_end_insertions_pseudo_paired_by_sorted_order
+
+minimum_untouched_studies_for_c2: 2
+exact_policy_match_required: true
+representation_alias_or_fallback_allowed: false
+out_of_support_abstention_is_not_performance_validation: true
+raw_holdout_access: false
+holdout_mount: false
+holdout_checksum_revalidation: false
+representation_construction: false
+method_execution: false
+rna_value_access: false
+label_or_pathology_value_access: false
+regret_evaluation: false
+policy_refit: false
+full_benchmark_run: false
+results_writing: false
+universal_ranking: false
+final_ranking: false
+output_root: results/v1/g5/h0_preaccess_feasibility

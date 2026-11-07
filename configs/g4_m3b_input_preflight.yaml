@@ -1,0 +1,51 @@
+schema_version: 1
+authorization: governance/authorizations/G4_M3B_INPUT_PREFLIGHT_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 494e3b6a994d7c3d651d81594058ebeec57c6305ab7c81e6f4b012cb1305c5ed
+previous_gate: governance/gates/G4_M3A_ADMISSIBILITY_EVALUATION_2026-07-16.json
+previous_gate_sha256: ddf1cdc9ea453dc086c40e23fa2404677cadb9ed639dc131dedf06656c54a69d
+output_root: results/v1/g4/m3b_preflight
+rna_candidate:
+  study_id: guo_2025_spatial_mux
+  dataset_id: gse263333_5m_20um_atac
+  atac_sample_id: GSM8494157_5M_20um_ATAC
+  rna_sample_id: GSM8494158_5M_20um_RNA
+  genome_build: mm10
+  matrix: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/matrix.mtx.gz
+  matrix_sha256: c93c24489582bbab1fe8327171f025af9628d68f1104dda46ddcd0249a902158
+  features: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/features.tsv.gz
+  features_sha256: d62a8c3e36820853834509462157b303d6b33da7b638bf8c89a3e50ef1109886
+  barcodes: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/barcodes.tsv.gz
+  barcodes_sha256: 9419658bf40809c3ec1750a232095cc33e3643c9bcbdf771e295c6779a8d0207
+  spatial_positions: data/raw/v1/GSE263333/GSM8494158_5M_20um_spatial_RNA/tissue_positions_list.csv
+  spatial_positions_sha256: 3d9f4ad1c3a6a1e50d8023c69533d8d67d63dd4f0eb08e55989d20a6b8dc83db
+  final_atac_observations: results/v1/g4/m1/gse263333_5m_20um_atac/matched/gse263333_5m_20um_atac__fixed_bin_50kb.h5ad
+  final_atac_observations_sha256: abac97a945d099fb4d276458ae67c1e50ac6a5c495df37049af19b0bd77596ad
+  paired_schema_audit: results/v1/audits/GSE263333_5M_20um_paired/paired_spatial_10x_schema_audit.json
+  gene_annotation: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+  gene_annotation_sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a
+label_candidates:
+  - dataset_id: gse205052_mousebrain_20um
+    m2_panel: true
+    status: no_independent_label_file
+  - dataset_id: gse171943_p21_brain_20um
+    m2_panel: true
+    status: no_independent_label_file
+  - dataset_id: gse263333_5m_20um_atac
+    m2_panel: true
+    status: no_independent_label_file
+  - dataset_id: gse278007_ffpe_s4_rep1
+    m2_panel: true
+    status: no_independent_label_file
+  - dataset_id: gse288178_human_fl_atac
+    m2_panel: true
+    status: no_independent_label_file
+  - dataset_id: gse214986_author_peak
+    m2_panel: false
+    status: author_cluster_labels_available_requires_author_peak_construction_extension
+    path: data/raw/gse214986_spatial_atac_mouse_embryo/GSE214986_metadata_embryo_satac.csv.gz
+    sha256: 6c210b7453fb057b322151ed4a1f5b9b035a0093a2a451b6bd3ff66a04311124
+    delimiter: ";"
+    label_column: clusters
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+outcome_computation_allowed: false
+

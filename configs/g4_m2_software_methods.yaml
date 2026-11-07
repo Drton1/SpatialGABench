@@ -1,0 +1,107 @@
+schema_version: 1
+project_config: configs/main.yaml
+authorization: governance/authorizations/G4_M2_METHOD_CONSTRUCTION_AUTHORIZATION_2026-07-15.json
+authorization_sha256: 262869c077852f4cf40539482a8d3fe8d024d912f23b9ea8fdff19e1186d9a9d
+memory_gate: governance/gates/G4_M2_MEMORY_READINESS_2026-07-15.json
+memory_gate_sha256: 9e6346b3008e57b71f3680d97699729d71f562f569cdb0c1e1ccffffb017d7a5
+output_root: results/v1/g4/m2/software
+comparison_scope: fragment_native_portability_construction_no_evaluation
+representation_id: filtered_fragments_with_frozen_macs3_observation_contract
+subset_policy: full
+threads: 8
+seed: 4160
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+forbidden_construction_inputs: [rna, labels, clusters, pathology, simulation_truth]
+oci:
+  runtime_dir: /tmp/podman-run-1002
+  podman: /tmp/spatialgabench-podman-root/usr/bin/podman
+  root: /tmp/spatialgabench-podman-storage
+  runroot: /tmp/spatialgabench-podman-runroot
+  storage_driver: vfs
+  runtime: containers/tools/run_crun_local.sh
+  conmon: /tmp/spatialgabench-podman-root/usr/bin/conmon
+  cgroup_manager: cgroupfs
+methods:
+  snapatac2_geneactivity:
+    software_name: SnapATAC2
+    image: localhost/spatialgabench-snapatac2@sha256:de84d6eab3fe9c2bdfe26e5e7771727e70c602b4c0465a9ac987550cf17caa69
+    environment_lock: envs/containers/snapatac2-py311.lock.txt
+    adapter: adapters/snapatac2_geneactivity.py
+    method_script: null
+    implementation_files: [configs/g4_m2_software_methods.yaml, adapters/snapatac2_geneactivity.py, adapters/g4_m2_software_driver.py, spatialgabench/g4_m2_software.py, spatialgabench/software_wrappers/common.py, spatialgabench/software_wrappers/contracts.py, spatialgabench/runtime/process_tree.py, containers/tools/run_with_memory_tracking.py]
+    construction_input_classes: [accessibility_fragments, gene_annotation]
+  signac_geneactivity:
+    software_name: Signac
+    image: localhost/spatialgabench-signac@sha256:5df60a2b3dedb840aa4f4dfe8983bd562a06ecb65d090bfe4416944fc2e5ecfb
+    environment_lock: envs/containers/signac-r.lock.tsv
+    adapter: adapters/r_geneactivity_driver.py
+    method_script: adapters/signac_geneactivity.R
+    implementation_files: [configs/g4_m2_software_methods.yaml, adapters/r_geneactivity_driver.py, adapters/signac_geneactivity.R, adapters/g4_m2_software_driver.py, spatialgabench/g4_m2_software.py, spatialgabench/software_wrappers/common.py, spatialgabench/software_wrappers/contracts.py, spatialgabench/runtime/process_tree.py, containers/tools/run_rscript_in_oci.sh, containers/tools/run_with_memory_tracking.py]
+    construction_input_classes: [accessibility_fragments, frozen_peak_matrix, gene_annotation]
+  archr_genescorematrix:
+    software_name: ArchR
+    image: localhost/spatialgabench-archr@sha256:a05555fa5900a23e0345aae1bd65e665c0b4a678401b1c32091707eb7662705d
+    environment_lock: envs/containers/archr-r.lock.tsv
+    adapter: adapters/r_geneactivity_driver.py
+    method_script: adapters/archr_genescorematrix.R
+    implementation_files: [configs/g4_m2_software_methods.yaml, adapters/r_geneactivity_driver.py, adapters/archr_genescorematrix.R, adapters/g4_m2_software_driver.py, spatialgabench/g4_m2_software.py, spatialgabench/software_wrappers/common.py, spatialgabench/software_wrappers/contracts.py, spatialgabench/runtime/process_tree.py, containers/tools/run_rscript_in_oci.sh, containers/tools/run_with_memory_tracking.py]
+    construction_input_classes: [accessibility_fragments, gene_annotation]
+samples:
+  gse205052_mousebrain_20um:
+    study_id: zhang_2023
+    sample_id: GSM6204623_MouseBrain_20um
+    genome_build: mm10
+    input_h5ad: results/v1/g4/m1/gse205052_mousebrain_20um/matched/gse205052_mousebrain_20um__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g4/m1/gse205052_mousebrain_20um/filtered_fragments/gse205052_mousebrain_20um__eligible.fragments.tsv.gz
+    source_fragments_sha256: cd15f71d90712b91ff664f630bfd51df030f5ab0427c6047033639e9caf97fea
+  gse171943_p21_brain_20um:
+    study_id: deng_2022
+    sample_id: GSM6043256_P21_brain_20um
+    genome_build: mm10
+    input_h5ad: results/v1/g4/m1/gse171943_p21_brain_20um/matched/gse171943_p21_brain_20um__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g4/m1/gse171943_p21_brain_20um/filtered_fragments/gse171943_p21_brain_20um__eligible.fragments.tsv.gz
+    source_fragments_sha256: 90b25744f910d6f90e9c1544aeeb406cb3daf2fa9f0f882357f24a49d6846f99
+  gse288178_human_fl_atac:
+    study_id: li_2026
+    sample_id: GSM9123227_human_FL_ATAC
+    genome_build: hg38
+    input_h5ad: results/v1/g4/m1/gse288178_human_fl_atac/matched/gse288178_human_fl_atac__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g4/m1/gse288178_human_fl_atac/filtered_fragments/gse288178_human_fl_atac__eligible.fragments.tsv.gz
+    source_fragments_sha256: dbff9e092c94f8624bf56a03615362a3311997b9c5123860cf376feb8bdeb4b1
+  gse263333_5m_20um_atac:
+    study_id: guo_2025_spatial_mux
+    sample_id: GSM8494157_5M_20um_ATAC
+    genome_build: mm10
+    input_h5ad: results/v1/g4/m1/gse263333_5m_20um_atac/matched/gse263333_5m_20um_atac__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g4/m1/gse263333_5m_20um_atac/filtered_fragments/gse263333_5m_20um_atac__eligible.fragments.tsv.gz
+    source_fragments_sha256: 48bccd4fa10f76b0cdacee53d72c037a4677710be5739ccf102a215873b6e8ed
+  gse278007_ffpe_s4_rep1:
+    study_id: guo_deng_2025_ffpe_atac
+    sample_id: GSM8831026_FFPE_S4_1
+    genome_build: mm10
+    input_h5ad: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__macs3_summit_501bp.h5ad
+    source_fragments: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/filtered_fragments/gse278007_ffpe_s4_rep1__eligible.fragments.tsv.gz
+    source_fragments_sha256: 0bccdf51208efb659daf4aa7e83c200d36ef1b72da9685b4d967da19aa3e9bf3
+references:
+  mm10:
+    source_gene_annotation: data/reference/mm10/gene_annotation.gtf.gz
+    source_gene_annotation_sha256: 53bc4bb37067ef52596d05c51ab6b01f1aaa3f27184b1ef938812f3a27522221
+    source_chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    source_chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    chrom_sizes: results/v1/g4/m2/references/mm10/canonical.chrom.sizes.tsv
+    chrom_sizes_sha256: e08ce8d40e33e9197cb50cf7a5f116e5f5cf4ddd232a173ef266c9bc5c7f5715
+    gene_annotation: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+    gene_annotation_sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a
+    audit: results/v1/g4/m2/references/mm10/canonical.annotation.audit.json
+    audit_sha256: c31a31eebbb3ec9dec62a2e586accf47b777e0c77c723156b50c78ce4dd1200a
+  hg38:
+    source_gene_annotation: data/reference/hg38/gene_annotation.gtf.gz
+    source_gene_annotation_sha256: 82b0e52bc4956486528152e3850660b3c41767ab103d87949e41d38f92ef8b38
+    source_chrom_sizes: data/reference/hg38/chrom_sizes.tsv
+    source_chrom_sizes_sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b
+    chrom_sizes: results/v1/g4/m2/references/hg38/canonical.chrom.sizes.tsv
+    chrom_sizes_sha256: d4fca5ae94e449e9cc5cf5267be8006dcb2063fe6d32c35a01b776660fd52d3e
+    gene_annotation: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz
+    gene_annotation_sha256: 4866d04bb1ae47e73ced74aa57d480be437243e0744e328db634e101e5b7b368
+    audit: results/v1/g4/m2/references/hg38/canonical.annotation.audit.json
+    audit_sha256: 47f5feb130dd704fa955700fb4cc374587005044d59b0bc80d0b5e38b6815267

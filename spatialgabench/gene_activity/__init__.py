@@ -1,0 +1,1 @@
+"""Gene activity method namespace."""

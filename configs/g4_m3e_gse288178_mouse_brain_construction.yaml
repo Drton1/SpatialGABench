@@ -1,0 +1,66 @@
+schema_version: 1
+gate: G4
+milestone: M3E_GSE288178_MOUSE_BRAIN_CONSTRUCTION
+authorization: governance/authorizations/G4_M3E_GSE288178_MOUSE_BRAIN_CONSTRUCTION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: a54a188be83cfb9e94e9048411303e4a38fafac1709f831ca09575e0a41fa97e
+authorized_task: author_selected_fixed_bin_method_construction_only
+input_evidence: results/v1/g4/m3e_gse288178_mouse_brain/input/gse288178_mouse_brain_input_preparation_evidence.json
+input_evidence_sha256: 949de733cef8bc5f3685f5890e295a5c0f9ffbdd837b1025891d5cd0b97e1ca4
+input_h5ad: results/v1/g4/m3e_gse288178_mouse_brain/input/gse288178_mouse_brain_500bp_accessibility_only.h5ad
+input_h5ad_sha256: 2e35be33b1aa95e8dd048d7d70bb21102d49df967f1aac74c53c0e1519e8846b
+output_root: results/v1/g4/m3e_gse288178_mouse_brain/construction
+dataset_id: gse288178_mouse_brain_author_500bp_bins
+study_id: li_2026
+sample_id: GSM8760696_mouse_brain_coronal_ffpe_50um
+representation_id: author_selected_fixed_500bp_bins_unmatched
+genome_build: mm10
+input_track: B
+comparison_scope: unmatched_author_selected_fixed_bin_external_branch
+subset_policy: all_author_selected_fixed_bin_observations
+wrapper_version: g4_m3e_author_selected_500bp_bins_v1
+run_id_prefix: g4_m3e_gse288178_mouse_brain
+input_feature_count_field: n_author_selected_500bp_bins
+construction_summary_name: gse288178_mouse_brain_construction_summary.tsv
+construction_evidence_name: gse288178_mouse_brain_construction_evidence.json
+construction_milestone: M3E_GSE288178_mouse_brain_author_selected_500bp_bin_construction
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+  - raw_peak_lsi_baseline
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+raw_lsi:
+  n_components: 50
+  seed: 4160
+resource_preflight:
+  maximum_estimated_distal_links: 25000000
+  maximum_estimated_mapping_memory_mb: 4096
+  maximum_estimated_links_table_memory_mb: 8192
+references:
+  genes: {path: data/reference/mm10/protein_coding_genes.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+  promoters: {path: data/reference/mm10/protein_coding_promoters_2kb.bed, sha256: da1b16920b4a338a24b373916fa2fb2663a6b5444659a880724c608a166e13f4}
+  gene_body: {path: data/reference/mm10/protein_coding_gene_body.bed, sha256: 53c6707ded4082ce93b3a1980015ebf00f062a8d19edb4c9872b0c495920e1b7}
+  tss: {path: data/reference/mm10/protein_coding_tss.bed, sha256: 7467f28580b70b73af784580e2673888878fb84ccc980cf5ea85d643b4314dcd}
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+forbidden_construction_inputs: [rna, labels, clusters, leiden, pathology, simulation_truth]
+domain_evaluation_run: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+final_ranking_run: false

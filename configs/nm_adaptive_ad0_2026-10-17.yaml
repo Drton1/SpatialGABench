@@ -1,0 +1,229 @@
+schema_version: 1
+stage: NM_AD0_ADAPTIVE_PEAKFREE_SCOPING
+date: 2026-10-17
+protocol: protocols/NM_ADAPTIVE_AD0_SCOPING_PROTOCOL_2026-10-17.md
+protocol_sha256: bf06980d4d0e48a683e15e3533288a7739a90d524a7543377196a16b6272f7e5
+output_root: results/v1_ad0/adaptive_ad0_2026-10-17
+seed: 2026101701
+workers: 1
+
+inventory:
+  k_neighbors: 6
+  low_depth_fractions: [0.50, 0.25]
+  heterogeneity:
+    high:
+      minimum_cv: 0.75
+      minimum_moran_i: 0.20
+      minimum_fraction_below_half_median: 0.20
+    moderate:
+      minimum_cv: 0.50
+      minimum_moran_i: 0.15
+  datasets:
+    - dataset_id: gse171943_p21_brain_20um
+      study_family: deng_2022
+      accession: GSE171943
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g4/m1/gse171943_p21_brain_20um/matched/gse171943_p21_brain_20um__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 2500
+      expected_total_counts: 23882030
+      notes: matched development representation
+    - dataset_id: gse205052_mousebrain_20um
+      study_family: zhang_2023
+      accession: GSE205052
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g4/m1/gse205052_mousebrain_20um/matched/gse205052_mousebrain_20um__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 2500
+      expected_total_counts: 33534052
+      notes: matched development representation
+    - dataset_id: gse205055_humanbrain_50um
+      study_family: zhang_2023
+      accession: GSE205055
+      species: human
+      genome_build: hg38
+      matrix: results/v1/nm_upgrade/nu1_nu2_human_representations/gse205055_humanbrain_50um/matched/gse205055_humanbrain_50um__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: companion_unverified
+      expected_observations: 2500
+      expected_total_counts: 44920825
+      notes: human paired-RNA full-depth anchor; within zhang_2023 family
+    - dataset_id: gse263333_5m_20um_atac
+      study_family: guo_2025_spatial_mux
+      accession: GSE263333
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g4/m1/gse263333_5m_20um_atac/matched/gse263333_5m_20um_atac__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: true
+      expected_observations: 9686
+      expected_total_counts: 24661145
+      notes: same-section paired RNA; primary R1/R2 study
+    - dataset_id: gse278007_ffpe_s4_rep1
+      study_family: guo_deng_2025_ffpe_atac
+      accession: GSE278007
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 2140
+      expected_total_counts: 9148080
+      notes: reused G2 pilot; no paired RNA
+    - dataset_id: gse278007_human_melanoma_50um
+      study_family: guo_deng_2025_ffpe_atac
+      accession: GSE278007
+      species: human
+      genome_build: hg38
+      matrix: results/v1/nm_upgrade/nu1_nu2_human_representations/gse278007_human_melanoma_50um/matched/gse278007_human_melanoma_50um__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 2490
+      expected_total_counts: 26361123
+      notes: human melanoma branch; no paired RNA
+    - dataset_id: gse279771_gbm
+      study_family: huang_2025
+      accession: GSE279771
+      species: human
+      genome_build: hg38
+      matrix: results/v1/full_benchmark/fb4_gse279771_insertion_rna/construction/insertion_derived_fixed_bin_25kb.h5ad
+      matrix_track: insertion_derived_fixed_bin_25kb
+      standard_fragment_level: false
+      paired_rna_evaluation: nonstandard_insertion
+      expected_observations: 2768
+      expected_total_counts: 58892856
+      notes: insertion-derived nonstandard sensitivity; never pooled with standard fragments
+    - dataset_id: gse288178_human_fl_atac
+      study_family: li_2026
+      accession: GSE288178
+      species: human
+      genome_build: hg38
+      matrix: results/v1/g4/m1/gse288178_human_fl_atac/matched/gse288178_human_fl_atac__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 2181
+      expected_total_counts: 43320418
+      notes: fragment-backed H5AD
+    - dataset_id: gse288178_mouse_brain
+      study_family: li_2026
+      accession: GSE288178
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g4/m3e_gse288178_mouse_brain/input/gse288178_mouse_brain_500bp_accessibility_only.h5ad
+      matrix_track: fixed_bin_500bp
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 2161
+      expected_total_counts: 7028708
+      notes: author-selected 500 bp bins; closest whole-fragment matrix
+    - dataset_id: gse288178_human_malt_ffpe_atac_20um
+      study_family: li_2026
+      accession: GSE288178
+      species: human
+      genome_build: hg38
+      matrix: results/v1/g4/m3f_gse288178_malt_matched_representations/matched/gse288178_human_malt_ffpe_atac_20um__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 7825
+      expected_total_counts: 38239249
+      notes: MALT subset; no paired RNA
+    - dataset_id: gse307620_mbr6
+      study_family: xue_2026_spatial_atac_hic
+      accession: GSE307620
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g5/h5a_external_representations/gse307620_mbr6/matched/gse307620_mbr6__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: false
+      expected_observations: 1966
+      expected_total_counts: 216587772
+      notes: supplemental portability holdout; accessibility only
+    - dataset_id: gse308623_p2s3
+      study_family: zhang_2025_brain_triomics
+      accession: GSE308623
+      species: mouse
+      genome_build: mm10
+      matrix: results/v1/g5/h5a_external_representations/gse308623_p2s3/matched/gse308623_p2s3__fixed_bin_25kb.h5ad
+      matrix_track: fixed_bin_25kb
+      standard_fragment_level: true
+      paired_rna_evaluation: true
+      expected_observations: 7122
+      expected_total_counts: 16687952
+      notes: frozen holdout with same-section paired RNA; R2 opened under locked evaluation
+  not_applicable:
+    - dataset_id: gse214986_embryo_satac
+      study_family: llorens_bobadilla_2023
+      accession: GSE214986
+      reason: author_peak_matrix_not_standard_spatial_atac_fragments
+
+rna_stratification:
+  r2_eval_config: configs/nm_peakfree_r2_rna_eval_2026-10-17.yaml
+  r2_eval_root: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17
+  r2_eval_completion: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17/completion_evidence.json
+  r2_transfer_config: configs/nm_peakfree_r2_transfer.yaml
+  transfer_root: results/v1/nm_method_upgrade/peakfree_r2_transfer
+  transfer_summary: results/v1/nm_method_upgrade/peakfree_r2_transfer/transfer_condition_summary.tsv
+  transfer_manifest: results/v1/nm_method_upgrade/peakfree_r2_transfer/transfer_matrix_manifest.tsv
+  genes: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/genes.tsv
+  atomic_gene_kernel: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/atomic_gene_kernel.npz
+  r1_construction_evidence: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/construction_evidence.json
+  r1_rna_completion_evidence: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/rna_completion_evidence.json
+  v1_1_completion_evidence: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/completion_evidence.json
+  adaptive_branch: adaptive_v1_1
+  fixed_branches: [fixed_5kb, fixed_25kb, fixed_100kb]
+  hard_switch_branch: count_hard_switch
+  bootstrap_draws: 1000
+  bootstrap_seed: 2026101701
+  materiality: 0.01
+  weak_materiality: 0.005
+  minimum_stratum_genes: 100
+  minimum_stratum_spots: 200
+  correlation_chunk_genes: 128
+  target_sum: 10000.0
+  minimum_detected_observation_fraction: 0.05
+  depth_quantiles: [0.25, 0.75]
+  gene_length_bins_bp: [25000, 100000]
+  expression_quantiles: [0.25, 0.50, 0.75]
+  scale:
+    mostly_100kb_threshold: 0.90
+    mostly_single_scale_threshold: 0.50
+
+reliability:
+  score_conditions:
+    - condition_id: gse263333_5m_20um_atac__d005__s42001
+      dataset_id: gse263333_5m_20um_atac
+      study_family: guo_2025_spatial_mux
+      existing_gene_summary: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/gene_scale_summary.tsv
+      existing_selected_variance: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/selected_log_variance.npz
+      rna_gene_level: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/rna_gene_level_correlations.tsv.gz
+      recompute_gene_summary: false
+    - condition_id: gse308623_p2s3__d005__s42001
+      dataset_id: gse308623_p2s3
+      study_family: zhang_2025_brain_triomics
+      existing_gene_summary: null
+      existing_selected_variance: null
+      rna_gene_level: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17/rna_gene_level_correlations.tsv.gz
+      recompute_gene_summary: true
+  minimum_abs_spearman: 0.20
+  scores:
+    - median_log_variance
+    - median_maximum_discrepancy
+    - median_boundary_distance
+
+peak_context:
+  ta1_depth_summary: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/depth_seed_summary.tsv
+  ta2_mechanism_summary: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/evaluation/study_depth_mechanism_summary.tsv
+  note: separate input track; contextual only, never used for a peak-free win

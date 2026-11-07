@@ -1,0 +1,108 @@
+schema_version: 1
+gate: NM_METHOD_UPGRADE
+milestone: PEAKFREE_R2_TWO_STUDY_LOCKED_TRANSFER
+protocol: protocols/NM_PEAKFREE_R2_LOCKED_TWO_STUDY_TRANSFER_2026-08-02.md
+amendment: governance/amendments/NM_PEAKFREE_R2_DEPTH_PARSER_RESUME_2026-08-02.yaml
+output_root: results/v1/nm_method_upgrade/peakfree_r2_transfer
+r1_root: results/v1/nm_method_upgrade/peakfree_r1_paired_rna
+r1_validation: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/independent_validation_evidence.json
+atomic_gene_kernel: results/v1/nm_method_upgrade/peakfree_v1_1_feasibility/atomic_gene_kernel.npz
+genes: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/genes.tsv
+method_core: spatialgabench/gene_activity/atomic_multiresolution.py
+transfer_runner: spatialgabench/nm_peakfree_r2_transfer.py
+scales_kb: [5, 25, 100]
+scale_factor: 10000.0
+alpha: 0.05
+gene_chunk_size: 128
+hard_switch_contract: results/v1/nm_method_upgrade/peakfree_r1_paired_rna/hard_switch_contract.json
+expected_conditions: 8
+seed: 42001
+conditions:
+  - condition_id: gse263333_5m_20um_atac__d100__s0
+    dataset_id: gse263333_5m_20um_atac
+    study_id: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    observations: 9686
+    expected_fragment_events: 24661145
+    fragments: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d100__s0/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d100__s0/fragments/thinning_audit.json
+  - condition_id: gse263333_5m_20um_atac__d025__s42001
+    dataset_id: gse263333_5m_20um_atac
+    study_id: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    observations: 9686
+    expected_fragment_events: 6160884
+    fragments: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d025__s42001/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d025__s42001/fragments/thinning_audit.json
+  - condition_id: gse263333_5m_20um_atac__d005__s42001
+    dataset_id: gse263333_5m_20um_atac
+    study_id: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    observations: 9686
+    expected_fragment_events: 1233929
+    fragments: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d005__s42001/fragments/thinning_audit.json
+  - condition_id: gse263333_5m_20um_atac__d001__s42001
+    dataset_id: gse263333_5m_20um_atac
+    study_id: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    observations: 9686
+    expected_fragment_events: 246360
+    fragments: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d001__s42001/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/full_benchmark/fb3_depth_resource_stress/conditions/gse263333_5m_20um_atac__d001__s42001/fragments/thinning_audit.json
+  - condition_id: gse308623_p2s3__d100__s0
+    dataset_id: gse308623_p2s3
+    study_id: zhang_2025_brain_triomics
+    species: mouse
+    genome_build: mm10
+    observations: 7122
+    expected_fragment_events: 16687952
+    fragments: results/v1/nm_upgrade/nu3_external_depth_stress/input/gse308623_p2s3__eligible.bgzf.tsv.gz
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d100__s0/fragments/thinning_audit.json
+  - condition_id: gse308623_p2s3__d025__s42001
+    dataset_id: gse308623_p2s3
+    study_id: zhang_2025_brain_triomics
+    species: mouse
+    genome_build: mm10
+    observations: 7122
+    expected_fragment_events: 4172603
+    fragments: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d025__s42001/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d025__s42001/fragments/thinning_audit.json
+  - condition_id: gse308623_p2s3__d005__s42001
+    dataset_id: gse308623_p2s3
+    study_id: zhang_2025_brain_triomics
+    species: mouse
+    genome_build: mm10
+    observations: 7122
+    expected_fragment_events: 834697
+    fragments: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d005__s42001/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d005__s42001/fragments/thinning_audit.json
+  - condition_id: gse308623_p2s3__d001__s42001
+    dataset_id: gse308623_p2s3
+    study_id: zhang_2025_brain_triomics
+    species: mouse
+    genome_build: mm10
+    observations: 7122
+    expected_fragment_events: 167426
+    fragments: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d001__s42001/fragments/eligible.fragments.tsv.gz
+    positions: data/raw/v1/GSE308623/GSM9247580_01_P2S3_tissue_positions_list.csv.gz
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    fragment_audit: results/v1/nm_upgrade/nu3_external_depth_stress/conditions/gse308623_p2s3__d001__s42001/fragments/thinning_audit.json

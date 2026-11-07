@@ -1,0 +1,62 @@
+schema_version: 1
+gate: FULL_BENCHMARK
+milestone: FB1_three_study_paired_RNA_representation_synthesis
+completion_protocol: protocols/FULL_BENCHMARK_COMPLETION_PROTOCOL_2026-07-18.md
+statistical_plan: protocols/STATISTICAL_ANALYSIS_PLAN.md
+studies:
+  guo_2025_spatial_mux:
+    study_family: guo_2025_spatial_mux
+    study_role: development
+    metrics: results/v1/g4/m3b_rna/g4_m3b_rna_metrics.tsv
+    expected_rows: 31
+    gate: governance/gates/G4_M3B_RNA_FIDELITY_2026-07-16.json
+  zhang_2023:
+    study_family: zhang_2023
+    study_role: development
+    metrics: results/v1/g4/m3h_gse205052_rna_replication/rna_metrics.tsv
+    expected_rows: 31
+    gate: governance/gates/G4_M3H_CROSS_STUDY_PAIRED_RNA_REPLICATION_2026-07-17.json
+  zhang_2025_brain_triomics:
+    study_family: zhang_2025_brain_triomics
+    study_role: external
+    metrics: results/v1/g5/h5c_external_evaluation/rna_metrics.tsv
+    expected_rows: 27
+    gate: governance/gates/G5_H5C_EXTERNAL_EVALUATION_2026-07-18.json
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+matched_control: accessibility_matched_random_peak_to_gene_control_pc
+software_methods:
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+common_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+common_representations:
+  - macs3_summit_501bp
+  - fixed_bin_10kb
+  - fixed_bin_25kb
+  - fixed_bin_50kb
+fragment_representation: filtered_fragments_with_frozen_peak_observation_contract
+primary_endpoint: coverage_adjusted_median_gene_wise_spearman
+materiality_threshold: 0.05
+bootstrap_draws: 2000
+bootstrap_seed: 41019
+multiplicity: benjamini_hochberg_within_30_method_specific_representation_pairs
+output_root: results/v1/full_benchmark/fb1_three_study_rna_synthesis
+policy_refit_run: false
+construction_rerun: false
+input_tracks_pooled: false
+universal_ranking_run: false
+final_ranking_run: false

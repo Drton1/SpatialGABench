@@ -1,0 +1,67 @@
+schema_version: 1
+task_id: NM-RANK1
+date: 2026-10-18
+
+protocol:
+  path: docs/NM_NEXT2_PREREG_2026-10-18.md
+  freeze_manifest: results/v1_next2/manifests/prereg_freeze.json
+
+inputs:
+  simulation_metrics: results/v1_ds2/e2_simulation_truth_recovery/e2_simulation_downstream_metrics.tsv
+  endpoint_summary: results/v1_ds2/e2_simulation_truth_recovery/e2_endpoint_summary.tsv
+  ds2_key_numbers: results/v1_ds2/e2_simulation_truth_recovery/e2_key_numbers.json
+  ds2_run_manifest: results/v1_ds2/run_manifest.json
+
+output:
+  root: results/v1_next2
+
+seeds:
+  bootstrap: 20261018
+
+thresholds:
+  stability_tau: 0.80
+  material_tau_gap: 0.10
+  sign_reversal_fraction: 0.20
+  dynamic_range_low: 0.10
+  bootstrap_draws: 10000
+  alpha: 0.05
+  numeric_tolerance: 1.0e-12
+
+methods:
+  annotation:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  controls:
+    - random_peak_to_gene_negative_control_pc
+    - accessibility_matched_random_peak_to_gene_control_pc
+
+endpoints:
+  - activity_fidelity
+  - domain_ari
+  - domain_nmi
+  - marker_domain_auroc
+  - peak_gene_link_auprc
+  - svg_jaccard_at_10
+  - svg_moran_rank_spearman
+  - svg_precision_at_10
+  - svg_recall_at_10
+
+strata:
+  - mechanistic
+  - empirical_semisynthetic
+
+factors:
+  - distal_fraction
+  - depth_multiplier
+  - zero_inflation_rate
+  - domain_log_effect
+  - decoy_fraction
+  - rna_latent_correlation
+
+resources:
+  workers: 1
+  nice: 15
+  memory_limit_mb: 8192

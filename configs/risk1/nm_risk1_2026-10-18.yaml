@@ -1,0 +1,221 @@
+schema_version: 1
+milestone: NM_RISK1_CLOSURE
+date: 2026-10-18
+protocol: protocols/NM_RISK1_CLOSURE_PROTOCOL_2026-10-18.md
+output_root: results/v1_risk1
+log_root: logs
+
+thresholds:
+  r1_regret: 0.01
+  r1_b25_deficit: 0.01
+  materiality: 0.05
+  tost_margin: 0.05
+  alpha: 0.05
+  equivalence_grid: [0.01, 0.025, 0.05, 0.075, 0.10]
+  depth_margin_grid: [0.025, 0.05, 0.075, 0.10]
+
+seeds:
+  primary_bootstrap: 20261018
+  gene_bootstrap: 20261019
+  sign_permutation: 20261020
+  stability: [20261018, 20261019, 20261020, 20261021, 20261022, 20261023, 20261024, 20261025, 20261026, 20261027]
+
+bootstrap:
+  draws: 10000
+  permutation_draws: 10000
+
+equivalence:
+  metrics: results/v1/full_benchmark/fb1_three_study_rna_synthesis/common_study_metrics.tsv
+  frozen_paired_effects: results/v1/full_benchmark/fb1_three_study_rna_synthesis/paired_representation_effects.tsv
+  frozen_interactions: results/v1/full_benchmark/fb1_three_study_rna_synthesis/method_representation_interactions.tsv
+  gene_level_sources:
+    guo_2025_spatial_mux: results/v1/g4/m3b_rna/g4_m3b_rna_gene_level_correlations.tsv.gz
+    zhang_2023: results/v1/g4/m3h_gse205052_rna_replication/gene_level_correlations.tsv.gz
+    zhang_2025_brain_triomics: results/v1/g5/h5c_external_evaluation/gene_level_correlations.tsv.gz
+  endpoint: coverage_adjusted_median_gene_wise_spearman
+  methods:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  representations:
+    P: macs3_summit_501bp
+    B10: fixed_bin_10kb
+    B25: fixed_bin_25kb
+    B50: fixed_bin_50kb
+  primary_tracks: [P, B10, B25, B50]
+  expected_studies:
+    - guo_2025_spatial_mux
+    - zhang_2023
+    - zhang_2025_brain_triomics
+  expected_contrasts: 30
+  f_track:
+    input_track: F
+    reference_representation: fixed_bin_25kb
+    source: results/v1/full_benchmark/fb1_three_study_rna_synthesis/fragment_software_descriptive.tsv
+  i_track:
+    source: results/v1/full_benchmark/fb4_gse279771_insertion_rna/evaluation/rna_metrics.tsv
+    study_family: huang_2025
+    report: descriptive_only_nonstandard_insertion_track
+
+depth:
+  ta1_summary: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/depth_seed_summary.tsv
+  ta2_comparison: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/evaluation/mechanism_comparison.tsv
+  depth_order: [1.0, 0.25, 0.05, 0.01]
+  methods:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  studies: [guo_2025_spatial_mux, zhang_2025_brain_triomics]
+  primary_contrast: P_vs_B25
+  secondary_contrast: frozen_P_vs_de_novo_P
+  retention_metric: median_rna_retention_vs_full
+  absolute_metric: median_rna_primary
+  ta1_studies: [guo_2025_spatial_mux, zhang_2025_brain_triomics]
+  ta2_studies: [guo_2025_spatial_mux, zhang_2025_brain_triomics]
+
+external:
+  common_metrics: results/v1/full_benchmark/fb1_three_study_rna_synthesis/common_study_metrics.tsv
+  frozen_r2_metrics: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17/rna_condition_branch_metrics.tsv
+  frozen_r2_decisions: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17/rna_condition_gate_decisions.tsv
+  m3h_preflight: results/v1/g4/m3h_gse205052_rna_replication/pairing_preflight_evidence.json
+  m3h_metrics: results/v1/g4/m3h_gse205052_rna_replication/rna_metrics.tsv
+  nu1_metrics: results/v1/nm_upgrade/nu1_human_rna/rna_metrics.tsv
+  nu1_completion: results/v1/nm_upgrade/nu1_human_rna/completion_evidence.json
+  fb4_metrics: results/v1/full_benchmark/fb4_gse279771_insertion_rna/evaluation/rna_metrics.tsv
+  local_transfer_config: configs/risk1/nm_risk1_gse205052_locked_transfer.yaml
+  local_transfer_completion: results/v1_risk1/external/gse205052_locked_r2/completion_evidence.json
+  frozen_external_study: zhang_2025_brain_triomics
+  local_transfer_scope: within_zhang_2023_study_family_frozen_reevaluation
+  local_transfer_new_independent_family: false
+  local_transfer_adaptive_branch_available: false
+  local_transfer_b25_margin: 0.01
+  local_transfer_materiality: 0.05
+  study_catalog:
+    - study_family: guo_2025_spatial_mux
+      accessions: GSE263333
+      role: local_independent_development
+      independent_from_frozen_external: true
+      paired_rna: true
+      track: P/B/F
+    - study_family: zhang_2023
+      accessions: GSE205052;GSE205054;GSE205055;GSE205180;GSE205181
+      role: local_independent_development
+      independent_from_frozen_external: true
+      paired_rna: true
+      track: P/B/F
+    - study_family: zhang_2025_brain_triomics
+      accessions: GSE308623
+      role: external_holdout_rna
+      independent_from_frozen_external: false
+      paired_rna: true
+      track: P/B/F
+    - study_family: huang_2025
+      accessions: GSE279771
+      role: local_independent_development
+      independent_from_frozen_external: true
+      paired_rna: true
+      track: I
+      caveat: insertion_derived_out_of_policy
+
+robustness:
+  hardware_note: "single host; 80 logical CPUs available; RISK1 heavy work runs sequentially under nice -n 10; no more than 32 workers"
+  runtime_sources:
+    - task: r2_rna_evaluation
+      path: results/v1/nm_method_upgrade/peakfree_r2_rna_eval_2026-10-17/completion_evidence.json
+    - task: m3h_gse205052_rna
+      path: results/v1/g4/m3h_gse205052_rna_replication/completion_evidence.json
+    - task: h5c_external_evaluation
+      path: results/v1/g5/h5c_external_evaluation/completion_evidence.json
+    - task: ta1_paired_depth
+      path: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy/completion_evidence.json
+    - task: ta2_frozen_peak_rescue
+      path: results/v1/nm_truth_anchor/ta2_frozen_peak_rescue/method_completion_evidence.json
+    - task: ad0_scoping
+      path: results/v1_ad0/adaptive_ad0_2026-10-17/completion_evidence.json
+    - task: risk1_gse205052_locked_transfer
+      path: results/v1_risk1/external/gse205052_locked_r2/completion_evidence.json
+  claim_rows:
+    - claim_id: C1.1
+      claim: Representation is part of the method contract
+      status: supported
+      evidence: FB1/FB3/TA1/TA2
+      remaining_gap: none
+    - claim_id: C1.2
+      claim: Local ordering is representation-aware
+      status: supported
+      evidence: FB1 9/30 reversals
+      remaining_gap: none
+    - claim_id: C1.3
+      claim: Universal representation effect is material
+      status: not_supported_but_formal_equivalence_partial
+      evidence: FB1 plus RISK1 TOST
+      remaining_gap: 10/30 primary pairs remain TOST-inconclusive
+    - claim_id: C1.4
+      claim: Method-by-representation interaction is material
+      status: not_supported
+      evidence: FB1 interaction maximum 0.002946
+      remaining_gap: none
+    - claim_id: C1.5
+      claim: Tracks can be pooled into a universal ranking
+      status: not_supported
+      evidence: frozen track separation
+      remaining_gap: none
+    - claim_id: C1.6
+      claim: Structural success implies biological utility
+      status: not_supported
+      evidence: TA1/TA2 low-depth collapse
+      remaining_gap: absolute delta below 0.05 because B25 also collapses; report retention
+    - claim_id: C1.7
+      claim: Representation affects low-depth failure onset
+      status: supported
+      evidence: TA1/TA2/FB3
+      remaining_gap: none for retention endpoint
+    - claim_id: C2.1
+      claim: Frozen task-specific policy evaluated prospectively
+      status: supported
+      evidence: M4/H5C
+      remaining_gap: none
+    - claim_id: C2.2
+      claim: Frozen policy has zero regret on evaluated leaves
+      status: supported
+      evidence: H5C 15/15
+      remaining_gap: exact leaves only
+    - claim_id: C2.3
+      claim: Two-study external portability
+      status: supported_at_ceiling
+      evidence: H5C 46/46
+      remaining_gap: nondiscriminating ceiling
+    - claim_id: C2.4
+      claim: External RNA replication in two studies
+      status: not_supported
+      evidence: H5C one external study
+      remaining_gap: no second external RNA study; network blocked
+    - claim_id: C2.5
+      claim: Broad generalization beyond evaluated leaves
+      status: not_supported
+      evidence: only exact leaves
+      remaining_gap: none beyond scope
+    - claim_id: C2.6
+      claim: GSE279771 insertion track validates C2
+      status: not_supported
+      evidence: FB4 out-of-policy
+      remaining_gap: none
+    - claim_id: C2.7
+      claim: Benchmark abstains when evidence is insufficient
+      status: supported
+      evidence: M4/pathology audit
+      remaining_gap: none
+
+release:
+  output_dir: release
+  code_license_recommendation: BSD-3-Clause
+  data_derivative_license_recommendation: CC-BY-4.0
+  raw_data_redistribution: not_authorized
+
+tests:
+  minimum_passing: 248
+  guard_path: results/v1

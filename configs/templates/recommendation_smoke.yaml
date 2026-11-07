@@ -1,0 +1,14 @@
+dataset_id: toy_peak_matrix_no_fragments
+input_representation: author_peak_matrix
+genome: mm10
+fragments_available: false
+has_gene_annotation: true
+has_spatial_coordinates: true
+data_sparsity: medium
+sequencing_depth: medium
+expected_distal_regulation: low
+main_task: construction_qc
+paired_or_adjacent_rna_available: none
+need_software_standard_workflow: false
+runtime_constraint: medium
+notes: v1 recommendation CLI smoke test; no data download, benchmark run, or scientific recommendation claim.

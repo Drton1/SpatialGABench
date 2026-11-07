@@ -1,0 +1,79 @@
+schema_version: 1
+gate: NM_TRUTH_ANCHOR
+milestone: TA1_paired_multiome_depth_to_accuracy
+protocol: protocols/NM_PAIRED_DEPTH_ACCURACY_PROTOCOL_2026-07-30.md
+output_root: results/v1/nm_truth_anchor/ta1_paired_depth_accuracy
+
+depth_fractions: [1.0, 0.25, 0.05, 0.01]
+thinning_seeds: [42001, 42002, 42003]
+full_depth_seed: 0
+expected_depth_contracts_per_study: 130
+expected_human_anchor_contracts: 13
+expected_planned_contracts: 273
+
+methods:
+  annotation:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  software:
+    - snapatac2_geneactivity
+    - signac_geneactivity
+    - archr_genescorematrix
+  matrix_representations: [macs3_summit_501bp, fixed_bin_25kb]
+  fragment_representation: filtered_fragments_depth_stress_contract
+
+rna_evaluation:
+  normalization: normalize_total_log1p
+  target_sum: 10000.0
+  gene_biotype: protein_coding
+  minimum_detected_observation_fraction: 0.05
+  correlation_chunk_genes: 128
+  workers_per_dataset: 4
+  undefined_or_absent_gene_correlation: 0.0
+
+depth_sources:
+  gse263333_5m_20um_atac:
+    study_id: guo_2025_spatial_mux
+    study_family: guo_2025_spatial_mux
+    species: mouse
+    genome_build: mm10
+    metrics: results/v1/full_benchmark/fb3_depth_resource_stress/method_depth_robustness_metrics.tsv
+    failures: results/v1/full_benchmark/fb3_depth_resource_stress/structured_failure_accounting.tsv
+  gse308623_p2s3:
+    study_id: zhang_2025_brain_triomics
+    study_family: zhang_2025_brain_triomics
+    species: mouse
+    genome_build: mm10
+    metrics: results/v1/nm_upgrade/nu3_external_depth_stress/method_depth_robustness_metrics.tsv
+    failures: results/v1/nm_upgrade/nu3_external_depth_stress/structured_failure_accounting.tsv
+
+human_full_depth_anchor:
+  dataset_id: gse205055_humanbrain_50um
+  study_id: zhang_2023
+  study_family: zhang_2023
+  species: human
+  genome_build: hg38
+  run_summary: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/run_summary.tsv
+
+rna_source_config: configs/nm_upgrade_spatial_programs.yaml
+implementation_dependencies:
+  - spatialgabench/g4_m3b_rna.py
+  - spatialgabench/nm_spatial_program_evaluation.py
+  - spatialgabench/g4_m3h_rna_replication.py
+  - spatialgabench/g5_h5c_evaluation.py
+  - spatialgabench/full_benchmark_gse279771.py
+rna_samples:
+  - gse263333_5m_20um_atac
+  - gse308623_p2s3
+  - gse205055_humanbrain_50um
+
+rna_used_for_construction: false
+method_rerun_allowed: false
+labels_clusters_pathology_allowed: false
+policy_refit_run: false
+input_tracks_pooled: false
+universal_ranking_run: false
+final_ranking_run: false

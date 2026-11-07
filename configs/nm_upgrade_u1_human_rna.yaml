@@ -1,0 +1,56 @@
+schema_version: 1
+gate: NM_UPGRADE
+milestone: NU1_human_standard_fragment_paired_RNA
+upgrade_protocol: protocols/NM_UPGRADE_EVIDENCE_PROTOCOL_2026-07-30.md
+study_id: zhang_2023
+study_family: zhang_2023
+dataset_id: gse205055_humanbrain_50um
+species: human
+genome_build: hg38
+rna_matrix: {path: data/raw/v1/GSE205055/GSM6206885_HumanBrain_50um_matrix.tsv.gz, sha256: a45d110c233e463e78bec42c090e53005bc2f006b5a94dd55d0ec2ca480bf73a}
+gene_annotation: {path: results/v1/g4/m2/references/hg38/canonical.annotation.gtf.gz, sha256: 4866d04bb1ae47e73ced74aa57d480be437243e0744e328db634e101e5b7b368}
+identity_preflight: {path: results/v1/nm_upgrade/nu1_input_preflight/preflight_evidence.json, sha256: 8299a8adc6a53d0377fe5456767a4e029319bb3aab5ff829af61ce7f39a05cab}
+method_completion: results/v1/nm_upgrade/nu1_nu2_human_methods/evidence/completion_evidence.json
+mouse_within_family_metrics: {path: results/v1/g4/m3h_gse205052_rna_replication/rna_metrics.tsv, sha256: 130929166c32e878f7476346a62508f514a21d408ba7081cd06376b1389577d0}
+mouse_within_family_completion: {path: results/v1/g4/m3h_gse205052_rna_replication/completion_evidence.json, sha256: 7a996ba0400abf4526c69b0ced21329e7418b85752c22e19cf43a3c00193de47}
+output_root: results/v1/nm_upgrade/nu1_human_rna
+normalization:
+  method: normalize_total_log1p
+  target_sum: 10000.0
+rna_gene_eligibility:
+  gene_biotype: protein_coding
+  minimum_detected_spot_fraction: 0.05
+  detection_operator: counts_gt_zero
+primary_endpoint: coverage_adjusted_median_gene_wise_spearman
+correlation_chunk_genes: 128
+expected_observations: 2500
+expected_method_contracts: 27
+expected_annotation_and_control_contracts: 24
+expected_software_contracts: 3
+expected_matched_control_deltas: 20
+annotation_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+matched_control: accessibility_matched_random_peak_to_gene_control_pc
+software_methods:
+  - snapatac2_geneactivity
+  - signac_geneactivity
+  - archr_genescorematrix
+representations:
+  - macs3_summit_501bp
+  - fixed_bin_10kb
+  - fixed_bin_25kb
+  - fixed_bin_50kb
+rna_used_for_construction: false
+labels_or_clusters_allowed: false
+pathology_allowed: false
+method_rerun_allowed: false
+construction_tuning_allowed: false
+policy_refit_run: false
+input_tracks_pooled: false
+independent_study_increment: 0
+universal_ranking_run: false
+final_ranking_run: false

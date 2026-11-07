@@ -1,0 +1,52 @@
+schema_version: 1
+authorization: governance/authorizations/G4_M3B_RNA_FIDELITY_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 28c5f6c2505df7e5a9321fea05dd8021ad1fdda579a13f540805807fd8364b3e
+previous_gate: governance/gates/G4_M3B_INPUT_PREFLIGHT_2026-07-16.json
+previous_gate_sha256: e915e8e9a940ec302d74c0804ef999d0b22ff57722af9da008c5e388d11d0a02
+preflight_evidence: results/v1/g4/m3b_preflight/g4_m3b_input_preflight_evidence.json
+preflight_evidence_sha256: 4e0fd08a682641bfceeb0b5eb52f1a4ddc9b3ba476ac7e5afa1cca695a3c45f0
+m2a_evidence: results/v1/g4/m2/evidence/g4_m2_annotation_completion_evidence.json
+m2a_evidence_sha256: 70e37cf2a2fbee9fb68002655717dd1eca200bd4398cc4c0e18ce9da818651c3
+m2b_evidence: results/v1/g4/m2/evidence/g4_m2_software_completion_evidence.json
+m2b_evidence_sha256: 488bfe138335053387e4d52b6b307867573c86f190ce3fb264dc5b920ce76968
+dataset_id: gse263333_5m_20um_atac
+study_id: guo_2025_spatial_mux
+genome_build: mm10
+rna_matrix: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/matrix.mtx.gz
+rna_matrix_sha256: c93c24489582bbab1fe8327171f025af9628d68f1104dda46ddcd0249a902158
+rna_features: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/features.tsv.gz
+rna_features_sha256: d62a8c3e36820853834509462157b303d6b33da7b638bf8c89a3e50ef1109886
+rna_barcodes: data/raw/v1/GSE263333/GSM8494158_5M_20um_RNA/5M_20um_RNA/barcodes.tsv.gz
+rna_barcodes_sha256: 9419658bf40809c3ec1750a232095cc33e3643c9bcbdf771e295c6779a8d0207
+gene_annotation: results/v1/g4/m2/references/mm10/canonical.annotation.gtf.gz
+gene_annotation_sha256: 863b4002b87d76fd8bdd78b2b78f087413b85bdf912bac8b2ffdf0cdba9a7b1a
+output_root: results/v1/g4/m3b_rna
+normalization:
+  method: normalize_total_log1p
+  target_sum: 10000.0
+rna_gene_eligibility:
+  gene_biotype: protein_coding
+  minimum_detected_spot_fraction: 0.05
+  detection_operator: counts_gt_zero
+primary_endpoint:
+  id: coverage_adjusted_median_gene_wise_spearman
+  undefined_gene_correlation: 0.0
+  median_scope: matched_rna_eligible_genes_including_undefined_as_zero
+  coverage: variable_ga_genes_divided_by_all_rna_eligible_genes
+  formula: median_gene_wise_spearman_times_variable_ga_coverage
+secondary_endpoints: [global_pseudobulk_spearman, top100_gene_jaccard, evaluable_gene_fraction]
+correlation_chunk_genes: 128
+gene_identity_mapping:
+  primary_key: canonical_gene_id
+  direct_gene_id_rule: strip_ensembl_version_suffix_only_from_gene_id_fields
+  fallback_rule: unique_canonical_gtf_gene_name_to_gene_id
+  ambiguous_or_unmapped_gene_name: exclude
+  duplicate_canonical_gene_id_columns: sum_after_spot_normalization
+expected_annotation_runs: 28
+expected_software_runs: 3
+not_applicable_methods:
+  raw_peak_lsi_baseline: cell_embedding_not_gene_activity
+  cicero_geneactivity: subset_only_not_full_observation_paired_endpoint
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+labels_or_clusters_allowed: false
+ranking_allowed: false

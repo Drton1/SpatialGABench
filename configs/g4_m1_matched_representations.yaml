@@ -1,0 +1,151 @@
+project:
+  name: SpatialGABench
+  version: 1.0.0-dev
+  current_gate: G4
+  milestone: M1
+
+authorization: governance/authorizations/G4_M1_MATCHED_REPRESENTATION_AUTHORIZATION_2026-07-15.json
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+expected_preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+
+development_studies:
+  - llorens_bobadilla_2023
+  - zhang_2023
+  - deng_2022
+  - li_2026
+  - guo_2025_spatial_mux
+  - guo_deng_2025_ffpe_atac
+holdout_studies:
+  - zhang_2025_brain_triomics
+  - huang_2025
+forbidden_holdout_accessions:
+  - GSE308623
+  - GSE279771
+
+construction_contract:
+  representations: [macs3_summit_501bp, fixed_bin_10kb, fixed_bin_25kb, fixed_bin_50kb]
+  bin_sizes_bp: [10000, 25000, 50000]
+  counting_unit: one_filtered_fragment_row_midpoint
+  standard_chromosomes_only: true
+  peak_width_bp: 501
+  macs3_format: FRAG
+  macs3_qvalue: 0.01
+  macs3_max_count: 1
+  call_summits: true
+  forbidden_inputs: [rna, labels, clusters, pathology, simulation_truth]
+
+output_root: results/v1/g4/m1
+evidence_dir: results/v1/g4/m1/evidence
+
+samples:
+  gse205052_mousebrain_20um:
+    study_id: zhang_2023
+    accession: GSE205052
+    sample_id: GSM6204623_MouseBrain_20um
+    species: mouse
+    genome_build: mm10
+    source_type: fragment_tsv
+    fragments: data/raw/gse205052_mousebrain_20um_atac/GSM6204623_MouseBrain_20um_fragments.tsv.gz
+    source_sha256: aa8273fc330e4c9dfca10be9de289a8b91f1b6f68600d835172d524028c272cb
+    positions: data/raw/gse205052_mousebrain_20um_atac/GSM6204623_spatial/MouseBrain_20um_spatial/tissue_positions_list.csv
+    positions_sha256: 1b06024e5b2abc34f55ef95aeee838033afd5ccc33ac2623034e75ee1873dcfe
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+    blacklist_sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46
+    macs3_genome_size: mm
+    expected_observations: 2500
+    reuse: false
+
+  gse171943_p21_brain_20um:
+    study_id: deng_2022
+    accession: GSE171943
+    sample_id: GSM6043256_P21_brain_20um
+    species: mouse
+    genome_build: mm10
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE171943/GSM6043256_P21_brain_20um_fragments.tsv.gz
+    source_sha256: d6829315c7b8172fc545052b6a8383791d66c13176b16869f5c7b6700902cf75
+    positions: data/raw/v1/GSE171943/GSM6043256_P21_brain_spatial/tissue_positions_list.csv
+    positions_sha256: 4c530f591b65db454a30cf7ce46bcc69f8924181793055d0c464b60940bb1af2
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+    blacklist_sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46
+    macs3_genome_size: mm
+    expected_observations: 2500
+    reuse: false
+
+  gse288178_human_fl_atac:
+    study_id: li_2026
+    accession: GSE288178
+    sample_id: GSM9123227_human_FL_ATAC
+    species: human
+    genome_build: hg38
+    source_type: fragment_h5ad
+    source_h5ad: data/raw/v1/GSE288178/GSM9123227_human_FL_ATAC_GEO.h5ad
+    source_sha256: edc51652af707a100b1411125522767ff69334febec6cda1944fc1763680b689
+    positions: results/v1/g4/m1/gse288178_human_fl_atac/adapted/tissue_positions_list.csv
+    chrom_sizes: data/reference/hg38/chrom_sizes.tsv
+    chrom_sizes_sha256: e1d9152418038457a959e949d99c9caf7ae3e4f87cfbb4ffe7d8b9a54ba1202b
+    blacklist: data/reference/hg38/hg38-blacklist.v2.bed.gz
+    blacklist_sha256: 0eecd7c32eb0f5e735b297bbd886446f4829d23c698a5c7cfcde585f866cbc07
+    macs3_genome_size: hs
+    expected_observations: 2181
+    reuse: false
+
+  gse263333_5m_20um_atac:
+    study_id: guo_2025_spatial_mux
+    accession: GSE263333
+    sample_id: GSM8494157_5M_20um_ATAC
+    species: mouse
+    genome_build: mm10
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE263333/GSM8494157_5M_20um_ATAC.fragments.tsv.gz
+    source_sha256: 1c8f36f38354809c2a16e2adeaa2d35e7cd68407a1497305e622840161e9d82a
+    positions: data/raw/v1/GSE263333/GSM8494157_5M_20um_spatial/tissue_positions_list.csv
+    positions_sha256: 3d9f4ad1c3a6a1e50d8023c69533d8d67d63dd4f0eb08e55989d20a6b8dc83db
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+    blacklist_sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46
+    macs3_genome_size: mm
+    expected_observations: 9686
+    expected_position_rows: 10000
+    reuse: false
+
+  gse278007_ffpe_s4_rep1:
+    study_id: guo_deng_2025_ffpe_atac
+    accession: GSE278007
+    sample_id: GSM8831026_FFPE_S4_1
+    species: mouse
+    genome_build: mm10
+    source_type: fragment_tsv
+    fragments: data/raw/v1/GSE278007/GSM8831026_FFPE_S4_1.fragments.tsv.gz
+    source_sha256: 8da9c0c1e0c1f9d4993d84d253f1551e0b3d50f2b0eb8fe7c781361056227f5e
+    positions: data/raw/v1/GSE278007/GSM8831026_FFPE_S4_1_spatial/tissue_positions_list.csv
+    positions_sha256: 4e3a26fd0defb64f0464e176ce539357ab73ef6973efde23af73f87adf9fdcf7
+    chrom_sizes: data/reference/mm10/chrom_sizes.tsv
+    chrom_sizes_sha256: 55463d59f400b2c8260d100f4b521800ee773fa9711fe3f6dad9c7887db2574f
+    blacklist: data/reference/mm10/mm10-blacklist.v2.bed.gz
+    blacklist_sha256: febafb843c6df492f9a9fc418f8796762ee899d9864330fb509ae2d38ddc0b46
+    macs3_genome_size: mm
+    expected_observations: 2140
+    reuse: true
+    reuse_artifacts:
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/filtered_fragments/gse278007_ffpe_s4_rep1__eligible.fragments.tsv.gz
+        sha256: 0bccdf51208efb659daf4aa7e83c200d36ef1b72da9685b4d967da19aa3e9bf3
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/frozen_peaks/gse278007_ffpe_s4_rep1__macs3_summit_501bp.bed
+        sha256: bc639c9b8277f637b5973d29f58f558009c3599408eed1558aa9dd4a66dd76a1
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__fixed_bin_10kb.h5ad
+        sha256: 24796414fbde0e99dec282627a65c89fd5a26709615ac98fad07b5740a0e1dcd
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__fixed_bin_25kb.h5ad
+        sha256: a5825cb55e757b5e3ccb681921c94ee1c1c2f5fde6c12c584ea0938b774a6b85
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__fixed_bin_50kb.h5ad
+        sha256: cc775c734dcc77044493f0daa8905a46f56b4818f754f47ecf0a224965383f66
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/gse278007_ffpe_s4_rep1__macs3_summit_501bp.h5ad
+        sha256: 3d0b743fa9b60d08f8263ee72315ac1f1cc17800fb93baaedf6861a738461135
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/representation_manifest.tsv
+        sha256: b0d065d3d01a9c1fdc915e8bb0231b193ef81de9d508304edc227753391aec62
+      - path: results/v1/g2/representation_pilot/gse278007_ffpe_s4_rep1/matched/matched_representation_validation.json
+        sha256: a72942b1488a3f65a854aa1bfc853b9b87825f75c9b46119a0a617235f0b7980

@@ -1,0 +1,76 @@
+schema_version: 1
+gate: G4
+milestone: M3C_REPLICATED_SIMULATION_EVALUATION
+mode: replicated_factorial
+authorization: governance/authorizations/G4_M3C_REPLICATED_SIMULATION_EVALUATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: eb928cd9b87232f6b179623702e7b8553b2648019fee4baf1b74f1fa137b1075
+preregistration: governance/preregistration/G4_DEVELOPMENT_BENCHMARK_PREREGISTRATION.yaml
+preregistration_sha256: 5ed17bda4b1876f5438ed264f4dcedd20017352640c633ee6e229e7ff85a7ffa
+amendment: governance/preregistration/G4_SIMULATION_COMPONENT_IDENTIFIABILITY_AMENDMENT_2026-07-16.yaml
+amendment_sha256: 077c3f5bf40b59accca6ed7cf8b0527bf4f8c3e77dfba449ca3ac1ed1a6978ab
+previous_gate: governance/gates/G4_M3B_RNA_FIDELITY_2026-07-16.json
+previous_gate_sha256: fc4eaf2892a64484e6efb20d68b67b9926f7736280952071d903d7d8cea7842d
+generation_evidence: results/v1/g4/m3c_simulation_factorial_v2/g4_m3c_replicated_simulation_generation_evidence.json
+generation_evidence_sha256: 77e846e12c58f7be0d38854056bf86b4003f139da8bc2bfb23e6cc3b16194362
+simulation_design: configs/g4_m3c_simulation_design_v2.yaml
+simulation_design_sha256: 4900995341a51d96c5ea8bebd2d46977487fd7d50ce0c446fcb4644f13671150
+simulation_runs: results/v1/g4/m3c_simulation_factorial_v2/simulation_generation_runs.tsv
+simulation_runs_sha256: 5cd0d991696e99efd4981b14a2d1b6054264925f57dbf3801978b44e3c339ba8
+simulation_manifest: results/v1/g4/m3c_simulation_factorial_v2/simulation_generation_manifest.json
+simulation_manifest_sha256: 971fd305430a412799ab143667dbff3450b89f131ceb0eb705d8a2d6a2d1371e
+simulation_root: results/v1/g4/m3c_simulation_factorial_v2/runs
+output_root: results/v1/g4/m3c_simulation_truth_recovery_v2
+expected_simulations: 640
+expected_tracks: [mechanistic, empirical_semisynthetic]
+expected_simulations_per_track: 320
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+parameters:
+  promoter_window_bp: 2000
+  distal_window_bp: 250000
+  distance_decay_bp: 50000
+  control_seed: 4160
+  accessibility_bins: 20
+normalization:
+  method: library_size_log1p
+  target_sum: 10000
+primary_endpoint:
+  id: coverage_adjusted_mean_gene_wise_spearman_to_true_gene_activity
+  formula: mean_spearman_over_variable_predicted_genes_times_variable_predicted_gene_fraction
+  undefined_or_absent_gene_correlation: 0
+secondary_endpoints:
+  peak_gene_link_auprc_over_prevalence:
+    positive_truth: active_causal_peak_gene_links
+    candidate_universe: all_input_peak_by_truth_gene_pairs
+  promoter_component_spearman:
+    status: supportive_component_identifiable_generator_v2_1
+  distal_component_spearman:
+    status: supportive_component_identifiable_generator_v2_1
+  domain_signal_recovery:
+    id: mean_gene_marker_domain_auroc
+    marker_domain_source: argmax_true_gene_activity_mean_by_true_domain
+factor_aliases:
+  depth: depth_multiplier
+  proximity_decoy_fraction: decoy_fraction
+  domain_effect: domain_log_effect
+seed_aliases:
+  3101: 1
+  3102: 2
+  3103: 3
+  3104: 4
+  3105: 5
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+construction_inputs_allowed: [simulated_accessibility_matrix, synthetic_gene_annotation, spatial_coordinates]
+construction_inputs_forbidden: [simulated_rna, true_domain_labels, simulation_truth, factor_values, pathology, external_labels]
+software_methods_run: false
+full_benchmark_run: false
+final_ranking_run: false
+universal_ranking_run: false
+recommendation_policy_fit_run: false
+

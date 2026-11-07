@@ -1,0 +1,8 @@
+study_family	sample	species	evaluation_observations	depth_percent	reference	analysis
+Guo 2025	GSE263333 · 5M	Mouse	9686	1 / 5 / 25 / 100	Paired RNA	RNA; domains; markers; SVG; programs
+Zhang 2025	GSE308623 · P2S1	Mouse	7131	1 / 5 / 25 / 100	Paired RNA	RNA; matched controls
+Zhang 2025	GSE308623 · P2S2	Mouse	28466	1 / 5 / 25 / 100	Paired RNA	RNA; matched controls
+Zhang 2025	GSE308623 · P2S3	Mouse	7122	1 / 5 / 25 / 100	Paired RNA	RNA; spatial programs
+Zhang 2023	GSE205052 · brain	Mouse	2373	100	Paired RNA	Domains; markers; SVG; programs
+Zhang 2023	GSE205055 · brain	Human	2500	100	Paired RNA	Domains; markers; SVG; programs
+Llorens 2023	GSE214986 · embryo	Mouse	17787	100	Author domains	Domains

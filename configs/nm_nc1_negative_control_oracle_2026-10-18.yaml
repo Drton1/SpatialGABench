@@ -1,0 +1,82 @@
+schema_version: 1
+task_id: NM-NC1
+date: 2026-10-18
+protocol:
+  path: protocols/NM_NC1_NEGATIVE_CONTROL_ORACLE_PROTOCOL_2026-10-18.md
+  sha256: 671cec4d5559ab9fab2314edc0f0f61d026390be8f71be16656efc4bc53acc03
+  frozen_utc: "2026-10-18T08:26:26Z"
+
+inputs:
+  real_control_deltas: results/v1_ds3_rework/attempts/run_20261018T050315Z/e1_human_downstream/e1_control_deltas.tsv
+  real_marker_percentiles: results/v1_ds3_rework/attempts/run_20261018T050315Z/e1_human_downstream/e1_marker_percentiles.tsv.gz
+  real_svg_moran_i: results/v1_ds3_rework/attempts/run_20261018T050315Z/e1_human_downstream/e1_svg_moran_i.tsv.gz
+  simulation_cell_audit: results/v1_sat1/attempts/run_20261018T074950Z/tables/sat1_simulation_cell_audit.tsv.gz
+  sat1_output_checksums: results/v1_sat1/attempts/run_20261018T074950Z/manifests/output_checksums.tsv
+  sat1_checksum_verification: results/v1_sat1/attempts/run_20261018T074950Z/manifests/checksum_verification.json
+  ds3_output_checksums: results/v1_ds3_rework/attempts/run_20261018T050315Z/manifests/output_checksums.tsv
+
+output:
+  root: results/v1_nc1
+
+seeds:
+  bootstrap: 20261018
+  mechanistic_offset: 0
+  empirical_offset: 1
+  nulls: 20261018
+
+thresholds:
+  materiality_margin: 0.05
+  near_ceiling_control_margin: 0.05
+  bootstrap_draws: 10000
+  null_draws: 10000
+
+real:
+  dataset_key: d2_human_gse205055
+  study_id: zhang_2023
+  oracle_value: 1.0
+  representations:
+    - {key: P, representation_id: macs3_summit_501bp, role: primary}
+    - {key: B, representation_id: fixed_bin_25kb, role: primary}
+    - {key: B10, representation_id: fixed_bin_10kb, role: sensitivity}
+    - {key: B50, representation_id: fixed_bin_50kb, role: sensitivity}
+    - {key: F, representation_id: signac_geneactivity, role: primary}
+    - {key: ArchR, representation_id: archr_genescorematrix, role: software_portability}
+    - {key: SnapATAC2, representation_id: snapatac2_geneactivity, role: software_portability}
+  endpoints:
+    - domain_ARI
+    - domain_NMI
+    - marker_mean_percentile
+    - svg_spearman
+  primary_control_id: accessibility_matched_random_peak_to_gene_control
+
+simulation:
+  oracle_value: 1.0
+  primary_control_id: accessibility_matched_random_peak_to_gene_control_pc
+  secondary_control_id: random_peak_to_gene_negative_control_pc
+  strata: [mechanistic, empirical_semisynthetic]
+  endpoints:
+    - activity_fidelity
+    - domain_ari
+    - domain_nmi
+    - marker_domain_auroc
+    - peak_gene_link_auprc
+    - svg_moran_rank_spearman
+  methods:
+    - promoter_only_2kb_pc
+    - gene_body_pc
+    - promoter_plus_gene_body_2kb_pc
+    - distance_weighted_distal_250kb_decay50kb_pc
+    - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  controls:
+    - random_peak_to_gene_negative_control_pc
+    - accessibility_matched_random_peak_to_gene_control_pc
+
+nulls:
+  marker_scope: observed_representations_and_available_controls
+  svg_scope: observed_representations_and_available_controls
+  domain_scope: NOT_ESTIMABLE_LABELS_NOT_FROZEN
+
+resources:
+  workers: 1
+  nice: 15
+  memory_limit_mb: 8192

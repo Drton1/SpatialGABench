@@ -1,0 +1,32 @@
+schema_version: 1
+run_id: g4_preflight_mouse_archr_20260714
+project_config: configs/main.yaml
+study_id: guo_deng_2025_ffpe_atac
+dataset_id: g4_preflight_gse278007_ffpe_s4_rep1_mm10
+sample_id: GSM8831026_FFPE_S4_1
+dataset_role: development
+method_id: archr_genescorematrix
+software_name: ArchR
+genome_build: mm10
+input_track: F
+representation_id: preflight_active_fixed_bin_10kb
+comparison_scope: fragment_portability_contract_preflight_no_performance_inference
+input_h5ad: results/v1/g4/preflight/fixtures/mouse_gse278007_ffpe_s4_rep1/preflight_input.h5ad
+fragments: results/v1/g4/preflight/fixtures/mouse_gse278007_ffpe_s4_rep1/preflight.fragments.tsv.gz
+gene_annotation: results/v1/g4/preflight/fixtures/mouse_gse278007_ffpe_s4_rep1/preflight.annotation.gtf.gz
+chrom_sizes: results/v1/g4/preflight/fixtures/mouse_gse278007_ffpe_s4_rep1/preflight.chrom.sizes.tsv
+environment_lock: envs/containers/archr-r.lock.tsv
+adapter: adapters/r_geneactivity_driver.py
+method_script: adapters/archr_genescorematrix.R
+implementation_files:
+  - adapters/r_geneactivity_driver.py
+  - adapters/archr_genescorematrix.R
+  - containers/tools/run_rscript_in_oci.sh
+  - spatialgabench/software_wrappers/common.py
+construction_input_classes:
+  - accessibility_fragments
+  - gene_annotation
+subset_policy: deterministic_smoke_subset
+threads: 1
+seed: 4160
+output_dir: results/v1/g4/preflight/runs/mouse/archr

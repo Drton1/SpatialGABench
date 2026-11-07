@@ -1,0 +1,61 @@
+schema_version: 1
+gate: G4
+milestone: M3D_GSE214986_DOMAIN_EVALUATION
+authorization: governance/authorizations/G4_M3D_GSE214986_DOMAIN_EVALUATION_AUTHORIZATION_2026-07-16.json
+authorization_sha256: 35baca0ab849c35e434cb8af3d015bec54397c16ee581eaaa02ce67fca510828
+construction_evidence: results/v1/g4/m3d_gse214986/construction/gse214986_construction_evidence.json
+construction_evidence_sha256: 2230c9ba2613e1c281c4b9b522fdfe20efe9136a569bce121306945702c81ff9
+environment_amendment: governance/authorizations/G4_M3D_DOMAIN_ENVIRONMENT_AMENDMENT_2026-07-16.json
+environment_amendment_sha256: 6ff4d76993d56b4d3ce6ecacbc514d2af2ecd697587c8f84b725eea8f2219089
+input_h5ad: results/v1/g4/m3d_gse214986/input/gse214986_author_peak_accessibility_only.h5ad
+input_h5ad_sha256: 102829f45ebbc2e4a9b635f2547c8c09d0daa6cbd468c292c30a394bcf907f61
+labels: results/v1/g4/m3d_gse214986/input/gse214986_author_clusters_evaluation_only.tsv.gz
+labels_sha256: 005a23da11a0cd82353c61a493c5e7c49705e633eab3a6ec16ad2145bb0e56ba
+construction_root: results/v1/g4/m3d_gse214986/construction
+output_root: results/v1/g4/m3d_gse214986/domain_evaluation
+dataset_id: gse214986_author_peak
+study_id: llorens_bobadilla_2023
+representation_id: author_peak_unmatched
+methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+  - raw_peak_lsi_baseline
+gene_activity_methods:
+  - promoter_only_2kb_pc
+  - gene_body_pc
+  - promoter_plus_gene_body_2kb_pc
+  - distance_weighted_distal_250kb_decay50kb_pc
+  - promoter_plus_distal_2kb_250kb_decay50kb_pc
+  - random_peak_to_gene_negative_control_pc
+  - accessibility_matched_random_peak_to_gene_control_pc
+primary_endpoint: median_fixed_pipeline_ari_across_seeds
+secondary_endpoints: [NMI, AMI, homogeneity, completeness, v_measure]
+preprocessing:
+  normalize_total_target_sum: 10000
+  log1p: true
+  hvg_n_top_genes: 3000
+  hvg_flavors: [seurat]
+  pca_n_comps: 30
+  preprocessing_seed: 4160
+clustering:
+  n_neighbors: 15
+  n_pcs: 30
+  leiden_resolution: 1.0
+  seeds: [1, 2, 3, 4, 5]
+  raw_lsi_components: 30
+label_column: author_cluster
+label_interpretation: author_defined_domain_concordance_not_independent_histology_ground_truth
+control_method: accessibility_matched_random_peak_to_gene_control_pc
+raw_lsi_method: raw_peak_lsi_baseline
+label_based_parameter_selection: false
+resolution_search_run: false
+holdout_accessed: false
+full_real_data_benchmark_run: false
+recommendation_policy_fit_run: false
+universal_ranking_run: false
+final_ranking_run: false

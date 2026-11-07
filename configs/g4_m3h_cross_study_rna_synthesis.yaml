@@ -1,0 +1,20 @@
+schema_version: 1
+authorization: governance/authorizations/G4_M3H_CROSS_STUDY_RNA_SYNTHESIS_AUTHORIZATION_2026-07-17.json
+authorization_sha256: 582ce2d94205b49a9426a4c8859787cabc7188c6bbb5bf3f0437585929dfeaab
+m3b_gate: governance/gates/G4_M3B_RNA_FIDELITY_2026-07-16.json
+m3b_gate_sha256: fc4eaf2892a64484e6efb20d68b67b9926f7736280952071d903d7d8cea7842d
+m3b_metrics: results/v1/g4/m3b_rna/g4_m3b_rna_metrics.tsv
+m3b_metrics_sha256: c01d78cf7569aeb058828dbfff1282f9de03875486e857283de1da40b25d3ded
+m3h_completion: results/v1/g4/m3h_gse205052_rna_replication/completion_evidence.json
+m3h_completion_sha256: 7a996ba0400abf4526c69b0ced21329e7418b85752c22e19cf43a3c00193de47
+m3h_metrics: results/v1/g4/m3h_gse205052_rna_replication/rna_metrics.tsv
+m3h_metrics_sha256: 130929166c32e878f7476346a62508f514a21d408ba7081cd06376b1389577d0
+study_metrics:
+  guo_2025_spatial_mux: m3b_metrics
+  zhang_2023: m3h_metrics
+expected_study_families: 2
+primary_endpoint: coverage_adjusted_median_gene_wise_spearman
+output_root: results/v1/g4/m3h_cross_study_rna_synthesis
+forbidden_holdout_accessions: [GSE308623, GSE279771]
+ranking_allowed: false
+policy_fit_allowed: false

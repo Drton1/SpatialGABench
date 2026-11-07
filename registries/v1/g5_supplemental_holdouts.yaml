@@ -1,0 +1,31 @@
+schema_version: 1
+status: frozen
+frozen_on: 2026-07-17
+selection_scope: input_contract_only_after_M4_policy_freeze_before_candidate_method_outcomes
+studies:
+  xue_2026_spatial_atac_hic:
+    accessions: [GSE307620]
+    role: supplemental_external_holdout_portability
+    selected_sample: GSM9228169_MouseBrain_R6
+    sample_accession: GSM9228169
+    species: mouse
+    genome_build: mm10
+    tissue: mouse_brain_anterior_hypothalamus_coronal_section
+    technology: Spatial-ATAC-Hi-C
+    standard_fragment_level: true
+    spatial_coordinates: true
+    paired_spatial_rna: false
+    exact_active_policy_leaves: 5
+    evaluable_task: portability_runtime_failure
+    minimal_fragment_download_bytes: 2219237716
+    large_fragment_download_status: not_downloaded
+    benchmark_outcomes_inspected: false
+    method_or_task_outcomes_used_for_selection: false
+    representation_alias_required: false
+    freeze_status: frozen
+    license_scope: public_GEO_analysis_only_no_source_file_redistribution
+    evidence:
+      series_metadata: data/manifests/remote/GSE307620_geo_full.txt
+      sample_metadata: data/manifests/remote/GSM9228169_geo_full.txt
+      positions: data/candidates/GSE307620/GSM9228169/GSM9228169_MouseBrainR6_tissue_positions_list.csv.gz
+      candidate_audit: results/v1/g5/h1_supplemental_holdout_candidate/completion_evidence.json
